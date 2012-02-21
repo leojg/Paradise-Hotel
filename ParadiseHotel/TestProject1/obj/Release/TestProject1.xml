@@ -1,0 +1,131 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TestProject1
+</name>
+</assembly>
+<members>
+<member name="P:TestProject1.SuiteSrTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.SuiteSrTest.NombreTest">
+	<summary>
+A test for Nombre
+</summary>
+</member><member name="M:TestProject1.SuiteSrTest.SuiteSrConstructorTest">
+	<summary>
+A test for SuiteSr Constructor
+</summary>
+</member><member name="T:TestProject1.SuiteSrTest">
+	<summary>
+This is a test class for SuiteSrTest and is intended
+to contain all SuiteSrTest Unit Tests
+</summary>
+</member><member name="P:TestProject1.SuiteJrTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.SuiteJrTest.SuiteJrConstructorTest">
+	<summary>
+A test for SuiteJr Constructor
+</summary>
+</member><member name="M:TestProject1.SuiteJrTest.NombreTest">
+	<summary>
+A test for Nombre
+</summary>
+</member><member name="T:TestProject1.SuiteJrTest">
+	<summary>
+This is a test class for SuiteJrTest and is intended
+to contain all SuiteJrTest Unit Tests
+</summary>
+</member><member name="P:TestProject1.DobleTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.DobleTest.DobleConstructorTest">
+	<summary>
+A test for Doble Constructor
+</summary>
+</member><member name="T:TestProject1.DobleTest">
+	<summary>
+This is a test class for DobleTest and is intended
+to contain all DobleTest Unit Tests
+</summary>
+</member><member name="P:TestProject1.HabitacionTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.HabitacionTest.PisoTest">
+	<summary>
+A test for Piso
+</summary>
+</member><member name="M:TestProject1.HabitacionTest.NumeroTest">
+	<summary>
+A test for Numero
+</summary>
+</member><member name="M:TestProject1.HabitacionTest.CostoTest">
+	<summary>
+A test for Costo
+</summary>
+</member><member name="M:TestProject1.HabitacionTest.ToStringTest">
+	<summary>
+A test for ToString
+</summary>
+</member><member name="T:TestProject1.HabitacionTest">
+	<summary>
+This is a test class for HabitacionTest and is intended
+to contain all HabitacionTest Unit Tests
+</summary>
+</member><member name="P:TestProject1.IndividualTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.IndividualTest.IndividualConstructorTest">
+	<summary>
+A test for Individual Constructor
+</summary>
+</member><member name="T:TestProject1.IndividualTest">
+	<summary>
+This is a test class for IndividualTest and is intended
+to contain all IndividualTest Unit Tests
+</summary>
+</member><member name="P:TestProject1.PisoTest.TestContext">
+	<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member><member name="M:TestProject1.PisoTest.NumeroTest">
+	<summary>
+A test for Numero
+</summary>
+</member><member name="M:TestProject1.PisoTest.MetrajeTest">
+	<summary>
+A test for Metraje
+</summary>
+</member><member name="M:TestProject1.PisoTest.DevolverColTest">
+	<summary>
+A test for DevolverCol
+</summary>
+</member><member name="M:TestProject1.PisoTest.AgregarHabitacionTest">
+	<summary>
+A test for AgregarHabitacion
+</summary>
+</member><member name="M:TestProject1.PisoTest.PisoConstructorTest">
+	<summary>
+A test for Piso Constructor
+</summary>
+</member><member name="T:TestProject1.PisoTest">
+	<summary>
+This is a test class for PisoTest and is intended
+to contain all PisoTest Unit Tests
+</summary>
+</member>
+</members>
+</doc>

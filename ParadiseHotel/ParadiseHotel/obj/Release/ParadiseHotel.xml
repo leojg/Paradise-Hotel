@@ -1,0 +1,108 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ParadiseHotel
+</name>
+</assembly>
+<members>
+<member name="T:ParadiseHotel.dataSetPrueba.HabitacionesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.DenominacionesSuitesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.TiposHabitacionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.HabitacionesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.DenominacionesSuitesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.TiposHabitacionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.HabitacionesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.DenominacionesSuitesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba.TiposHabitacionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPrueba">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.HabitacionesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.DenominacionesSuitesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.TiposHabitacionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.UpdateUpdatedRows(ParadiseHotel.dataSetPrueba,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.UpdateInsertedRows(ParadiseHotel.dataSetPrueba,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.UpdateDeletedRows(ParadiseHotel.dataSetPrueba,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.UpdateAll(ParadiseHotel.dataSetPrueba)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:ParadiseHotel.dataSetPruebaTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:ParadiseHotel.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ParadiseHotel.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ParadiseHotel.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

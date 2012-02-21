@@ -1,0 +1,12 @@
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\ResolveAssemblyReference.cache
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\Persistencia.Resources.resources
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\Persistencia.vbproj.GenerateResource.Cache
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Persistencia.dll
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Persistencia.pdb
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Persistencia.xml
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Dominio.dll
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Dominio.pdb
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\bin\Release\Dominio.xml
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\Persistencia.dll
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\Persistencia.xml
+E:\Programacion\Taller VB.net\ParadiseHotel\Persistencia\obj\Release\Persistencia.pdb

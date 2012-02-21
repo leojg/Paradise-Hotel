@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0ef726fe-32a8-4fe9-94ba-49c03c979852" name="Administrador@LEOWOLF 2012-02-18 11:34:56" runUser="LEOWOLF\Administrador" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="934d9455-5279-4c6f-b712-83dfeb499da8">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="E:\Programacion\Taller VB.net\ParadiseHotel\TestResults\Administrador_LEOWOLF 2012-02-18 11_34_56">
+      <DeploymentItem filename="E:\Programacion\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="15" executed="15" error="0" failed="6" timeout="0" aborted="0" inconclusive="9" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="LEOWOLF" outcome="Warning" timestamp="2012-02-18T11:34:59.1875000-03:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\Dominio.dll' directly or indirectly referenced by the test container 'e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll' cannot be deployed to 'Dominio.dll' because otherwise the file 'e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\Dominio.dll' would overwrite deployment item 'E:\Programacion\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.dll' directly or indirectly referenced by E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Debug\TestProject1.dll.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <Times creation="2012-02-18T11:34:56.2031250-03:00" queuing="2012-02-18T11:34:59.2187500-03:00" start="2012-02-18T11:34:59.6875000-03:00" finish="2012-02-18T11:35:00.7812500-03:00" />
+  <TestDefinitions>
+    <UnitTest name="NumeroTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="89e44a7d-1a88-2eb7-5ce6-c484324db011">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="a767a131-1cd1-469c-a0fe-9846c131ffbb" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PisoTest, TestProject1" name="NumeroTest" />
+    </UnitTest>
+    <UnitTest name="PisoTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="de416bf7-6853-7ad9-aa3b-1318650fa328">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="6a6a75f1-a94e-46f1-9b69-528d9ddc78a6" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.HabitacionTest, TestProject1" name="PisoTest" />
+    </UnitTest>
+    <UnitTest name="SuiteJrConstructorTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="54f49da5-6db1-048a-64e2-7a53344550d1">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="4f6bb8c2-4ade-4467-ad54-9aca689f2dbd" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.SuiteJrTest, TestProject1" name="SuiteJrConstructorTest" />
+    </UnitTest>
+    <UnitTest name="ToStringTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="42db2178-df96-d618-7c3a-81cfd36bf9d8">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="ecbda9f6-73df-4cad-b6b9-a267768afe11" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.HabitacionTest, TestProject1" name="ToStringTest" />
+    </UnitTest>
+    <UnitTest name="DevolverColTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="5c13982e-3e42-c394-4ff1-42b695a993b6">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="557681f9-8d23-4588-9301-07503f3abb64" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PisoTest, TestProject1" name="DevolverColTest" />
+    </UnitTest>
+    <UnitTest name="DobleConstructorTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="0706a708-4ace-e56c-2519-577a13db3deb">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="7d7b61a6-9e16-471b-bdd9-f2484b4cefde" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.DobleTest, TestProject1" name="DobleConstructorTest" />
+    </UnitTest>
+    <UnitTest name="NombreTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="e805a2a5-3cab-5516-4512-9ce7aa15438d">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="f42e39d4-0042-4aad-864e-e8079b204b40" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.SuiteJrTest, TestProject1" name="NombreTest" />
+    </UnitTest>
+    <UnitTest name="CostoTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="fa36db90-a0b0-8c23-12a9-4e65049de731">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="4630bb31-cec7-472f-9379-cb0888e02ab8" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.HabitacionTest, TestProject1" name="CostoTest" />
+    </UnitTest>
+    <UnitTest name="NumeroTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="9cff7858-7b84-2154-e397-1302ca36da0a">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="72f7d0ad-2ab7-4182-952f-5556337b97a6" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.HabitacionTest, TestProject1" name="NumeroTest" />
+    </UnitTest>
+    <UnitTest name="SuiteSrConstructorTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="ae50b1fb-40e0-5c16-7343-a4bfcd16ec8b">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="cf18f5a9-031d-4666-ae8e-9b5bd2c5f991" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.SuiteSrTest, TestProject1" name="SuiteSrConstructorTest" />
+    </UnitTest>
+    <UnitTest name="NombreTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="ad252156-108c-f0b8-db00-1a5982304298">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="6fdcbbe1-13f6-4ace-95c2-3f9a6b3b88c2" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.SuiteSrTest, TestProject1" name="NombreTest" />
+    </UnitTest>
+    <UnitTest name="AgregarHabitacionTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="e59dfe2d-c4b4-134c-fdc2-01d0ce042f70">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="f7a64b4f-bfe4-4282-abc6-9906b1d5392d" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PisoTest, TestProject1" name="AgregarHabitacionTest" />
+    </UnitTest>
+    <UnitTest name="IndividualConstructorTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="b719314f-b4bb-1e94-015c-2fa6f41a926d">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="3638bbdd-4b4e-4ca2-bc99-2f9edc817412" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IndividualTest, TestProject1" name="IndividualConstructorTest" />
+    </UnitTest>
+    <UnitTest name="PisoConstructorTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="f2c6c7e0-636b-f81e-c220-e619796ba1b2">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="0b4e5da1-56f6-41e3-8064-45208c67d635" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PisoTest, TestProject1" name="PisoConstructorTest" />
+    </UnitTest>
+    <UnitTest name="MetrajeTest" storage="e:\programacion\taller vb.net\paradisehotel\testproject1\bin\release\testproject1.dll" id="4796eba3-d09a-7d6f-4883-79fe57cafa56">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="6e40e4c1-bcf4-48ed-922f-b60f86315702" />
+      <TestMethod codeBase="E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\bin\Release\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PisoTest, TestProject1" name="MetrajeTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="89e44a7d-1a88-2eb7-5ce6-c484324db011" executionId="a767a131-1cd1-469c-a0fe-9846c131ffbb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4796eba3-d09a-7d6f-4883-79fe57cafa56" executionId="6e40e4c1-bcf4-48ed-922f-b60f86315702" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c13982e-3e42-c394-4ff1-42b695a993b6" executionId="557681f9-8d23-4588-9301-07503f3abb64" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e59dfe2d-c4b4-134c-fdc2-01d0ce042f70" executionId="f7a64b4f-bfe4-4282-abc6-9906b1d5392d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2c6c7e0-636b-f81e-c220-e619796ba1b2" executionId="0b4e5da1-56f6-41e3-8064-45208c67d635" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b719314f-b4bb-1e94-015c-2fa6f41a926d" executionId="3638bbdd-4b4e-4ca2-bc99-2f9edc817412" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de416bf7-6853-7ad9-aa3b-1318650fa328" executionId="6a6a75f1-a94e-46f1-9b69-528d9ddc78a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9cff7858-7b84-2154-e397-1302ca36da0a" executionId="72f7d0ad-2ab7-4182-952f-5556337b97a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa36db90-a0b0-8c23-12a9-4e65049de731" executionId="4630bb31-cec7-472f-9379-cb0888e02ab8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42db2178-df96-d618-7c3a-81cfd36bf9d8" executionId="ecbda9f6-73df-4cad-b6b9-a267768afe11" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0706a708-4ace-e56c-2519-577a13db3deb" executionId="7d7b61a6-9e16-471b-bdd9-f2484b4cefde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54f49da5-6db1-048a-64e2-7a53344550d1" executionId="4f6bb8c2-4ade-4467-ad54-9aca689f2dbd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e805a2a5-3cab-5516-4512-9ce7aa15438d" executionId="f42e39d4-0042-4aad-864e-e8079b204b40" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ad252156-108c-f0b8-db00-1a5982304298" executionId="6fdcbbe1-13f6-4ace-95c2-3f9a6b3b88c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae50b1fb-40e0-5c16-7343-a4bfcd16ec8b" executionId="cf18f5a9-031d-4666-ae8e-9b5bd2c5f991" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a767a131-1cd1-469c-a0fe-9846c131ffbb" testId="89e44a7d-1a88-2eb7-5ce6-c484324db011" testName="NumeroTest" computerName="LEOWOLF" duration="00:00:00.2908651" startTime="2012-02-18T11:34:59.7812500-03:00" endTime="2012-02-18T11:35:00.5312500-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   en TestProject1.PisoTest.NumeroTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\PisoTest.vb:línea 68
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6e40e4c1-bcf4-48ed-922f-b60f86315702" testId="4796eba3-d09a-7d6f-4883-79fe57cafa56" testName="MetrajeTest" computerName="LEOWOLF" duration="00:00:00.0016368" startTime="2012-02-18T11:35:00.5312500-03:00" endTime="2012-02-18T11:35:00.5468750-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   en TestProject1.PisoTest.MetrajeTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\PisoTest.vb:línea 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="557681f9-8d23-4588-9301-07503f3abb64" testId="5c13982e-3e42-c394-4ff1-42b695a993b6" testName="DevolverColTest" computerName="LEOWOLF" duration="00:00:00.0057512" startTime="2012-02-18T11:35:00.5468750-03:00" endTime="2012-02-18T11:35:00.5625000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;System.Collections.Hashtable&gt;. </Message>
+          <StackTrace>   en TestProject1.PisoTest.DevolverColTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\PisoTest.vb:línea 94
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f7a64b4f-bfe4-4282-abc6-9906b1d5392d" testId="e59dfe2d-c4b4-134c-fdc2-01d0ce042f70" testName="AgregarHabitacionTest" computerName="LEOWOLF" duration="00:00:00.0106046" startTime="2012-02-18T11:35:00.5625000-03:00" endTime="2012-02-18T11:35:00.5781250-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.PisoTest.AgregarHabitacionTest threw exception:  System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto..</Message>
+          <StackTrace>    en Dominio.Piso.AgregarHabitacion(Habitacion objHab) en E:\Programacion\Taller VB.net\ParadiseHotel\ClassLibrary1\Piso.vb:línea 9
+   en TestProject1.PisoTest.AgregarHabitacionTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\PisoTest.vb:línea 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0b4e5da1-56f6-41e3-8064-45208c67d635" testId="f2c6c7e0-636b-f81e-c220-e619796ba1b2" testName="PisoConstructorTest" computerName="LEOWOLF" duration="00:00:00.0013247" startTime="2012-02-18T11:35:00.5781250-03:00" endTime="2012-02-18T11:35:00.5937500-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   en TestProject1.PisoTest.PisoConstructorTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\PisoTest.vb:línea 118
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3638bbdd-4b4e-4ca2-bc99-2f9edc817412" testId="b719314f-b4bb-1e94-015c-2fa6f41a926d" testName="IndividualConstructorTest" computerName="LEOWOLF" duration="00:00:00.0024813" startTime="2012-02-18T11:35:00.5937500-03:00" endTime="2012-02-18T11:35:00.5937500-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   en TestProject1.IndividualTest.IndividualConstructorTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\IndividualTest.vb:línea 66
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6a6a75f1-a94e-46f1-9b69-528d9ddc78a6" testId="de416bf7-6853-7ad9-aa3b-1318650fa328" testName="PisoTest" computerName="LEOWOLF" duration="00:00:00.0019832" startTime="2012-02-18T11:35:00.5937500-03:00" endTime="2012-02-18T11:35:00.6093750-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.HabitacionTest.PisoTest threw exception:  System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto..</Message>
+          <StackTrace>    en TestProject1.HabitacionTest.PisoTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\HabitacionTest.vb:línea 65
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="72f7d0ad-2ab7-4182-952f-5556337b97a6" testId="9cff7858-7b84-2154-e397-1302ca36da0a" testName="NumeroTest" computerName="LEOWOLF" duration="00:00:00.0015574" startTime="2012-02-18T11:35:00.6093750-03:00" endTime="2012-02-18T11:35:00.6250000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.HabitacionTest.NumeroTest threw exception:  System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto..</Message>
+          <StackTrace>    en TestProject1.HabitacionTest.NumeroTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\HabitacionTest.vb:línea 79
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4630bb31-cec7-472f-9379-cb0888e02ab8" testId="fa36db90-a0b0-8c23-12a9-4e65049de731" testName="CostoTest" computerName="LEOWOLF" duration="00:00:00.0014912" startTime="2012-02-18T11:35:00.6250000-03:00" endTime="2012-02-18T11:35:00.6250000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.HabitacionTest.CostoTest threw exception:  System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto..</Message>
+          <StackTrace>    en TestProject1.HabitacionTest.CostoTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\HabitacionTest.vb:línea 93
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ecbda9f6-73df-4cad-b6b9-a267768afe11" testId="42db2178-df96-d618-7c3a-81cfd36bf9d8" testName="ToStringTest" computerName="LEOWOLF" duration="00:00:00.0015946" startTime="2012-02-18T11:35:00.6250000-03:00" endTime="2012-02-18T11:35:00.6406250-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.HabitacionTest.ToStringTest threw exception:  System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto..</Message>
+          <StackTrace>    en TestProject1.HabitacionTest.ToStringTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\HabitacionTest.vb:línea 113
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7d7b61a6-9e16-471b-bdd9-f2484b4cefde" testId="0706a708-4ace-e56c-2519-577a13db3deb" testName="DobleConstructorTest" computerName="LEOWOLF" duration="00:00:00.0023117" startTime="2012-02-18T11:35:00.6406250-03:00" endTime="2012-02-18T11:35:00.6406250-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   en TestProject1.DobleTest.DobleConstructorTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\DobleTest.vb:línea 66
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4f6bb8c2-4ade-4467-ad54-9aca689f2dbd" testId="54f49da5-6db1-048a-64e2-7a53344550d1" testName="SuiteJrConstructorTest" computerName="LEOWOLF" duration="00:00:00.0021131" startTime="2012-02-18T11:35:00.6562500-03:00" endTime="2012-02-18T11:35:00.6562500-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   en TestProject1.SuiteJrTest.SuiteJrConstructorTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\SuiteJrTest.vb:línea 67
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f42e39d4-0042-4aad-864e-e8079b204b40" testId="e805a2a5-3cab-5516-4512-9ce7aa15438d" testName="NombreTest" computerName="LEOWOLF" duration="00:00:00.0025827" startTime="2012-02-18T11:35:00.6562500-03:00" endTime="2012-02-18T11:35:00.6718750-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   en TestProject1.SuiteJrTest.NombreTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\SuiteJrTest.vb:línea 85
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6fdcbbe1-13f6-4ace-95c2-3f9a6b3b88c2" testId="ad252156-108c-f0b8-db00-1a5982304298" testName="NombreTest" computerName="LEOWOLF" duration="00:00:00.0033487" startTime="2012-02-18T11:35:00.6718750-03:00" endTime="2012-02-18T11:35:00.6718750-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   en TestProject1.SuiteSrTest.NombreTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\SuiteSrTest.vb:línea 72
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cf18f5a9-031d-4666-ae8e-9b5bd2c5f991" testId="ae50b1fb-40e0-5c16-7343-a4bfcd16ec8b" testName="SuiteSrConstructorTest" computerName="LEOWOLF" duration="00:00:00.0017996" startTime="2012-02-18T11:35:00.6875000-03:00" endTime="2012-02-18T11:35:00.6875000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   en TestProject1.SuiteSrTest.SuiteSrConstructorTest() en E:\Programacion\Taller VB.net\ParadiseHotel\TestProject1\SuiteSrTest.vb:línea 85
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
