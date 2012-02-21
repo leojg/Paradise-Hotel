@@ -16,3 +16,7 @@ E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHote
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe.config
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.pruebaCR.resources
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\BDHotelParaiso.mdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe.config
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.exe
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.xml
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.pdb
