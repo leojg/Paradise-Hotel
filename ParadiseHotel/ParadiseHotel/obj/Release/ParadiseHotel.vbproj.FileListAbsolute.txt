@@ -16,3 +16,14 @@ E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHo
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.exe
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.xml
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.Resources.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.pruebaAltaPiso.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.pruebaCR.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.pruebaReporte.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.hotel.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.Mantenimiento.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.exe
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.xml
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Release\ParadiseHotel.pdb

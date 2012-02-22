@@ -20,3 +20,16 @@ C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHo
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.exe
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.xml
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Resources.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.hotel.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Mantenimiento.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\BDHotelParaiso.mdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.xml
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.dll
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.xml
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Man_habitacion.resources

@@ -68,7 +68,8 @@
                     Dim nomSuite = ObtenerNombreSuite(CInt(objfila("Numero")))
                     objhab = New SuiteSr(nomSuite, CInt(objfila("Numero")), CInt(objfila("NumeroPiso")), CInt(objfila("CostoUnitario")))
                 End If
-                colHabitaciones.Add(objhab.Numero, objhab)
+                'descomentar
+                'colHabitaciones.Add(objhab.Numero, objhab)
             End If
         Next
     End Sub
@@ -80,7 +81,8 @@
                 Return CStr(objfila("Denominacion"))
             End If
         Next
-
+        'para borrar
+        Return Nothing
     End Function
 
 #Region "Metodos para persistir"

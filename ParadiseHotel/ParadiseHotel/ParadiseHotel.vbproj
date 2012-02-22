@@ -102,28 +102,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="pruebas\pruebaAltaPiso.Designer.vb">
-      <DependentUpon>pruebaAltaPiso.vb</DependentUpon>
+    <Compile Include="vista\hotel.Designer.vb">
+      <DependentUpon>hotel.vb</DependentUpon>
     </Compile>
-    <Compile Include="pruebas\pruebaAltaPiso.vb">
+    <Compile Include="vista\hotel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pruebas\pruebaCR.Designer.vb">
-      <DependentUpon>pruebaCR.vb</DependentUpon>
+    <Compile Include="vista\mantenimiento.Designer.vb">
+      <DependentUpon>mantenimiento.vb</DependentUpon>
     </Compile>
-    <Compile Include="pruebas\pruebaCR.vb">
+    <Compile Include="vista\mantenimiento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pruebas\pruebaReporte.Designer.vb">
-      <DependentUpon>pruebaReporte.vb</DependentUpon>
+    <Compile Include="vista\man_habitacion.Designer.vb">
+      <DependentUpon>man_habitacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="pruebas\pruebaReporte.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vista\Main.Designer.vb">
-      <DependentUpon>Main.vb</DependentUpon>
-    </Compile>
-    <Compile Include="vista\Main.vb">
+    <Compile Include="vista\man_habitacion.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -138,20 +132,16 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="pruebas\pruebaAltaPiso.resx">
-      <DependentUpon>pruebaAltaPiso.vb</DependentUpon>
+    <EmbeddedResource Include="vista\hotel.resx">
+      <DependentUpon>hotel.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="pruebas\pruebaCR.resx">
-      <DependentUpon>pruebaCR.vb</DependentUpon>
+    <EmbeddedResource Include="vista\mantenimiento.resx">
+      <DependentUpon>mantenimiento.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="pruebas\pruebaReporte.resx">
-      <DependentUpon>pruebaReporte.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="vista\Main.resx">
-      <DependentUpon>Main.vb</DependentUpon>
+    <EmbeddedResource Include="vista\man_habitacion.resx">
+      <DependentUpon>man_habitacion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

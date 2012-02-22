@@ -25,9 +25,9 @@ Partial Class Mantenimiento
         Me.lbl_titulo = New System.Windows.Forms.Label
         Me.lbl_descripcion = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.btn_aceptar = New System.Windows.Forms.Button
-        Me.btn_cancelar = New System.Windows.Forms.Button
         Me.btn_limpiar = New System.Windows.Forms.Button
+        Me.btn_cancelar = New System.Windows.Forms.Button
+        Me.btn_aceptar = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,15 +61,15 @@ Partial Class Mantenimiento
         Me.Panel1.Size = New System.Drawing.Size(452, 55)
         Me.Panel1.TabIndex = 2
         '
-        'btn_aceptar
+        'btn_limpiar
         '
-        Me.btn_aceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_aceptar.Location = New System.Drawing.Point(360, 14)
-        Me.btn_aceptar.Name = "btn_aceptar"
-        Me.btn_aceptar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_aceptar.TabIndex = 0
-        Me.btn_aceptar.Text = "Aceptar"
-        Me.btn_aceptar.UseVisualStyleBackColor = True
+        Me.btn_limpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_limpiar.Location = New System.Drawing.Point(279, 14)
+        Me.btn_limpiar.Name = "btn_limpiar"
+        Me.btn_limpiar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_limpiar.TabIndex = 2
+        Me.btn_limpiar.Text = "Limpiar"
+        Me.btn_limpiar.UseVisualStyleBackColor = True
         '
         'btn_cancelar
         '
@@ -81,17 +81,17 @@ Partial Class Mantenimiento
         Me.btn_cancelar.Text = "Cancelar"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
-        'btn_limpiar
+        'btn_aceptar
         '
-        Me.btn_limpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_limpiar.Location = New System.Drawing.Point(279, 14)
-        Me.btn_limpiar.Name = "btn_limpiar"
-        Me.btn_limpiar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_limpiar.TabIndex = 2
-        Me.btn_limpiar.Text = "Limpiar"
-        Me.btn_limpiar.UseVisualStyleBackColor = True
+        Me.btn_aceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_aceptar.Location = New System.Drawing.Point(360, 14)
+        Me.btn_aceptar.Name = "btn_aceptar"
+        Me.btn_aceptar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_aceptar.TabIndex = 0
+        Me.btn_aceptar.Text = "Aceptar"
+        Me.btn_aceptar.UseVisualStyleBackColor = True
         '
-        'lbl_mantenimiento
+        'Mantenimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -101,7 +101,7 @@ Partial Class Mantenimiento
         Me.Controls.Add(Me.lbl_titulo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(7)
-        Me.Name = "lbl_mantenimiento"
+        Me.Name = "Mantenimiento"
         Me.Text = "mantenimiento"
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)

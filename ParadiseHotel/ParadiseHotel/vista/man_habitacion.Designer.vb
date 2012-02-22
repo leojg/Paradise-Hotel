@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Man_habitacion
-    Inherits System.Windows.Forms.Form
+    Inherits ParadiseHotel.Mantenimiento
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -22,8 +22,17 @@ Partial Class Man_habitacion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'Man_habitacion
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(444, 425)
+        Me.Name = "Man_habitacion"
         Me.Text = "man_habitacion"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
 End Class
