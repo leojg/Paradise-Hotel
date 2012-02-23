@@ -108,6 +108,7 @@
     <Compile Include="vista\hotel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="vista\lib_util.vb" />
     <Compile Include="vista\mantenimiento.Designer.vb">
       <DependentUpon>mantenimiento.vb</DependentUpon>
     </Compile>

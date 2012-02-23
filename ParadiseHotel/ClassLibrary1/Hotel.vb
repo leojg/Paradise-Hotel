@@ -12,7 +12,7 @@ Public Class Hotel
     Private Shared instance As Hotel
 
     Public Shared Function GetInstance() As Hotel
-        If (Not IsReference(instance)) Then
+        If (instance Is Nothing) Then
             instance = New Hotel
         End If
         Return instance
@@ -49,7 +49,12 @@ Public Class Hotel
     End Function
 
     Public Function DevolverPiso(ByVal num As Integer) As Piso
-        Return colPisos.Item(num)
+        For Each objP As Piso In colPisos.Values
+            If (objP.Numero = num) Then
+                Return (objP)
+            End If
+        Next
+        Return Nothing
     End Function
 
     Public Function DevolverPisos() As Hashtable
@@ -62,11 +67,14 @@ Public Class Hotel
 
     Public Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
         Dim arr As New ArrayList
-
         For Each objP As Piso In colPisos.Values
             For Each objH As Habitacion In objP.DevolverHabitaciones.Values
-                If (objH.GetType.Name = tipo) Then
+                If (tipo = "Todo") Then
                     arr.Add(objH)
+                Else
+                    If (objH.GetType.Name = tipo) Then
+                        arr.Add(objH)
+                    End If
                 End If
             Next
         Next

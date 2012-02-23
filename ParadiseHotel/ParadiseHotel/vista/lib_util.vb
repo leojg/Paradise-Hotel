@@ -10,7 +10,7 @@ Public Class Lib_util
                 .SubItems.Add(habitacion.Numero)
                 .SubItems.Add(habitacion.Metraje)
                 .SubItems.Add(habitacion.GetType.Name) 'aca va tipo
-                .SubItems.Add(habitacion.tiene_terraza)
+                .SubItems.Add(habitacion.tieneTerraza)
                 .SubItems.Add(habitacion.Costo)
                 .Tag = habitacion
             End With

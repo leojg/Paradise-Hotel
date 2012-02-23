@@ -2,8 +2,7 @@
 
 Module Index
     Public Sub main()
-        'Dim objh As New Hotel
-        'objh.ObtenerPisos()
+        Dominio.Hotel.GetInstance.ObtenerPisos()
         Dim frm As New hotel()
         frm.ShowDialog()
     End Sub

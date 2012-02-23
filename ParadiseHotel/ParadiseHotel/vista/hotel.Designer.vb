@@ -29,7 +29,6 @@ Partial Class Hotel
         Me.gbox_habitaciones = New System.Windows.Forms.GroupBox
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tab_reservar = New System.Windows.Forms.TabPage
-        Me.tab_admin_habitaciones = New System.Windows.Forms.TabPage
         Me.cbox_tipo_id = New System.Windows.Forms.ComboBox
         Me.txt_id_cliente = New System.Windows.Forms.TextBox
         Me.lbl_id_cliente = New System.Windows.Forms.Label
@@ -41,6 +40,8 @@ Partial Class Hotel
         Me.categoria = New System.Windows.Forms.ColumnHeader
         Me.terraza = New System.Windows.Forms.ColumnHeader
         Me.costo = New System.Windows.Forms.ColumnHeader
+        Me.tab_admin_habitaciones = New System.Windows.Forms.TabPage
+        Me.ListBox1 = New System.Windows.Forms.ListBox
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -117,16 +118,6 @@ Partial Class Hotel
         Me.tab_reservar.TabIndex = 0
         Me.tab_reservar.Text = "Reservar"
         Me.tab_reservar.UseVisualStyleBackColor = True
-        '
-        'tab_admin_habitaciones
-        '
-        Me.tab_admin_habitaciones.Location = New System.Drawing.Point(4, 22)
-        Me.tab_admin_habitaciones.Name = "tab_admin_habitaciones"
-        Me.tab_admin_habitaciones.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_admin_habitaciones.Size = New System.Drawing.Size(665, 272)
-        Me.tab_admin_habitaciones.TabIndex = 1
-        Me.tab_admin_habitaciones.Text = "Administrar"
-        Me.tab_admin_habitaciones.UseVisualStyleBackColor = True
         '
         'cbox_tipo_id
         '
@@ -209,11 +200,30 @@ Partial Class Hotel
         Me.costo.Text = "Costo"
         Me.costo.Width = 56
         '
+        'tab_admin_habitaciones
+        '
+        Me.tab_admin_habitaciones.Location = New System.Drawing.Point(4, 22)
+        Me.tab_admin_habitaciones.Name = "tab_admin_habitaciones"
+        Me.tab_admin_habitaciones.Padding = New System.Windows.Forms.Padding(3)
+        Me.tab_admin_habitaciones.Size = New System.Drawing.Size(665, 272)
+        Me.tab_admin_habitaciones.TabIndex = 1
+        Me.tab_admin_habitaciones.Text = "Administrar"
+        Me.tab_admin_habitaciones.UseVisualStyleBackColor = True
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(18, 380)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(660, 199)
+        Me.ListBox1.TabIndex = 11
+        '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(709, 376)
+        Me.ClientSize = New System.Drawing.Size(709, 602)
+        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.gbox_habitaciones)
         Me.Controls.Add(Me.btn_check_in_out)
         Me.Controls.Add(Me.btn_huespedes)
@@ -247,4 +257,5 @@ Partial Class Hotel
     Friend WithEvents terraza As System.Windows.Forms.ColumnHeader
     Friend WithEvents costo As System.Windows.Forms.ColumnHeader
     Friend WithEvents tab_admin_habitaciones As System.Windows.Forms.TabPage
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
 End Class

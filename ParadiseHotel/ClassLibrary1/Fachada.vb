@@ -26,6 +26,10 @@ Public Class Fachada
         Return Hotel.GetInstance.BajaPiso(objp)
     End Function
 
+    Public Shared Function calcularNroHabitacion() As Integer
+        Return Hotel.GetInstance.CalcularNroHabitacion
+    End Function
+
     Private Shared Function crearHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte) As Habitacion
         Dim objH As Habitacion
         If (nom = "") Then
@@ -41,8 +45,7 @@ Public Class Fachada
                 objH = New SuiteSr(nom, id, numpiso, costo)
             End If
         End If
-        'Return objH
-        Return Nothing
+        Return objH
     End Function
 
     Public Shared Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
@@ -61,7 +64,7 @@ Public Class Fachada
         Return Hotel.GetInstance.ModificarPiso(objp)
     End Function
 
-    Public Shared Function devolverHabitacionesPiso(ByVal numPiso) As Hashtable
+    Public Shared Function devolverHabitacionesPiso(ByVal numPiso As Integer) As Hashtable
         Return Hotel.GetInstance.DevolverPiso(numPiso).DevolverHabitaciones
     End Function
 

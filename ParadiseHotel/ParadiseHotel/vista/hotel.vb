@@ -1,4 +1,4 @@
-﻿Imports Dominio.Fachada
+﻿Imports Dominio
 Public Class Hotel
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim arr As New ArrayList()
@@ -8,7 +8,7 @@ Public Class Hotel
         arr.Add("Individual")
         arr.Add("Doble")
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
-        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedText), Me.lview_habitaciones)
+        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
     End Sub

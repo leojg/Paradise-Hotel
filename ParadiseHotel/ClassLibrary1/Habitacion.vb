@@ -63,10 +63,10 @@
 
     Public Property tieneTerraza() As Boolean
         Get
-            Return Me.tieneTerraza
+            Return Me.terraza
         End Get
         Set(ByVal value As Boolean)
-            Me.tieneTerraza = value
+            Me.terraza = value
         End Set
     End Property
 #End Region
