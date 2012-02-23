@@ -5,6 +5,7 @@
     Public Sub New(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16)
         MyBase.New(id, numpiso, costo)
         Me.nom = nom
+        Me.tieneTerraza = True
     End Sub
 
     Public Property Nombre() As String

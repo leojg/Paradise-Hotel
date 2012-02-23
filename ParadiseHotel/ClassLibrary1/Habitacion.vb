@@ -2,6 +2,7 @@
     Dim id As Int32
     Dim numpiso As Int16
     Dim costoNoche As Int16
+    Dim terraza As Boolean
     Dim objPers As PersHabitacion
 
     Public MustOverride Function Metraje() As Integer
@@ -20,7 +21,7 @@
     End Sub
 #End Region
 
-#Region "Constructores, ToString y Properys"
+#Region "Constructores, ToString y Propertys"
 
     Public Sub New(ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16)
         Me.id = id
@@ -60,7 +61,14 @@
         End Set
     End Property
 
-
+    Public Property tieneTerraza() As Boolean
+        Get
+            Return Me.tieneTerraza
+        End Get
+        Set(ByVal value As Boolean)
+            Me.tieneTerraza = value
+        End Set
+    End Property
 #End Region
 
 
