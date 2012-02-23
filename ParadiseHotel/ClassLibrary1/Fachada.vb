@@ -1,16 +1,25 @@
 ﻿Public Class Fachada
 
-
     Public Function AltaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
         Return objP.AgregarHabitacion(objh)
     End Function
 
+    Public Function altaPiso(ByVal num As Int16, ByVal metraje As Int16)
+        Dim objp = crearPiso(num, metraje)
+        Return Hotel.GetInstance.AltaPiso(objp)
+    End Function
+
     Public Function BajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
         Return objP.BajaHabitacion(objh)
+    End Function
+
+    Public Function bajaPiso(ByVal num As Int16, ByVal metraje As Int16)
+        Dim objp = crearPiso(num, metraje)
+        Return Hotel.GetInstance.BajaPiso(objp)
     End Function
 
     Private Function crearHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte) As Habitacion
@@ -31,10 +40,20 @@
         Return objH
     End Function
 
+    Public Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
+        Dim objP As New Piso(num, metraje)
+        Return objP
+    End Function
+
     Public Function ModHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
         Return objP.ModificarHabitacion(objh)
+    End Function
+
+    Public Function modPiso(ByVal num As Int16, ByVal metraje As Int16)
+        Dim objp = crearPiso(num, metraje)
+        Return Hotel.GetInstance.ModificarPiso(objp)
     End Function
 
     Public Function DevolverHabitacionesPiso(ByVal numPiso) As Hashtable
