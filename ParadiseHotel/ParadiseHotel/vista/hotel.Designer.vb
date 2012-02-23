@@ -160,7 +160,7 @@ Partial Class Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(668, 376)
+        Me.ClientSize = New System.Drawing.Size(668, 362)
         Me.Controls.Add(Me.btn_check_in_out)
         Me.Controls.Add(Me.btn_huespedes)
         Me.Controls.Add(Me.btn_servicios)

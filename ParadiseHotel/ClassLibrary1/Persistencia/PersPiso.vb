@@ -1,5 +1,10 @@
 ﻿Imports System.Data.OleDb
 Imports Dominio
+''' <summary>
+''' Clase que brinda los servicios de persistencia a pisos y la obtencion desde la
+''' base de datos de habitaciones.
+''' </summary>
+''' <remarks></remarks>
 Public Class PersPiso
     Inherits Persistencia
 

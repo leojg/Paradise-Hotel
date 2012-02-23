@@ -1,4 +1,7 @@
-﻿
+﻿''' <summary>
+''' Clase encargada de representar al hotel. Tambien actua como clase gestora de Pisos y Servicios
+''' </summary>
+''' <remarks></remarks>
 Public Class Hotel
     Dim nom As String
     Dim rut As Integer
@@ -12,7 +15,7 @@ Public Class Hotel
     Private Shared instance As Hotel
 
     Public Shared Function GetInstance() As Hotel
-        If (Not IsReference(instance)) Then
+        If (instance Is Nothing) Then
             instance = New Hotel
         End If
         Return instance
@@ -83,8 +86,15 @@ Public Class Hotel
         Return False
     End Function
 
-    Public Sub ObtenerPisos()
+    Public Sub ObtenerServicios()
+        Dim objDataSet As DataSet = objPers.ObtenerDataSetServicios
+        For Each objfila As DataRow In objDataSet.Tables("Servicios").Rows
+            Dim objS As New Servicio(CInt(objfila("Id")), CStr(objfila("Nombre")))
+            colServicios.Add(objS.Id, objS)
+        Next
+    End Sub
 
+    Public Sub ObtenerPisos()
         Dim objDataSet As DataSet = objPers.ObtenerDataSetPisos
         For Each objfila As DataRow In objDataSet.Tables("Pisos").Rows
             Dim objP As New Piso(CInt(objfila("NumeroPiso")), CInt(objfila("MetrajeMaximo")))

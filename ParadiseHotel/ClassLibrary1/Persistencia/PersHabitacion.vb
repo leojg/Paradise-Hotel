@@ -1,5 +1,9 @@
 ﻿Imports System.Data.OleDb
 Imports Dominio
+''' <summary>
+''' Clase que brinda los servicios de persistencia a habitaciones
+''' </summary>
+''' <remarks></remarks>
 Public Class PersHabitacion
     Inherits Persistencia
 

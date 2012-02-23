@@ -1,4 +1,8 @@
-﻿Public Class Piso
+﻿''' <summary>
+''' Representa los pisos del hotel. También es la gestora de Habitaciones
+''' </summary>
+''' <remarks></remarks>
+Public Class Piso
     Dim colHabitaciones As Hashtable
     Dim num As Int16
     Dim metros As Int16

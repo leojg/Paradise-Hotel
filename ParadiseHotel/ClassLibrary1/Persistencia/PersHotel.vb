@@ -1,5 +1,9 @@
 ﻿Imports System.Data.OleDb
 Imports Dominio
+''' <summary>
+''' Clase que brinda servicios de obtencion desde la base de datos a la mayoria de las clases del sistema
+''' </summary>
+''' <remarks></remarks>
 Public Class PersHotel
     Inherits Persistencia
     Public Overrides Sub eliminar(ByVal xobj As Object)
@@ -15,6 +19,16 @@ Public Class PersHotel
         objdataadapter = New OleDbDataAdapter(objcomando)
         Dim objdataset As New DataSet()
         objdataadapter.Fill(objdataset, "Pisos")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
+    Public Function ObtenerDataSetServicios() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM Servicios", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "Servicios")
         objconexion.Close()
         Return objdataset
     End Function

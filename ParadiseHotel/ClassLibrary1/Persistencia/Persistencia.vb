@@ -1,4 +1,8 @@
 ﻿Imports System.Data.OleDb
+''' <summary>
+''' Clase que define la funcionalidad basica de la persistencia del sistema
+''' </summary>
+''' <remarks></remarks>
 Public MustInherit Class Persistencia
     Protected objconexion As OleDbConnection
     Protected objcomando As OleDbCommand
