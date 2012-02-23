@@ -9,6 +9,14 @@ Public Class Hotel
     Dim colPisos As Hashtable
     Dim colServicios As Hashtable
     Dim objPers As PersHotel
+    Private Shared instance As Hotel
+
+    Public Shared Function GetInstance() As Hotel
+        If (Not IsReference(instance)) Then
+            instance = New Hotel
+        End If
+        Return instance
+    End Function
 
     Public Function AltaPiso(ByVal objP As Piso) As Boolean
         If Not colPisos.ContainsKey(objP.Numero) Then
@@ -40,6 +48,10 @@ Public Class Hotel
         Return nroHabMax + 1
     End Function
 
+    Public Function DevolverPiso(ByVal num As Integer) As Piso
+        Return colPisos.Item(num)
+    End Function
+
     Public Function DevolverPisos() As Hashtable
         Return colPisos
     End Function
@@ -68,7 +80,7 @@ Public Class Hotel
         Next
     End Sub
 
-    Public Sub New()
+    Private Sub New()
         colPisos = New Hashtable
         colServicios = New Hashtable
         objPers = New PersHotel

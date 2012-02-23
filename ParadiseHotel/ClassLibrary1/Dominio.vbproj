@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Doble.vb" />
+    <Compile Include="Fachada.vb" />
     <Compile Include="Hotel.vb" />
     <Compile Include="Persistencia\PersHabitacion.vb" />
     <Compile Include="Persistencia\PersHotel.vb" />

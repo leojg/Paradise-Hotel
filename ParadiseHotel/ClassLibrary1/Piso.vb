@@ -30,7 +30,7 @@
         Return False
     End Function
 
-    Private Function ControlarMetraje(ByVal objHab As Habitacion) As Int16
+    Private Function ControlarMetraje(ByVal objHab As Habitacion) As Boolean
         If (objHab.Metraje > Me.metrajeDisponible) Then
             Return False
         End If
@@ -68,13 +68,12 @@
                     Dim nomSuite = ObtenerNombreSuite(CInt(objfila("Numero")))
                     objhab = New SuiteSr(nomSuite, CInt(objfila("Numero")), CInt(objfila("NumeroPiso")), CInt(objfila("CostoUnitario")))
                 End If
-                'descomentar
-                'colHabitaciones.Add(objhab.Numero, objhab)
+                colHabitaciones.Add(objhab.Numero, objhab)
             End If
         Next
     End Sub
 
-    Public Function ObtenerNombreSuite(ByVal numHab As Integer) As String
+    Private Function ObtenerNombreSuite(ByVal numHab As Integer) As String
         Dim objDataSet As DataSet = objPers.ObtenerDataNombresSuites
         For Each objfila As DataRow In objDataSet.Tables("DenominacionesSuites").Rows
             If (numHab = CInt(objfila("NumeroSuite"))) Then

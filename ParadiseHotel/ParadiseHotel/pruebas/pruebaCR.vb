@@ -3,7 +3,6 @@ Imports System.Data.OleDb
 Public Class pruebaCR
 
     Private Sub pruebaCR_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        MsgBox("Hi")
         Dim sqlConn As OleDbConnection
         Dim sqlDaHab As OleDbDataAdapter
         Dim sqlDaDen As OleDbDataAdapter
