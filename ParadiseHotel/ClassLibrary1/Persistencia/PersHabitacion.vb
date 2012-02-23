@@ -32,6 +32,20 @@ Public Class PersHabitacion
         objDataAdapter.Update(objDataSet, "Habitaciones")
     End Sub
 
+    Public Sub eliminarDenominacionSuite(ByVal numeroSuite As Int16, ByVal nombreSuite As String)
+        abrirConexion()
+        objcomando = New OleDbCommand("Select * From DenominacionesSuites where NumeroSuite=" & numeroSuite, objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataSet As New DataSet()
+        objdataadapter.Fill(objdataSet, "DenominacionesSuites")
+        Dim constComando As New OleDbCommandBuilder(objdataadapter)
+        objdataadapter.DeleteCommand = constComando.GetDeleteCommand
+        cerrarConexion()
+        Dim objFila As DataRow = objdataSet.Tables("DenominacionesSuites").Rows(0)
+        objFila.Delete()
+        objdataadapter.Update(objdataSet, "DenominacionesSuites")
+    End Sub
+
     Public Overrides Sub guardar(ByVal XObj As Object)
 
         Dim objHab As Habitacion = CType(XObj, Habitacion)
