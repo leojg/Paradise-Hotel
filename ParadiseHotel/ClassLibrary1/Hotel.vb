@@ -60,6 +60,19 @@ Public Class Hotel
         Return colServicios
     End Function
 
+    Public Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
+        Dim arr As New ArrayList
+
+        For Each objP As Piso In colPisos.Values
+            For Each objH As Habitacion In objP.DevolverHabitaciones.Values
+                If (objH.GetType.Name = tipo) Then
+                    arr.Add(objH)
+                End If
+            Next
+        Next
+        Return arr
+    End Function
+
     Public Function ModificarPiso(ByVal objP As Piso) As Boolean
         If colPisos.ContainsKey(objP.Numero) Then
             objP.modificame()

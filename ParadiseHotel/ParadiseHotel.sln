@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ParadiseHotel", "ParadiseHotel\ParadiseHotel.vbproj", "{231DC348-6B99-4B98-9B06-40EDC2019924}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Dominio", "ClassLibrary1\Dominio.vbproj", "{90FC8ACD-EDD1-41A1-AEB5-84FA9C5C1F25}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestProject1", "TestProject1\TestProject1.vbproj", "{B1B2C3AA-77AD-4952-BAA0-16167D806206}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F56DD3C-C726-4387-94FC-8480B63CF42A}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		ParadiseHotel.vsmdi = ParadiseHotel.vsmdi
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Persistencia", "Persistencia\Persistencia.vbproj", "{750EAA81-D127-406F-9DC4-0295C00DB7DF}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ParadiseHotel.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{231DC348-6B99-4B98-9B06-40EDC2019924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{231DC348-6B99-4B98-9B06-40EDC2019924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231DC348-6B99-4B98-9B06-40EDC2019924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{231DC348-6B99-4B98-9B06-40EDC2019924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FC8ACD-EDD1-41A1-AEB5-84FA9C5C1F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FC8ACD-EDD1-41A1-AEB5-84FA9C5C1F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FC8ACD-EDD1-41A1-AEB5-84FA9C5C1F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FC8ACD-EDD1-41A1-AEB5-84FA9C5C1F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B2C3AA-77AD-4952-BAA0-16167D806206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B2C3AA-77AD-4952-BAA0-16167D806206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B2C3AA-77AD-4952-BAA0-16167D806206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B2C3AA-77AD-4952-BAA0-16167D806206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750EAA81-D127-406F-9DC4-0295C00DB7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750EAA81-D127-406F-9DC4-0295C00DB7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750EAA81-D127-406F-9DC4-0295C00DB7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750EAA81-D127-406F-9DC4-0295C00DB7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
