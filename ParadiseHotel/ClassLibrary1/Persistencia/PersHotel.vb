@@ -9,12 +9,42 @@ Public Class PersHotel
     Public Overrides Sub modificar(ByVal xobj As Object)
     End Sub
 
+    Public Function ObtenerDataSetHuespedes() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM Pasajeros", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "Pasajeros")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
+    Public Function ObtenerDataSetExtranjeros() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM Extranjeros", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "Extranjeros")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
     Public Function ObtenerDataSetPisos() As DataSet
         abrirConexion()
         Me.objcomando = New OleDbCommand("SELECT * FROM Pisos", objconexion)
         objdataadapter = New OleDbDataAdapter(objcomando)
         Dim objdataset As New DataSet()
         objdataadapter.Fill(objdataset, "Pisos")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
+    Public Function ObtenerDataSetServicios() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM Servicios", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "Servicios")
         objconexion.Close()
         Return objdataset
     End Function

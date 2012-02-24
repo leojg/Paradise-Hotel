@@ -27,6 +27,23 @@ Public Class Hotel
         Return False
     End Function
 
+    Public Function AltaHabitacion(ByVal objH As Habitacion) As Boolean
+        Dim objP As Piso = DevolverPiso(objH.Piso)
+        If objH.GetType.Name = "Suite" Then
+            Dim objSuite As Suite = CType(objH, Suite)
+            For Each objP2 As Piso In colPisos.Values
+                For Each objHab As Suite In objP.DevolverHabitaciones.Values
+                    If (Not objSuite.Nombre = objHab.Nombre) Then
+                        Return objP.AgregarHabitacion(objH)
+                    End If
+                    Return False
+                Next
+            Next
+        End If
+        Return objP.AgregarHabitacion(objH)
+    End Function
+
+
     Public Function BajaPiso(ByVal objP As Piso) As Boolean
         If colPisos.ContainsKey(objP.Numero) Then
             objP.eliminame()
@@ -81,6 +98,22 @@ Public Class Hotel
         Return arr
     End Function
 
+    Public Function ModificarHabitacion(ByVal objH As Habitacion) As Boolean
+        Dim objP As Piso = DevolverPiso(objH.Piso)
+        If objH.GetType.Name = "Suite" Then
+            Dim objSuite As Suite = CType(objH, Suite)
+            For Each objP2 As Piso In colPisos.Values
+                For Each objHab As Suite In objP.DevolverHabitaciones.Values
+                    If (Not objSuite.Nombre = objHab.Nombre) Then
+                        Return objP.ModificarHabitacion(objH)
+                    End If
+                    Return False
+                Next
+            Next
+        End If
+        Return objP.ModificarHabitacion(objH)
+    End Function
+
     Public Function ModificarPiso(ByVal objP As Piso) As Boolean
         If colPisos.ContainsKey(objP.Numero) Then
             objP.modificame()
@@ -92,12 +125,19 @@ Public Class Hotel
     End Function
 
     Public Sub ObtenerPisos()
-
         Dim objDataSet As DataSet = objPers.ObtenerDataSetPisos
         For Each objfila As DataRow In objDataSet.Tables("Pisos").Rows
             Dim objP As New Piso(CInt(objfila("NumeroPiso")), CInt(objfila("MetrajeMaximo")))
             colPisos.Add(objP.Numero, objP)
             objP.ObtenerHabitaciones()
+        Next
+    End Sub
+
+    Public Sub ObtenerServicios()
+        Dim objDataSet As DataSet = objPers.ObtenerDataSetPisos
+        For Each objfila As DataRow In objDataSet.Tables("Servicios").Rows
+            Dim objS As New Servicio(CInt(objfila("Id")), CStr(objfila("Nombre")))
+            colServicios.Add(objS.Id, objS)
         Next
     End Sub
 

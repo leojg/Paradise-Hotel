@@ -1,9 +1,4 @@
-﻿''' <summary>
-''' Clase que representa las habitaciones. 
-''' Es abstracta y los distintos tipos de habitaciones heredan de ella
-''' </summary>
-''' <remarks></remarks>
-Public MustInherit Class Habitacion
+﻿Public MustInherit Class Habitacion
     Dim id As Int32
     Dim numpiso As Int16
     Dim costoNoche As Int16
@@ -26,7 +21,7 @@ Public MustInherit Class Habitacion
     End Sub
 #End Region
 
-#Region "Constructores, ToString y Properys"
+#Region "Constructores, ToString y Propertys"
 
     Public Sub New(ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16)
         Me.id = id
@@ -66,7 +61,7 @@ Public MustInherit Class Habitacion
         End Set
     End Property
 
-    Public Property tiene_terraza() As Boolean
+    Public Property tieneTerraza() As Boolean
         Get
             Return Me.terraza
         End Get
