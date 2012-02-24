@@ -20,7 +20,7 @@ Public Class Man_habitacion
         Next
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub _Agregar(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Dim tipoStr = CStr(cbox_tipo.SelectedItem)
         Dim tipoInt
         If (tipoStr = "Indivudual") Then
@@ -37,7 +37,7 @@ Public Class Man_habitacion
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub _Modificar(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim tipoStr = CStr(cbox_tipo.SelectedItem)
         Dim tipoInt
         If (tipoStr = "Indivudual") Then
@@ -58,7 +58,7 @@ Public Class Man_habitacion
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub _Eliminar(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim tipoStr = CStr(cbox_tipo.SelectedItem)
         Dim tipoInt
         If (tipoStr = "Indivudual") Then

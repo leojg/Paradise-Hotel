@@ -25,10 +25,10 @@ Partial Class Mantenimiento
         Me.lbl_titulo = New System.Windows.Forms.Label
         Me.lbl_descripcion = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.btn_cancelar = New System.Windows.Forms.Button
         Me.btn_modificar = New System.Windows.Forms.Button
         Me.btn_agregar = New System.Windows.Forms.Button
         Me.btn_eliminar = New System.Windows.Forms.Button
-        Me.btn_salir = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,7 +54,7 @@ Partial Class Mantenimiento
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.btn_salir)
+        Me.Panel1.Controls.Add(Me.btn_cancelar)
         Me.Panel1.Controls.Add(Me.btn_modificar)
         Me.Panel1.Controls.Add(Me.btn_agregar)
         Me.Panel1.Controls.Add(Me.btn_eliminar)
@@ -63,6 +63,17 @@ Partial Class Mantenimiento
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(430, 55)
         Me.Panel1.TabIndex = 2
+        '
+        'btn_cancelar
+        '
+        Me.btn_cancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cancelar.Location = New System.Drawing.Point(336, 15)
+        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_cancelar.Name = "btn_cancelar"
+        Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_cancelar.TabIndex = 3
+        Me.btn_cancelar.Text = "Cancelar"
+        Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'btn_modificar
         '
@@ -97,17 +108,6 @@ Partial Class Mantenimiento
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.UseVisualStyleBackColor = True
         '
-        'btn_salir
-        '
-        Me.btn_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_salir.Location = New System.Drawing.Point(336, 15)
-        Me.btn_salir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_salir.Name = "btn_salir"
-        Me.btn_salir.Size = New System.Drawing.Size(75, 23)
-        Me.btn_salir.TabIndex = 3
-        Me.btn_salir.Text = "Atras"
-        Me.btn_salir.UseVisualStyleBackColor = True
-        '
         'Mantenimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
@@ -131,5 +131,5 @@ Partial Class Mantenimiento
     Friend WithEvents btn_modificar As System.Windows.Forms.Button
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents btn_eliminar As System.Windows.Forms.Button
-    Friend WithEvents btn_salir As System.Windows.Forms.Button
+    Friend WithEvents btn_cancelar As System.Windows.Forms.Button
 End Class
