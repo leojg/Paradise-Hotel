@@ -72,6 +72,8 @@
     <Compile Include="Persistencia\PersHotel.vb" />
     <Compile Include="Persistencia\Persistencia.vb" />
     <Compile Include="Persistencia\PersPiso.vb" />
+    <Compile Include="Reserva.vb" />
+    <Compile Include="ReservasAdmin.vb" />
     <Compile Include="Servicio.vb" />
     <Compile Include="Habitaciones\SuiteJr.vb" />
     <Compile Include="Habitaciones\SuiteSr.vb" />

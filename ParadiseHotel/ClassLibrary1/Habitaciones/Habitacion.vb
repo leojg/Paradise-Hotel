@@ -52,7 +52,7 @@
         End Set
     End Property
 
-    Public Property Costo() As Int16
+    Public Overridable Property Costo() As Int16
         Get
             Return costoNoche
         End Get

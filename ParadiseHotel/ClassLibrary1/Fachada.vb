@@ -6,8 +6,7 @@ Public Class Fachada
 
     Public Shared Function altaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
-        Dim objP As Piso = Hotel.GetInstance.DevolverPiso(numpiso)
-        Return objP.AgregarHabitacion(objh)
+        Return Hotel.GetInstance.AltaHabitacion(objh)
     End Function
 
     Public Shared Function altaPiso(ByVal num As Int16, ByVal metraje As Int16)
@@ -55,8 +54,7 @@ Public Class Fachada
 
     Public Shared Function modHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
-        Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
-        Return objP.ModificarHabitacion(objh)
+        Return Hotel.GetInstance.ModificarHabitacion(objh)
     End Function
 
     Public Shared Function modPiso(ByVal num As Int16, ByVal metraje As Int16)

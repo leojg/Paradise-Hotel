@@ -134,7 +134,7 @@ Public Class Hotel
     End Sub
 
     Public Sub ObtenerServicios()
-        Dim objDataSet As DataSet = objPers.ObtenerDataSetPisos
+        Dim objDataSet As DataSet = objPers.ObtenerDataSetServicios
         For Each objfila As DataRow In objDataSet.Tables("Servicios").Rows
             Dim objS As New Servicio(CInt(objfila("Id")), CStr(objfila("Nombre")))
             colServicios.Add(objS.Id, objS)

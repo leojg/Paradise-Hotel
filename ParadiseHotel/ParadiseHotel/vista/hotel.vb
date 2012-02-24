@@ -10,11 +10,14 @@ Public Class Hotel
         arr.Add("Doble")
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
         Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
+        Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
         Me.btn_habitaciones.Select()
+
+
     End Sub
 
     Private Sub hide_gboxs()

@@ -26,4 +26,13 @@
         Return nom & " - " & MyBase.ToString()
     End Function
 
+    Public Overrides Property Costo() As Short
+        Get
+            Return MyBase.Costo + (Costo * 1.1)
+        End Get
+        Set(ByVal value As Short)
+            MyBase.Costo = value
+        End Set
+    End Property
+
 End Class
