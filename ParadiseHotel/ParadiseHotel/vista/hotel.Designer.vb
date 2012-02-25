@@ -51,7 +51,7 @@ Partial Class Hotel
         Me.tab_admin_habitaciones = New System.Windows.Forms.TabPage
         Me.btn_eliminar_habitacion = New System.Windows.Forms.Button
         Me.btn_modificar_habitacion = New System.Windows.Forms.Button
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
+        Me.link_nueva_hab = New System.Windows.Forms.LinkLabel
         Me.ListView1 = New System.Windows.Forms.ListView
         Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader
@@ -150,7 +150,7 @@ Partial Class Hotel
         Me.gbox_habitaciones.Controls.Add(Me.btn_cancelar)
         Me.gbox_habitaciones.Controls.Add(Me.btn_reservar)
         Me.gbox_habitaciones.Controls.Add(Me.tab_gral_habitaciones)
-        Me.gbox_habitaciones.Location = New System.Drawing.Point(725, 412)
+        Me.gbox_habitaciones.Location = New System.Drawing.Point(719, 378)
         Me.gbox_habitaciones.Name = "gbox_habitaciones"
         Me.gbox_habitaciones.Size = New System.Drawing.Size(685, 355)
         Me.gbox_habitaciones.TabIndex = 10
@@ -342,7 +342,7 @@ Partial Class Hotel
         '
         Me.tab_admin_habitaciones.Controls.Add(Me.btn_eliminar_habitacion)
         Me.tab_admin_habitaciones.Controls.Add(Me.btn_modificar_habitacion)
-        Me.tab_admin_habitaciones.Controls.Add(Me.LinkLabel1)
+        Me.tab_admin_habitaciones.Controls.Add(Me.link_nueva_hab)
         Me.tab_admin_habitaciones.Controls.Add(Me.ListView1)
         Me.tab_admin_habitaciones.Location = New System.Drawing.Point(4, 22)
         Me.tab_admin_habitaciones.Name = "tab_admin_habitaciones"
@@ -370,15 +370,15 @@ Partial Class Hotel
         Me.btn_modificar_habitacion.Text = "Modificar"
         Me.btn_modificar_habitacion.UseVisualStyleBackColor = True
         '
-        'LinkLabel1
+        'link_nueva_hab
         '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(559, 14)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(91, 13)
-        Me.LinkLabel1.TabIndex = 15
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Nueva habitación"
+        Me.link_nueva_hab.AutoSize = True
+        Me.link_nueva_hab.Location = New System.Drawing.Point(559, 14)
+        Me.link_nueva_hab.Name = "link_nueva_hab"
+        Me.link_nueva_hab.Size = New System.Drawing.Size(91, 13)
+        Me.link_nueva_hab.TabIndex = 15
+        Me.link_nueva_hab.TabStop = True
+        Me.link_nueva_hab.Text = "Nueva habitación"
         '
         'ListView1
         '
@@ -583,7 +583,7 @@ Partial Class Hotel
         'gbox_servicios
         '
         Me.gbox_servicios.Controls.Add(Me.tab_mostrar_servicios)
-        Me.gbox_servicios.Location = New System.Drawing.Point(12, 412)
+        Me.gbox_servicios.Location = New System.Drawing.Point(12, 378)
         Me.gbox_servicios.Name = "gbox_servicios"
         Me.gbox_servicios.Size = New System.Drawing.Size(685, 355)
         Me.gbox_servicios.TabIndex = 14
@@ -635,7 +635,7 @@ Partial Class Hotel
         '
         Me.gbox_huespedes.Controls.Add(Me.tab_huespedes)
         Me.gbox_huespedes.Enabled = False
-        Me.gbox_huespedes.Location = New System.Drawing.Point(725, 41)
+        Me.gbox_huespedes.Location = New System.Drawing.Point(725, 12)
         Me.gbox_huespedes.Name = "gbox_huespedes"
         Me.gbox_huespedes.Size = New System.Drawing.Size(685, 355)
         Me.gbox_huespedes.TabIndex = 15
@@ -706,7 +706,7 @@ Partial Class Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1120, 596)
+        Me.ClientSize = New System.Drawing.Size(1350, 732)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
         Me.Controls.Add(Me.gbox_huespedes)
@@ -760,7 +760,7 @@ Partial Class Hotel
     Friend WithEvents costo As System.Windows.Forms.ColumnHeader
     Friend WithEvents tab_admin_habitaciones As System.Windows.Forms.TabPage
     Friend WithEvents btn_modificar_habitacion As System.Windows.Forms.Button
-    Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
+    Friend WithEvents link_nueva_hab As System.Windows.Forms.LinkLabel
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader

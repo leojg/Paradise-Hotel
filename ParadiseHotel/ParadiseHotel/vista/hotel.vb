@@ -55,4 +55,9 @@ Public Class Hotel
         Me.hide_gboxs()
         Me.gbox_checkinout.Visible = True
     End Sub
+
+    Private Sub link_nueva_hab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles link_nueva_hab.LinkClicked
+        Dim frm_nueva_habitación As Man_habitacion = New Man_habitacion()
+        frm_nueva_habitación.ShowDialog()
+    End Sub
 End Class

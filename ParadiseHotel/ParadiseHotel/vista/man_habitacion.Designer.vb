@@ -29,12 +29,12 @@ Partial Class Man_habitacion
         Me.Piso = New System.Windows.Forms.Label
         Me.tx_num = New System.Windows.Forms.TextBox
         Me.lb_hab = New System.Windows.Forms.ListBox
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
         Me.cbox_tipo = New System.Windows.Forms.ComboBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.SuspendLayout()
+        '
+        'btn_agregar
+        '
         '
         'lbl_nro_habitacion
         '
@@ -104,39 +104,6 @@ Partial Class Man_habitacion
         Me.lb_hab.Size = New System.Drawing.Size(418, 144)
         Me.lb_hab.TabIndex = 10
         '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(93, 373)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Modificar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(13, 373)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 12
-        Me.Button2.Text = "Agregar"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(174, 373)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 11
-        Me.Button3.Text = "Eliminar"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'cbox_tipo
         '
         Me.cbox_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -162,12 +129,9 @@ Partial Class Man_habitacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(453, 532)
+        Me.ClientSize = New System.Drawing.Size(453, 548)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_tipo)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.lb_hab)
         Me.Controls.Add(Me.tx_num)
         Me.Controls.Add(Me.Piso)
@@ -184,9 +148,6 @@ Partial Class Man_habitacion
         Me.Controls.SetChildIndex(Me.Piso, 0)
         Me.Controls.SetChildIndex(Me.tx_num, 0)
         Me.Controls.SetChildIndex(Me.lb_hab, 0)
-        Me.Controls.SetChildIndex(Me.Button3, 0)
-        Me.Controls.SetChildIndex(Me.Button2, 0)
-        Me.Controls.SetChildIndex(Me.Button1, 0)
         Me.Controls.SetChildIndex(Me.cbox_tipo, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)
         Me.ResumeLayout(False)
@@ -200,9 +161,6 @@ Partial Class Man_habitacion
     Friend WithEvents Piso As System.Windows.Forms.Label
     Friend WithEvents tx_num As System.Windows.Forms.TextBox
     Friend WithEvents lb_hab As System.Windows.Forms.ListBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents cbox_tipo As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

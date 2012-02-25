@@ -128,8 +128,8 @@ Partial Class Mantenimiento
     Friend WithEvents lbl_titulo As System.Windows.Forms.Label
     Friend WithEvents lbl_descripcion As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btn_modificar As System.Windows.Forms.Button
-    Friend WithEvents btn_agregar As System.Windows.Forms.Button
-    Friend WithEvents btn_eliminar As System.Windows.Forms.Button
-    Friend WithEvents btn_cancelar As System.Windows.Forms.Button
+    Protected WithEvents btn_agregar As System.Windows.Forms.Button
+    Protected WithEvents btn_modificar As System.Windows.Forms.Button
+    Protected WithEvents btn_eliminar As System.Windows.Forms.Button
+    Protected WithEvents btn_cancelar As System.Windows.Forms.Button
 End Class
