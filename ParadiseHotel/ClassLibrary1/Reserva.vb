@@ -9,6 +9,7 @@
     Dim montoTotal As Integer
     Dim fechaPagoSaldo As Date
     Dim montoRembolsado As Integer
+    Dim objPers As PersReserva
 
     Public Function devolverHuespedes() As Hashtable
         Return Me.colHuespedes
@@ -25,6 +26,7 @@
         Me.montoTotal = total
         Me.fechaPagoSaldo = fpagosaldo
         Me.montoRembolsado = Nothing
+        objPers = New PersReserva
     End Sub
 
     Public Overrides Function ToString() As String

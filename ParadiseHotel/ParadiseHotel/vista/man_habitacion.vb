@@ -22,6 +22,10 @@ Public Class Man_habitacion
 
     Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_piso.SelectedIndexChanged
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+        lbl_metrajedispo.Visible = True
+        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+        lbl_metrajedispo.ForeColor = Color.Blue
+        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
     End Sub
 
     Private Sub btn_agregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_agregar.Click
@@ -40,6 +44,8 @@ Public Class Man_habitacion
         Fachada.altaHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
     End Sub
 
     Private Sub btn_modificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar.Click
@@ -58,6 +64,8 @@ Public Class Man_habitacion
         Fachada.modHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
     End Sub
 
     Private Sub btn_eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar.Click
@@ -76,5 +84,17 @@ Public Class Man_habitacion
         Fachada.bajaHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
+    End Sub
+
+    Private Sub lb_hab_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lb_hab.SelectedIndexChanged
+        Dim objh As Habitacion = CType(lb_hab.SelectedItem, Habitacion)
+        Me.tx_num.Text = objh.Numero.ToString
+        Me.tx_costo.Text = objh.Costo.ToString
+        Me.cbox_piso.SelectedItem = objh.Piso
+        Me.cbox_tipo.SelectedItem = objh.GetType.Name
+        Me.cbox_tipo.Enabled = False
+
     End Sub
 End Class

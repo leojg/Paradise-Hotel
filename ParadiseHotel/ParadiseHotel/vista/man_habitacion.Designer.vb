@@ -31,9 +31,16 @@ Partial Class Man_habitacion
         Me.lb_hab = New System.Windows.Forms.ListBox
         Me.cbox_tipo = New System.Windows.Forms.ComboBox
         Me.Label2 = New System.Windows.Forms.Label
+        Me.lbl_metrajedispo = New System.Windows.Forms.Label
         Me.SuspendLayout()
         '
         'btn_agregar
+        '
+        '
+        'btn_modificar
+        '
+        '
+        'btn_eliminar
         '
         '
         'lbl_nro_habitacion
@@ -91,6 +98,7 @@ Partial Class Man_habitacion
         Me.tx_num.Location = New System.Drawing.Point(94, 83)
         Me.tx_num.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tx_num.Name = "tx_num"
+        Me.tx_num.ReadOnly = True
         Me.tx_num.Size = New System.Drawing.Size(99, 22)
         Me.tx_num.TabIndex = 9
         '
@@ -125,11 +133,23 @@ Partial Class Man_habitacion
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Tipo"
         '
+        'lbl_metrajedispo
+        '
+        Me.lbl_metrajedispo.AutoSize = True
+        Me.lbl_metrajedispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_metrajedispo.Location = New System.Drawing.Point(19, 163)
+        Me.lbl_metrajedispo.Name = "lbl_metrajedispo"
+        Me.lbl_metrajedispo.Size = New System.Drawing.Size(121, 16)
+        Me.lbl_metrajedispo.TabIndex = 16
+        Me.lbl_metrajedispo.Text = "Metraje Disponible"
+        Me.lbl_metrajedispo.Visible = False
+        '
         'Man_habitacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(453, 548)
+        Me.Controls.Add(Me.lbl_metrajedispo)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_tipo)
         Me.Controls.Add(Me.lb_hab)
@@ -150,6 +170,7 @@ Partial Class Man_habitacion
         Me.Controls.SetChildIndex(Me.lb_hab, 0)
         Me.Controls.SetChildIndex(Me.cbox_tipo, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)
+        Me.Controls.SetChildIndex(Me.lbl_metrajedispo, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -163,4 +184,5 @@ Partial Class Man_habitacion
     Friend WithEvents lb_hab As System.Windows.Forms.ListBox
     Friend WithEvents cbox_tipo As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbl_metrajedispo As System.Windows.Forms.Label
 End Class

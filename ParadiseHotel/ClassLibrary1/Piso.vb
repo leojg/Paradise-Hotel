@@ -2,15 +2,14 @@
     Dim colHabitaciones As Hashtable
     Dim num As Int16
     Dim metros As Int16
-    Dim metrajeDisponible As Int16
+    Dim mDisponible As Int16
     Dim objPers As PersPiso
 
 
     Public Function AgregarHabitacion(ByVal objHab As Habitacion) As Boolean
         If (Not colHabitaciones.ContainsKey(objHab.Numero)) Then
             If (Me.ControlarMetraje(objHab)) Then
-                Me.metrajeDisponible = metrajeDisponible - objHab.Metraje
-                MsgBox(metrajeDisponible)
+                Me.mDisponible = mDisponible - objHab.Metraje
                 objHab.guardame()
                 colHabitaciones.Add(objHab.Numero, objHab)
                 Return True
@@ -21,8 +20,7 @@
 
     Public Function BajaHabitacion(ByVal objHab As Habitacion) As Boolean
         If (Me.colHabitaciones.ContainsKey(objHab.Numero)) Then
-            Me.metrajeDisponible = metrajeDisponible + objHab.Metraje
-            MsgBox(metrajeDisponible)
+            Me.mDisponible = mDisponible + objHab.Metraje
             objHab.eliminame()
             colHabitaciones.Remove(objHab.Numero)
             Return True
@@ -31,7 +29,7 @@
     End Function
 
     Private Function ControlarMetraje(ByVal objHab As Habitacion) As Boolean
-        If (objHab.Metraje > Me.metrajeDisponible) Then
+        If (objHab.Metraje > Me.mDisponible) Then
             Return False
         End If
         Return True
@@ -103,7 +101,7 @@
         colHabitaciones = New Hashtable
         Me.num = num
         Me.metros = metraje
-        metrajeDisponible = metros
+        mDisponible = metros
         objPers = New PersPiso
     End Sub
 
@@ -129,6 +127,16 @@
             metros = value
         End Set
     End Property
+
+    Public Property MetrajeDisponible() As Int16
+        Get
+            Return mDisponible
+        End Get
+        Set(ByVal value As Int16)
+            mDisponible = value
+        End Set
+    End Property
+
 #End Region
 
 

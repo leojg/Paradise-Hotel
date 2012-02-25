@@ -60,6 +60,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\MetrajeSuperadoEx.vb" />
     <Compile Include="Habitaciones\Doble.vb" />
     <Compile Include="Habitaciones\Suite.vb" />
     <Compile Include="Huespedes\Extranjero.vb" />
@@ -72,6 +73,7 @@
     <Compile Include="Persistencia\PersHotel.vb" />
     <Compile Include="Persistencia\Persistencia.vb" />
     <Compile Include="Persistencia\PersPiso.vb" />
+    <Compile Include="Persistencia\PersReserva.vb" />
     <Compile Include="Reserva.vb" />
     <Compile Include="ReservasAdmin.vb" />
     <Compile Include="Servicio.vb" />
