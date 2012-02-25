@@ -19,6 +19,7 @@ Public Class PersHabitacion
 
     Public Overrides Sub eliminar(ByVal xobj As Object)
         Dim objHab As Habitacion = CType(xobj, Habitacion)
+        Dim tipo As Int16 = calcularTipoHab(objHab)
         abrirConexion()
         Dim objComando = New OleDbCommand("select * from Habitaciones where Numero =" & objHab.Numero, objconexion)
         Dim objDataAdapter = New OleDbDataAdapter(objComando)
@@ -30,6 +31,13 @@ Public Class PersHabitacion
         Dim objFila As DataRow = objDataSet.Tables("Habitaciones").Rows(0)
         objFila.Delete()
         objDataAdapter.Update(objDataSet, "Habitaciones")
+        If (tipo = 3) Then
+            Dim objSuite As SuiteJr = objHab
+            eliminarDenominacionSuite(objSuite.Numero, objSuite.Nombre)
+        ElseIf tipo = 4 Then
+            Dim objSuite As SuiteSr = objHab
+            eliminarDenominacionSuite(objSuite.Numero, objSuite.Nombre)
+        End If
     End Sub
 
     Public Sub eliminarDenominacionSuite(ByVal numeroSuite As Int16, ByVal nombreSuite As String)

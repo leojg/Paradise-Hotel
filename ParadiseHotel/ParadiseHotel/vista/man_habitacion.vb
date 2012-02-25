@@ -18,6 +18,9 @@ Public Class Man_habitacion
         For Each objp As Piso In Fachada.devolverPisos.Values
             cbox_piso.Items.Add(objp.Numero)
         Next
+        Me.lbl_nombre_suite.Visible = False
+        Me.tx_nom_suite.Visible = False
+
     End Sub
 
     Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_piso.SelectedIndexChanged
@@ -41,7 +44,7 @@ Public Class Man_habitacion
         ElseIf (tipoStr = "SuiteSr") Then
             tipoInt = 4
         End If
-        Fachada.altaHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+        Fachada.altaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
         Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
@@ -61,7 +64,7 @@ Public Class Man_habitacion
         ElseIf (tipoStr = "SuiteSr") Then
             tipoInt = 4
         End If
-        Fachada.modHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+        Fachada.modHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
         Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
@@ -81,7 +84,7 @@ Public Class Man_habitacion
         ElseIf (tipoStr = "SuiteSr") Then
             tipoInt = 4
         End If
-        Fachada.bajaHabitacion("", CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+        Fachada.bajaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
         cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
         Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
         Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
@@ -95,6 +98,20 @@ Public Class Man_habitacion
         Me.cbox_piso.SelectedItem = objh.Piso
         Me.cbox_tipo.SelectedItem = objh.GetType.Name
         Me.cbox_tipo.Enabled = False
+        If (objh.GetType.Name = "SuiteJr" Or objh.GetType.Name = "SuiteSr") Then
+            Dim objsuite As Suite = CType(objh, Suite)
+            Me.tx_nom_suite.Text = objsuite.Nombre
+        End If
 
+    End Sub
+
+    Private Sub cbox_tipo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_tipo.SelectedIndexChanged
+        If (Me.cbox_tipo.SelectedItem = "SuiteJr" Or Me.cbox_tipo.SelectedItem = "SuiteSr") Then
+            Me.lbl_nombre_suite.Visible = True
+            Me.tx_nom_suite.Visible = True
+        Else
+            Me.lbl_nombre_suite.Visible = False
+            Me.tx_nom_suite.Visible = False
+        End If
     End Sub
 End Class

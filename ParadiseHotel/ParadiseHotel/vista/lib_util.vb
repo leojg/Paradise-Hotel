@@ -2,10 +2,8 @@
 Public Class Lib_util
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
         Dim item As ListViewItem
-        Dim habitacion As Habitacion
-        For Each habitacion In col_habitaciones
+        For Each habitacion As Habitacion In col_habitaciones
             item = New ListViewItem()
-
             With item
                 .SubItems.Add(habitacion.Numero)
                 .SubItems.Add(habitacion.Metraje)

@@ -31,7 +31,7 @@ Public Class Fachada
 
     Private Shared Function crearHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte) As Habitacion
         Dim objH As Habitacion
-        If (nom = "") Then
+        If (nom = Nothing) Then
             If (tipo = 1) Then
                 objH = New Individual(id, numpiso, costo)
             ElseIf (tipo = 2) Then
