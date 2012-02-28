@@ -3,9 +3,9 @@ Public Class Lib_util
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
         Dim item As ListViewItem
         For Each habitacion As Habitacion In col_habitaciones
-            item = New ListViewItem()
+            item = New ListViewItem(habitacion.Numero)
             With item
-                .SubItems.Add(habitacion.Numero)
+                '.SubItems.Add(habitacion.Numero)
                 .SubItems.Add(habitacion.Metraje)
                 .SubItems.Add(habitacion.GetType.Name) 'aca va tipo
                 .SubItems.Add(habitacion.tieneTerraza)
@@ -14,6 +14,21 @@ Public Class Lib_util
             End With
             lview.Items.Add(item)
         Next
+        'Dim DE As DictionaryEntry
+        'Dim objH As Habitacion
+        'Dim lvItem As ListViewItem
+        'For Each DE In col_habitaciones
+        '    objH = CType(DE.Value, Habitacion)
+        '    lvItem = New ListViewItem(objH.Numero)
+        '    With lvItem
+        '        '.SubItems.Add(objV.Matricula)
+        '        .SubItems.Add(objV.Marca)
+        '        .SubItems.Add(objV.Modelo)
+        '        .SubItems.Add(objV.Anio)
+        '        .Tag = objV
+        '    End With
+        '    xlview.Items.Add(lvItem)
+        'Next
     End Sub
 
     Public Shared Sub cargar_cbox_categorias(ByVal col_categorias As ArrayList, ByVal cbox_cats As ComboBox)
