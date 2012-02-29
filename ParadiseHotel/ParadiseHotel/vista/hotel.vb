@@ -11,6 +11,7 @@ Public Class Hotel
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
         'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
+        Lib_util.cargar_lview_huespedes(lview_huespedes, Fachada.devolverHuespedes)
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
         Me.hide_gboxs()

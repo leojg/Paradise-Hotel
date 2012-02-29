@@ -11,7 +11,6 @@ E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.dll
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.pdb
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\Dominio.xml
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe.config
-E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\bin\Debug\BDHotelParaiso.mdb
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe.config
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.exe
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.xml

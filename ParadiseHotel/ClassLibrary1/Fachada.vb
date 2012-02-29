@@ -56,9 +56,14 @@ Public Class Fachada
         Return objH
     End Function
 
-    Public Shared Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
+    Private Shared Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
         Dim objP As New Piso(num, metraje)
         Return objP
+    End Function
+
+    Private Shared Function crearReserva(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer, ByVal fpagosaldo As Date)
+        Dim objR As New Reserva(id, objhab, colHuespedes, cin, cout, Reserva, fRealizacion, total, fpagosaldo)
+        Return objR
     End Function
 
     Public Shared Function modHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
@@ -77,6 +82,10 @@ Public Class Fachada
 
     Public Shared Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
         Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo)
+    End Function
+
+    Public Shared Function devolverHuespedes() As Hashtable
+        Return HuespedAdmin.GetInstance.devolverHuespedes()
     End Function
 
     Public Shared Function devolverPiso(ByVal numPiso As Integer) As Piso

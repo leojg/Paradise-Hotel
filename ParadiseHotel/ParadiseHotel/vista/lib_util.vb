@@ -38,6 +38,22 @@ Public Class Lib_util
         Next
     End Sub
 
+    Public Shared Sub cargar_lview_huespedes(ByVal lview As ListView, ByVal hash As Hashtable)
+        Dim item As ListViewItem
+        For Each objH As Huesped In hash.Values
+            item = New ListViewItem()
+            With item
+                .SubItems.Add(objH.Nombre)
+                .SubItems.Add(objH.Apellido)
+                .SubItems.Add(objH.Telefono)
+                .SubItems.Add(objH.Direccion)
+                .SubItems.Add(objH.GetType.Name)
+                .Tag = objH
+            End With
+            lview.Items.Add(item)
+        Next
+    End Sub
+
     Public Shared Sub cargar_lview_servicios(ByVal lview As ListView, ByVal hash As Hashtable)
         Dim item As ListViewItem
         For Each objS As Servicio In hash.Values

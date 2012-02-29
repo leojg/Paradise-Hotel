@@ -4,12 +4,24 @@
     Dim colHuespedes As Hashtable
     Dim CIn As Date
     Dim COut As Date
-    Dim montoReserva As Integer
-    Dim fechaRealizacion As Date
-    Dim montoTotal As Integer
+    Dim reserva As Integer
+    Dim frealizacion As Date
+    Dim total As Integer
     Dim fechaPagoSaldo As Date
     Dim montoRembolsado As Integer
     Dim objPers As PersReserva
+
+    Public Sub guardame()
+        objPers.guardar(Me)
+    End Sub
+
+    Public Sub eliminame()
+        objPers.eliminar(Me)
+    End Sub
+
+    Public Sub modificame()
+        objPers.modificar(Me)
+    End Sub
 
     Public Function devolverHuespedes() As Hashtable
         Return Me.colHuespedes
@@ -21,9 +33,9 @@
         Me.colHuespedes = colHuespedes
         Me.CIn = cin
         Me.COut = cout
-        Me.montoReserva = Reserva
-        Me.fechaRealizacion = fRealizacion
-        Me.montoTotal = total
+        Me.reserva = Reserva
+        Me.frealizacion = fRealizacion
+        Me.total = total
         Me.fechaPagoSaldo = fpagosaldo
         Me.montoRembolsado = Nothing
         objPers = New PersReserva
@@ -69,21 +81,21 @@
         End Set
     End Property
 
-    Public Property Reserva() As Integer
+    Public Property montoReserva() As Integer
         Get
-            Return montoReserva
+            Return reserva
         End Get
         Set(ByVal value As Integer)
-            montoReserva = value
+            Reserva = value
         End Set
     End Property
 
-    Public Property Total() As Integer
+    Public Property montoTotal() As Integer
         Get
-            Return montoTotal
+            Return Total
         End Get
         Set(ByVal value As Integer)
-            montoTotal = value
+            total = value
         End Set
     End Property
 
@@ -105,7 +117,14 @@
         End Set
     End Property
 
-
+    Public Property fechaRealizacion() As Date
+        Get
+            Return frealizacion
+        End Get
+        Set(ByVal value As Date)
+            frealizacion = value
+        End Set
+    End Property
 
 
 End Class
