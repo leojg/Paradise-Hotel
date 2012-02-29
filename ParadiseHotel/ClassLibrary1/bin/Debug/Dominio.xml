@@ -19,6 +19,17 @@ Dominio
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:Dominio.ReservasAdmin.CalcularCostosReserva(System.DateTime,System.DateTime,Dominio.Habitacion)">
+	<summary>
+ Calcula el costo de las reservas según la habitación y dias pasados.
+ Devuelve un array con el costo total(posición 0), el monto de adelanto(posición 1) 
+ y el numero de dias de reserva(posición 2).
+ </summary>
+	<param name="fecha_inicio"></param>
+	<param name="fecha_fin"></param>
+	<param name="objH"></param>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="M:Dominio.ReservasAdmin.VerificarFechasDisponibles(System.DateTime,System.DateTime)">
 	<summary>
  Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
@@ -28,6 +39,11 @@ Dominio
 	<param name="fecha_inicio"></param>
 	<param name="fecha_fin"></param>
 	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Dominio.ReservasAdmin">
+	<summary>
+ Clase encargada de gestionar las reservas de habitaciones
+ </summary>
 	<remarks></remarks>
 </member><member name="T:Dominio.Fachada">
 	<summary>

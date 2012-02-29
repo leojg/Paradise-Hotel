@@ -1,4 +1,8 @@
-﻿Public Class ReservasAdmin
+﻿''' <summary>
+''' Clase encargada de gestionar las reservas de habitaciones
+''' </summary>
+''' <remarks></remarks>
+Public Class ReservasAdmin
 
     Dim instance As ReservasAdmin
     Dim colReservas As Hashtable
@@ -12,6 +16,43 @@
             instance = New ReservasAdmin
         End If
         Return instance
+    End Function
+
+    Public Function altaReserva(ByVal objR As Reserva) As Boolean
+        If (Not colReservas.ContainsKey(objR.Id)) Then
+            colReservas.Add(objR.Id, objR)
+        End If
+    End Function
+
+    Public Function bajaReserva(ByVal objR As Reserva) As Boolean
+        If colReservas.ContainsKey(objR.Id) Then
+            colReservas.Remove(objR.Id)
+        End If
+    End Function
+
+    ''' <summary>
+    ''' Calcula el costo de las reservas según la habitación y dias pasados.
+    ''' Devuelve un array con el costo total(posición 0), el monto de adelanto(posición 1) 
+    ''' y el numero de dias de reserva(posición 2).
+    ''' </summary>
+    ''' <param name="fecha_inicio"></param>
+    ''' <param name="fecha_fin"></param>
+    ''' <param name="objH"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal objH As Habitacion) As ArrayList
+        Dim arr As New ArrayList
+        Dim dias As Int16 = DateDiff(DateInterval.Day, fecha_inicio, fecha_fin)
+        Dim costo_total As Int32 = objH.Costo * dias
+        Dim costo_reserva As Int32 = costo_total * 0.4
+        arr.Add(costo_total)
+        arr.Add(costo_reserva)
+        arr.Add(dias)
+        Return arr
+    End Function
+
+    Public Function devolverReservas() As Hashtable
+        Return colReservas
     End Function
 
     ''' <summary>
@@ -37,9 +78,4 @@
         Next
         Return colhabhash
     End Function
-
-    Public Function devolverReservas() As Hashtable
-        Return colReservas
-    End Function
-
 End Class
