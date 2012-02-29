@@ -4,14 +4,14 @@
 ''' <remarks></remarks>
 Public Class ReservasAdmin
 
-    Dim instance As ReservasAdmin
+    Shared instance As ReservasAdmin
     Dim colReservas As Hashtable
 
     Private Sub New()
         colReservas = New Hashtable
     End Sub
 
-    Public Function GetInstance() As ReservasAdmin
+    Public Shared Function GetInstance() As ReservasAdmin
         If (instance Is Nothing) Then
             instance = New ReservasAdmin
         End If
@@ -64,7 +64,7 @@ Public Class ReservasAdmin
     ''' <param name="fecha_fin"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As Hashtable
+    Public Function VerificarHabitacionesDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As Hashtable
         Dim colhab As ArrayList = Hotel.GetInstance.DevolverHabitacionPorTipo("Todo")
         Dim colhabhash As New Hashtable
         For Each objR As Reserva In colReservas.Values

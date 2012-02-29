@@ -14,6 +14,10 @@ Public Class Fachada
         Return Hotel.GetInstance.AltaPiso(objp)
     End Function
 
+    Public Shared Function altaReserva()
+
+    End Function
+
     Public Shared Function bajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
@@ -23,6 +27,11 @@ Public Class Fachada
     Public Shared Function bajaPiso(ByVal num As Int16, ByVal metraje As Int16)
         Dim objp = crearPiso(num, metraje)
         Return Hotel.GetInstance.BajaPiso(objp)
+    End Function
+
+    Public Shared Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal habid As Int16) As ArrayList
+        Dim objH As Habitacion
+        Return ReservasAdmin.GetInstance.CalcularCostosReserva(fecha_inicio, fecha_fin, objH)
     End Function
 
     Public Shared Function calcularNroHabitacion() As Integer
@@ -80,6 +89,10 @@ Public Class Fachada
 
     Public Shared Function devolverServicios() As Hashtable
         Return Hotel.GetInstance.DevolverServicios
+    End Function
+
+    Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As Hashtable
+        Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 
 End Class

@@ -60,6 +60,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\HabitacionNoEncontradaEx.vb" />
     <Compile Include="Exceptions\MetrajeSuperadoEx.vb" />
     <Compile Include="Habitaciones\Doble.vb" />
     <Compile Include="Habitaciones\Suite.vb" />

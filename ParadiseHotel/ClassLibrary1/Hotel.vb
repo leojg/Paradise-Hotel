@@ -82,6 +82,17 @@ Public Class Hotel
         Return colServicios
     End Function
 
+    Public Function DevolverHabitacion(ByVal idhab As Integer) As Habitacion
+        For Each objP As Piso In colPisos.Values
+            For Each objH As Habitacion In objP.DevolverHabitaciones.Values
+                If (objH.Numero = idhab) Then
+                    Return objH
+                End If
+            Next
+        Next
+        Throw New HabitacionNoEncontradaEx
+    End Function
+
     Public Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
         Dim arr As New ArrayList
         For Each objP As Piso In colPisos.Values
