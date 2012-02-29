@@ -22,8 +22,17 @@ Partial Class man_piso
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'man_piso
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(444, 574)
+        Me.Name = "man_piso"
         Me.Text = "man_piso"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
 End Class
