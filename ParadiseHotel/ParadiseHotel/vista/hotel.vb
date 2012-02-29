@@ -9,7 +9,7 @@ Public Class Hotel
         arr.Add("Individual")
         arr.Add("Doble")
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
-        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
+        'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
@@ -116,4 +116,8 @@ Public Class Hotel
             Return True
         End If
     End Function
+
+    Private Sub cbox_filtro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_filtro.SelectedIndexChanged
+        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
+    End Sub
 End Class

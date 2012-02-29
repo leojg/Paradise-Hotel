@@ -1,6 +1,7 @@
 ﻿Imports Dominio
 Public Class Lib_util
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
+        lview.Items.Clear()
         Dim item As ListViewItem
         For Each habitacion As Habitacion In col_habitaciones
             item = New ListViewItem(habitacion.Numero)
@@ -41,8 +42,8 @@ Public Class Lib_util
         Dim item As ListViewItem
         For Each objS As Servicio In hash.Values
             item = New ListViewItem()
+            item.SubItems.Add(objS.Nombre)
             With item
-                .SubItems.Add(objS.Nombre)
                 .SubItems.Add(objS.Id)
                 .Tag = objS
             End With

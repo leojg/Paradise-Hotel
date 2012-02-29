@@ -461,7 +461,7 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(579, 79)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
+        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
         Me.checkbox_reservas.TabIndex = 20
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
@@ -706,7 +706,7 @@ Partial Class Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1350, 732)
+        Me.ClientSize = New System.Drawing.Size(1156, 732)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
         Me.Controls.Add(Me.gbox_huespedes)
