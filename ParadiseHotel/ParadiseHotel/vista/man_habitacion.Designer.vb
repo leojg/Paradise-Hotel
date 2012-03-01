@@ -118,7 +118,7 @@ Partial Class Man_habitacion
         '
         Me.cbox_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbox_tipo.FormattingEnabled = True
-        Me.cbox_tipo.Items.AddRange(New Object() {"Individual", "Doble", "SuiteJr", "SuiteSr"})
+        Me.cbox_tipo.Items.AddRange(New Object() {"Individual", "Doble", "SuiteJr", "SuiteSrl"})
         Me.cbox_tipo.Location = New System.Drawing.Point(69, 124)
         Me.cbox_tipo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbox_tipo.Name = "cbox_tipo"

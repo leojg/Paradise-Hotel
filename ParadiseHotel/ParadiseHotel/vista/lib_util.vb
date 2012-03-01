@@ -1,6 +1,7 @@
 ﻿Imports Dominio
 Public Class Lib_util
-    Public Shared Sub cargar_lview(ByVal col_habitaciones As Hashtable, ByVal lview As ListView)
+
+    Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
         lview.Items.Clear()
         Dim item As ListViewItem
         For Each habitacion As Habitacion In col_habitaciones
@@ -37,6 +38,14 @@ Public Class Lib_util
         '    End With
         '    xlview.Items.Add(lvItem)
         'Next
+    End Sub
+
+    Public Shared Sub cargar_lview_hab_hash(ByVal col_habitaciones As Hashtable, ByVal lview As ListView)
+        Dim arr As New ArrayList
+        For Each objH As Habitacion In col_habitaciones.Values
+            arr.Add(objH)
+        Next
+        cargar_lview(arr, lview)
     End Sub
 
     Public Shared Sub cargar_cbox_categorias(ByVal col_categorias As ArrayList, ByVal cbox_cats As ComboBox)

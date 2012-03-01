@@ -104,7 +104,7 @@ Public Class Fachada
         Return Hotel.GetInstance.DevolverServicios
     End Function
 
-    Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As Hashtable
+    Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
         Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 

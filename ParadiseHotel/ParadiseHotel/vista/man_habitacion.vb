@@ -32,16 +32,15 @@ Public Class Man_habitacion
     End Sub
 
     Private Sub btn_agregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_agregar.Click
-        MsgBox("funca")
         Dim tipoStr = CStr(cbox_tipo.SelectedItem)
         Dim tipoInt
-        If (tipoStr = "Indivudual") Then
+        If (tipoStr = GetType(Individual).Name) Then
             tipoInt = 1
-        ElseIf (tipoStr = "Doble") Then
+        ElseIf (tipoStr = GetType(Doble).Name) Then
             tipoInt = 2
-        ElseIf (tipoStr = "SuiteJr") Then
+        ElseIf (tipoStr = GetType(SuiteJr).Name) Then
             tipoInt = 3
-        ElseIf (tipoStr = "SuiteSr") Then
+        ElseIf (tipoStr = GetType(SuiteSr).Name) Then
             tipoInt = 4
         End If
         Fachada.altaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
