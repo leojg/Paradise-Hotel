@@ -31,8 +31,9 @@ Partial Class Hotel
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tab_reservar = New System.Windows.Forms.TabPage
-        Me.Panel1 = New System.Windows.Forms.Panel
         Me.lbl_aniadir_huepedes = New System.Windows.Forms.LinkLabel
+        Me.Panel1 = New System.Windows.Forms.Panel
+        Me.btn_comprobar = New System.Windows.Forms.Button
         Me.dtp_checkout = New System.Windows.Forms.DateTimePicker
         Me.Label4 = New System.Windows.Forms.Label
         Me.dtp_checkin = New System.Windows.Forms.DateTimePicker
@@ -150,7 +151,7 @@ Partial Class Hotel
         Me.gbox_habitaciones.Controls.Add(Me.btn_cancelar)
         Me.gbox_habitaciones.Controls.Add(Me.btn_reservar)
         Me.gbox_habitaciones.Controls.Add(Me.tab_gral_habitaciones)
-        Me.gbox_habitaciones.Location = New System.Drawing.Point(719, 378)
+        Me.gbox_habitaciones.Location = New System.Drawing.Point(12, 377)
         Me.gbox_habitaciones.Name = "gbox_habitaciones"
         Me.gbox_habitaciones.Size = New System.Drawing.Size(685, 355)
         Me.gbox_habitaciones.TabIndex = 10
@@ -187,6 +188,7 @@ Partial Class Hotel
         '
         'tab_reservar
         '
+        Me.tab_reservar.Controls.Add(Me.lbl_aniadir_huepedes)
         Me.tab_reservar.Controls.Add(Me.Panel1)
         Me.tab_reservar.Controls.Add(Me.cbox_tipo_id)
         Me.tab_reservar.Controls.Add(Me.txt_id_cliente)
@@ -202,27 +204,36 @@ Partial Class Hotel
         Me.tab_reservar.Text = "Reservar"
         Me.tab_reservar.UseVisualStyleBackColor = True
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.lbl_aniadir_huepedes)
-        Me.Panel1.Controls.Add(Me.dtp_checkout)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.dtp_checkin)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(12, 213)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(644, 52)
-        Me.Panel1.TabIndex = 21
-        '
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
-        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(533, 21)
+        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(549, 103)
         Me.lbl_aniadir_huepedes.Name = "lbl_aniadir_huepedes"
         Me.lbl_aniadir_huepedes.Size = New System.Drawing.Size(92, 13)
         Me.lbl_aniadir_huepedes.TabIndex = 23
         Me.lbl_aniadir_huepedes.TabStop = True
         Me.lbl_aniadir_huepedes.Text = "Añadir huéspedes"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.btn_comprobar)
+        Me.Panel1.Controls.Add(Me.dtp_checkout)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.dtp_checkin)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Location = New System.Drawing.Point(12, 42)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(644, 52)
+        Me.Panel1.TabIndex = 22
+        '
+        'btn_comprobar
+        '
+        Me.btn_comprobar.Location = New System.Drawing.Point(540, 11)
+        Me.btn_comprobar.Name = "btn_comprobar"
+        Me.btn_comprobar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_comprobar.TabIndex = 23
+        Me.btn_comprobar.Text = "Comprobar"
+        Me.btn_comprobar.UseVisualStyleBackColor = True
         '
         'dtp_checkout
         '
@@ -304,10 +315,10 @@ Partial Class Hotel
         Me.lview_habitaciones.Enabled = False
         Me.lview_habitaciones.GridLines = True
         Me.lview_habitaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 48)
+        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 126)
         Me.lview_habitaciones.MultiSelect = False
         Me.lview_habitaciones.Name = "lview_habitaciones"
-        Me.lview_habitaciones.Size = New System.Drawing.Size(644, 161)
+        Me.lview_habitaciones.Size = New System.Drawing.Size(644, 135)
         Me.lview_habitaciones.TabIndex = 13
         Me.lview_habitaciones.UseCompatibleStateImageBehavior = False
         Me.lview_habitaciones.View = System.Windows.Forms.View.Details
@@ -461,7 +472,7 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(579, 79)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
+        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
         Me.checkbox_reservas.TabIndex = 20
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
@@ -583,7 +594,7 @@ Partial Class Hotel
         'gbox_servicios
         '
         Me.gbox_servicios.Controls.Add(Me.tab_mostrar_servicios)
-        Me.gbox_servicios.Location = New System.Drawing.Point(12, 378)
+        Me.gbox_servicios.Location = New System.Drawing.Point(725, 377)
         Me.gbox_servicios.Name = "gbox_servicios"
         Me.gbox_servicios.Size = New System.Drawing.Size(685, 355)
         Me.gbox_servicios.TabIndex = 14
@@ -786,12 +797,6 @@ Partial Class Hotel
     Friend WithEvents rbtn_checkout As System.Windows.Forms.RadioButton
     Friend WithEvents rbtn_checkin As System.Windows.Forms.RadioButton
     Friend WithEvents checkbox_reservas As System.Windows.Forms.CheckBox
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents dtp_checkin As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents dtp_checkout As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents lbl_aniadir_huepedes As System.Windows.Forms.LinkLabel
     Friend WithEvents btn_reservar As System.Windows.Forms.Button
     Friend WithEvents btn_cancelar As System.Windows.Forms.Button
     Friend WithEvents gbox_servicios As System.Windows.Forms.GroupBox
@@ -810,4 +815,11 @@ Partial Class Hotel
     Friend WithEvents telefono As System.Windows.Forms.ColumnHeader
     Friend WithEvents domicilio As System.Windows.Forms.ColumnHeader
     Friend WithEvents num_habitacion As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents lbl_aniadir_huepedes As System.Windows.Forms.LinkLabel
+    Friend WithEvents dtp_checkout As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents dtp_checkin As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents btn_comprobar As System.Windows.Forms.Button
 End Class
