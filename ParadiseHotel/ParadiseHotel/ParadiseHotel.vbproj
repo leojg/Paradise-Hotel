@@ -97,6 +97,12 @@
     <Compile Include="vista\hotel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="vista\imprimir.Designer.vb">
+      <DependentUpon>imprimir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="vista\imprimir.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="vista\lib_util.vb" />
     <Compile Include="vista\mantenimiento.Designer.vb">
       <DependentUpon>mantenimiento.vb</DependentUpon>
@@ -120,6 +126,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vista\hotel.resx">
       <DependentUpon>hotel.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\imprimir.resx">
+      <DependentUpon>imprimir.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\mantenimiento.resx">

@@ -20,6 +20,7 @@ Public Class ReservasAdmin
 
     Public Function altaReserva(ByVal objR As Reserva) As Boolean
         If (Not colReservas.ContainsKey(objR.Id)) Then
+            objR.guardame()
             colReservas.Add(objR.Id, objR)
         End If
     End Function
@@ -49,6 +50,16 @@ Public Class ReservasAdmin
         arr.Add(costo_reserva)
         arr.Add(dias)
         Return arr
+    End Function
+
+    Public Function calcularNumeroReserva() As Integer
+        Dim nroResMax As Integer = 0
+        For Each objR As Reserva In colReservas
+            If (nroResMax < objR.Id) Then
+                nroResMax = objR.Id
+            End If
+        Next
+        Return nroResMax + 1
     End Function
 
     Public Function devolverReservas() As Hashtable
