@@ -41,4 +41,13 @@
             colHuespedes.Add(objH.Documento, objH)
         Next
     End Sub
+
+    Public Function obtener_identificaciones() As ArrayList
+        Dim arr_ids As ArrayList = New ArrayList
+        Dim DE As DictionaryEntry
+        For Each DE In Me.colHuespedes
+            arr_ids.Add(CType(DE.Value, Huesped).Documento)
+        Next
+        Return arr_ids
+    End Function
 End Class

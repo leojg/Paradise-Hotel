@@ -108,4 +108,7 @@ Public Class Fachada
         Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 
+    Public Shared Function obtener_identificaciones() As ArrayList
+        Return HuespedAdmin.GetInstance.obtener_identificaciones()
+    End Function
 End Class
