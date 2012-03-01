@@ -27,7 +27,7 @@
         Return Me.colHuespedes
     End Function
 
-    Public Sub New(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer, ByVal fpagosaldo As Date)
+    Public Sub New(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
         Me.idRes = id
         Me.objHab = objhab
         Me.colHuespedes = colHuespedes
@@ -36,7 +36,6 @@
         Me.reserva = Reserva
         Me.frealizacion = fRealizacion
         Me.total = total
-        Me.fechaPagoSaldo = fpagosaldo
         Me.montoRembolsado = Nothing
         objPers = New PersReserva
     End Sub

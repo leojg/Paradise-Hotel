@@ -14,8 +14,12 @@ Public Class Fachada
         Return Hotel.GetInstance.AltaPiso(objp)
     End Function
 
-    Public Shared Function altaReserva()
-
+    Public Shared Function altaReserva(ByVal id As Integer, ByVal idhab As Int32, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date)
+        Dim objH As Habitacion = Hotel.GetInstance.DevolverHabitacion(idhab)
+        Dim arr As ArrayList = ReservasAdmin.GetInstance.CalcularCostosReserva(cin, cout, objH)
+        Dim montoTotal = arr.Item(0)
+        Dim montoAdelanto = arr.Item(1)
+        Dim objR As Reserva = crearReserva(id, objH, colHuespedes, cin, cout, montoAdelanto, Date.Today, montoTotal)
     End Function
 
     Public Shared Function bajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
@@ -61,8 +65,8 @@ Public Class Fachada
         Return objP
     End Function
 
-    Private Shared Function crearReserva(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer, ByVal fpagosaldo As Date)
-        Dim objR As New Reserva(id, objhab, colHuespedes, cin, cout, Reserva, fRealizacion, total, fpagosaldo)
+    Private Shared Function crearReserva(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
+        Dim objR As New Reserva(id, objhab, colHuespedes, cin, cout, Reserva, fRealizacion, total)
         Return objR
     End Function
 

@@ -11,7 +11,14 @@ Public Class Lib_util
                 .SubItems.Add(habitacion.GetType.Name) 'aca va tipo
                 .SubItems.Add(habitacion.tieneTerraza)
                 .SubItems.Add(habitacion.Costo)
-                .Tag = habitacion
+                Try
+                    If (Not CType(habitacion, Suite).Nombre = Nothing) Then
+                        .SubItems.Add(CType(habitacion, Suite).Nombre)
+                    End If
+                Catch ex As Exception
+                Finally
+                    .Tag = habitacion
+                End Try
             End With
             lview.Items.Add(item)
         Next
