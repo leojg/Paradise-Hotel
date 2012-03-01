@@ -1,6 +1,6 @@
 ﻿Imports Dominio
 Public Class Lib_util
-    Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
+    Public Shared Sub cargar_lview(ByVal col_habitaciones As Hashtable, ByVal lview As ListView)
         lview.Items.Clear()
         Dim item As ListViewItem
         For Each habitacion As Habitacion In col_habitaciones
