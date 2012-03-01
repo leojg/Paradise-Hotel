@@ -123,7 +123,57 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_comprobar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_comprobar.Click
-        Lib_util.cargar_lview(Dominio.Fachada.VerificarFechasDisponibles(Me.dtp_checkin.Value, Me.dtp_checkout.Value), Me.lview_habitaciones)
-        Me.lview_habitaciones.Enabled = True
+        Dim limpiar As Boolean = False
+
+        If Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 3 Then
+            Lib_util.cargar_lview(Dominio.Fachada.VerificarFechasDisponibles(Me.dtp_checkin.Value, Me.dtp_checkout.Value), Me.lview_habitaciones)
+            Me.lview_habitaciones.Enabled = True
+        ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 2 Then
+            MsgBox("Ninguna fecha puede ser anterior a la fecha de hoy")
+            limpiar = True
+        ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 1 Then
+            MsgBox("La fecha de check-out que has seleccionado es anterior a la de check-in")
+            limpiar = True
+        ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 0 Then
+            MsgBox("La fecha de check-in que has seleccionado es igual a la de check-out")
+            limpiar = True
+        End If
+
+        If limpiar Then
+            Me.dtp_checkin.Value = Date.Now
+            Me.dtp_checkout.Value = Date.Now
+        End If
+    End Sub
+
+    Private Sub txt_id_cliente_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_id_cliente.KeyPress
+        If InStr(1, "0123456789()" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+        If e.KeyChar = ChrW(Keys.Enter) Then
+            e.Handled = True
+            SendKeys.Send("{TAB}")
+        End If
+    End Sub
+
+    Private Sub btn_cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar.Click
+        Me.limpiar_panel_reservas()
+    End Sub
+
+    Private Sub limpiar_panel_reservas()
+        Me.txt_id_cliente.Text = ""
+        Me.cbox_filtro.SelectedIndex = 0
+        Me.cbox_tipo_id.SelectedIndex = 0
+        Me.dtp_checkin.Value = Date.Now
+        Me.dtp_checkout.Value = Date.Now
+        Me.lview_habitaciones.Enabled = False
+    End Sub
+
+    Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
+        Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
+    End Sub
+
+    Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
+        Dim frm_imprimir As imprimir = New imprimir
+        frm_imprimir.ShowDialog()
     End Sub
 End Class

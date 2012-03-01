@@ -1,5 +1,6 @@
 ﻿Imports Dominio
 Public Class Lib_util
+    Private Shared bKeyBack As Boolean
 
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
         lview.Items.Clear()
@@ -81,5 +82,45 @@ Public Class Lib_util
             End With
             lview.Items.Add(item)
         Next
+    End Sub
+
+    Public Shared Function integridad_del_tiempo(ByVal dtp_ini As DateTimePicker, ByVal dtp_fin As DateTimePicker) As Integer
+        If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) = 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
+            Return 2
+        ElseIf DateDiff(DateInterval.Day, dtp_ini.Value, dtp_fin.Value) < 0 Then
+            Return 1
+        ElseIf DateDiff(DateInterval.Day, dtp_ini.Value, dtp_fin.Value) = 0 Then
+            Return 0
+        Else
+            Return 3
+        End If
+    End Function
+
+    Public Shared Sub autocompletar_textbox(ByVal tbox As TextBox, ByVal datos As ArrayList)
+        Dim i As Integer
+        Dim posSelect As Integer
+
+        Select Case (bKeyBack Or Len(tbox.Text) = 0)
+            Case True
+                bKeyBack = False
+                Exit Sub
+        End Select
+
+        With tbox
+            'Recorremos todos los elementos del array  
+            For i = 0 To datos.Count - 1
+                ' Buscamos coincidencias  
+                If InStr(1, datos(i), .Text, vbTextCompare) = 1 Then
+                    posSelect = .SelectionStart
+                    ' asignar el texto de array al textbox  
+                    .Text = datos(i)
+
+                    ' seleccionar el texto  
+                    .SelectionStart = posSelect
+                    .SelectionLength = Len(.Text) - posSelect
+                    Exit For ' salimos del bucle  
+                End If
+            Next i
+        End With
     End Sub
 End Class
