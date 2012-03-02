@@ -85,7 +85,7 @@ Public Class Lib_util
     End Sub
 
     Public Shared Function integridad_del_tiempo(ByVal dtp_ini As DateTimePicker, ByVal dtp_fin As DateTimePicker) As Integer
-        If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) = 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
+        If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) < 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) < 0 Then
             Return 2
         ElseIf DateDiff(DateInterval.Day, dtp_ini.Value, dtp_fin.Value) < 0 Then
             Return 1
@@ -123,4 +123,16 @@ Public Class Lib_util
             Next i
         End With
     End Sub
+
+    Public Shared Function habitacion_del_listview(ByVal lview As ListView) As Habitacion
+        Dim i As Integer
+        Dim item As ListViewItem
+        Dim objH As Habitacion
+        For Each i In lview.SelectedIndices
+            item = lview.Items(i)
+            objH = CType(item.Tag, Habitacion)
+            Return objH
+        Next
+        Return Nothing
+    End Function
 End Class

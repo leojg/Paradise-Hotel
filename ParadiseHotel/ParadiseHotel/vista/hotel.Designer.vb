@@ -93,7 +93,7 @@ Partial Class Hotel
         Me.telefono = New System.Windows.Forms.ColumnHeader
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
-        Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
+        Me.btn_ver_reporte = New System.Windows.Forms.Button
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -213,7 +213,7 @@ Partial Class Hotel
         Me.lview_habitaciones.GridLines = True
         Me.lview_habitaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lview_habitaciones.HideSelection = False
-        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 126)
+        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 100)
         Me.lview_habitaciones.Name = "lview_habitaciones"
         Me.lview_habitaciones.Size = New System.Drawing.Size(644, 135)
         Me.lview_habitaciones.TabIndex = 13
@@ -249,7 +249,8 @@ Partial Class Hotel
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
-        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(549, 103)
+        Me.lbl_aniadir_huepedes.Enabled = False
+        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(25, 248)
         Me.lbl_aniadir_huepedes.Name = "lbl_aniadir_huepedes"
         Me.lbl_aniadir_huepedes.Size = New System.Drawing.Size(92, 13)
         Me.lbl_aniadir_huepedes.TabIndex = 23
@@ -717,21 +718,21 @@ Partial Class Hotel
         Me.num_habitacion.Text = "Habitacion"
         Me.num_habitacion.Width = 70
         '
-        'btn_ir_a_imprimir
+        'btn_ver_reporte
         '
-        Me.btn_ir_a_imprimir.Location = New System.Drawing.Point(363, 12)
-        Me.btn_ir_a_imprimir.Name = "btn_ir_a_imprimir"
-        Me.btn_ir_a_imprimir.Size = New System.Drawing.Size(92, 23)
-        Me.btn_ir_a_imprimir.TabIndex = 16
-        Me.btn_ir_a_imprimir.Text = "Imprimir"
-        Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
+        Me.btn_ver_reporte.Location = New System.Drawing.Point(363, 12)
+        Me.btn_ver_reporte.Name = "btn_ver_reporte"
+        Me.btn_ver_reporte.Size = New System.Drawing.Size(92, 23)
+        Me.btn_ver_reporte.TabIndex = 16
+        Me.btn_ver_reporte.Text = "Ver Reporte"
+        Me.btn_ver_reporte.UseVisualStyleBackColor = True
         '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1156, 732)
-        Me.Controls.Add(Me.btn_ir_a_imprimir)
+        Me.Controls.Add(Me.btn_ver_reporte)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
         Me.Controls.Add(Me.gbox_huespedes)
@@ -836,5 +837,5 @@ Partial Class Hotel
     Friend WithEvents dtp_checkin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btn_comprobar As System.Windows.Forms.Button
-    Friend WithEvents btn_ir_a_imprimir As System.Windows.Forms.Button
+    Friend WithEvents btn_ver_reporte As System.Windows.Forms.Button
 End Class

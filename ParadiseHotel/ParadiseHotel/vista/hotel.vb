@@ -172,8 +172,13 @@ Public Class Hotel
         Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
     End Sub
 
-    Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
+    Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ver_reporte.Click
         Dim frm_imprimir As imprimir = New imprimir
         frm_imprimir.ShowDialog()
+    End Sub
+
+    Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
+        Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones))
+        frm_agregar_huespedes.ShowDialog()
     End Sub
 End Class
