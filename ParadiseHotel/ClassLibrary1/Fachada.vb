@@ -34,6 +34,10 @@ Public Class Fachada
         Return Hotel.GetInstance.BajaPiso(objp)
     End Function
 
+    Public Shared Function cargarReporte() As DataSet
+        Return Hotel.GetInstance.cargarReporte
+    End Function
+
     Public Shared Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal habid As Int16) As ArrayList
         Dim objH As Habitacion
         Return ReservasAdmin.GetInstance.CalcularCostosReserva(fecha_inicio, fecha_fin, objH)
@@ -93,6 +97,10 @@ Public Class Fachada
         Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo)
     End Function
 
+    Public Shared Function DevolverHabitacionPorTipo(ByVal hash As Hashtable, ByVal tipo As String) As ArrayList
+        Return Hotel.GetInstance.DevolverHabitacionPorTipo(hash, tipo)
+    End Function
+
     Public Shared Function devolverHuespedes() As Hashtable
         Return HuespedAdmin.GetInstance.devolverHuespedes()
     End Function
@@ -114,7 +122,7 @@ Public Class Fachada
     End Function
 
     Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
-        Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
+        Return ReservasAdmin.GetInstance.verificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 
 End Class

@@ -120,8 +120,18 @@ Public Class Hotel
     End Function
 
     Private Sub cbox_filtro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_filtro.SelectedIndexChanged
-        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
-    End Sub
+        If lview_habitaciones.Enabled = False Then
+            Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
+        Else
+            Dim hash As New Hashtable
+            For Each obj As ListViewItem In lview_habitaciones.Items
+                Dim objH As Habitacion = obj.Tag
+                hash.Add(objH.Numero, objH)
+            Next
+            Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(hash, Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
+
+        End If
+        End Sub
 
     Private Sub btn_comprobar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_comprobar.Click
         Dim limpiar As Boolean = False

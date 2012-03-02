@@ -91,6 +91,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="vista\frmReporteHab.Designer.vb">
+      <DependentUpon>frmReporteHab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="vista\frmReporteHab.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="vista\hotel.Designer.vb">
       <DependentUpon>hotel.vb</DependentUpon>
     </Compile>
@@ -122,6 +128,10 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\frmReporteHab.resx">
+      <DependentUpon>frmReporteHab.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\hotel.resx">
@@ -161,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pruebas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

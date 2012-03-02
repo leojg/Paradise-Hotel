@@ -13,6 +13,7 @@ Module Index
         objH.ObtenerServicios()
         HuespedAdmin.GetInstance.obtenerHuespedes()
         ReservasAdmin.GetInstance.obtenerReservas()
+
     End Sub
 
 End Module

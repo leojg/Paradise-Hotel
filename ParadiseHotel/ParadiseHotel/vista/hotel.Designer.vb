@@ -31,6 +31,8 @@ Partial Class Hotel
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tab_reservar = New System.Windows.Forms.TabPage
+        Me.lbl_res_id = New System.Windows.Forms.Label
+        Me.aklja = New System.Windows.Forms.Label
         Me.lview_habitaciones = New System.Windows.Forms.ListView
         Me.id = New System.Windows.Forms.ColumnHeader
         Me.mtrs2 = New System.Windows.Forms.ColumnHeader
@@ -94,8 +96,6 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
-        Me.aklja = New System.Windows.Forms.Label
-        Me.lbl_res_id = New System.Windows.Forms.Label
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -208,6 +208,24 @@ Partial Class Hotel
         Me.tab_reservar.TabIndex = 0
         Me.tab_reservar.Text = "Reservar"
         Me.tab_reservar.UseVisualStyleBackColor = True
+        '
+        'lbl_res_id
+        '
+        Me.lbl_res_id.AutoSize = True
+        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
+        Me.lbl_res_id.Name = "lbl_res_id"
+        Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_res_id.TabIndex = 25
+        Me.lbl_res_id.Text = "Label5"
+        '
+        'aklja
+        '
+        Me.aklja.AutoSize = True
+        Me.aklja.Location = New System.Drawing.Point(25, 103)
+        Me.aklja.Name = "aklja"
+        Me.aklja.Size = New System.Drawing.Size(62, 13)
+        Me.aklja.TabIndex = 24
+        Me.aklja.Text = "Reserva Nº"
         '
         'lview_habitaciones
         '
@@ -730,29 +748,11 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
         '
-        'aklja
-        '
-        Me.aklja.AutoSize = True
-        Me.aklja.Location = New System.Drawing.Point(25, 103)
-        Me.aklja.Name = "aklja"
-        Me.aklja.Size = New System.Drawing.Size(62, 13)
-        Me.aklja.TabIndex = 24
-        Me.aklja.Text = "Reserva Nº"
-        '
-        'lbl_res_id
-        '
-        Me.lbl_res_id.AutoSize = True
-        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
-        Me.lbl_res_id.Name = "lbl_res_id"
-        Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_res_id.TabIndex = 25
-        Me.lbl_res_id.Text = "Label5"
-        '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1156, 732)
+        Me.ClientSize = New System.Drawing.Size(804, 582)
         Me.Controls.Add(Me.btn_ir_a_imprimir)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)

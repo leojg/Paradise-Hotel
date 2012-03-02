@@ -114,7 +114,7 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<param name="objH"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:Dominio.ReservasAdmin.VerificarHabitacionesDisponibles(System.DateTime,System.DateTime)">
+</member><member name="M:Dominio.ReservasAdmin.verificarHabitacionesDisponibles(System.DateTime,System.DateTime)">
 	<summary>
  Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
  que sus fechas de ingreso y salida coincidan con los parametros y compara cada habitacion con

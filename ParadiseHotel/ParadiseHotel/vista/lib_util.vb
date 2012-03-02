@@ -84,6 +84,13 @@ Public Class Lib_util
         Next
     End Sub
 
+    Public Shared Sub cargar_reporte(ByVal ds As DataSet, ByVal crv As CrystalDecisions.Windows.Forms.CrystalReportViewer)
+        Dim reporte As New CrystalReportHabitaciones
+        reporte.SetDataSource(ds)
+        crv.ReportSource = reporte
+        crv.RefreshReport()
+    End Sub
+
     Public Shared Function integridad_del_tiempo(ByVal dtp_ini As DateTimePicker, ByVal dtp_fin As DateTimePicker) As Integer
         If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) = 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
             Return 2
