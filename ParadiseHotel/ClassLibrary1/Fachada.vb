@@ -34,6 +34,11 @@ Public Class Fachada
         Return Hotel.GetInstance.BajaPiso(objp)
     End Function
 
+    Public Shared Function bajaReserva(ByVal resId As Integer) As Boolean
+        Dim objR As Reserva = ReservasAdmin.GetInstance.devolverReserva(resId)
+        Return ReservasAdmin.GetInstance.bajaReserva(objR)
+    End Function
+
     Public Shared Function cargarReporte() As DataSet
         Return Hotel.GetInstance.cargarReporte
     End Function

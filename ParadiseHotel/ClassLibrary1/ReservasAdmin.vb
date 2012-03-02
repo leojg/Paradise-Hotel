@@ -30,6 +30,7 @@ Public Class ReservasAdmin
     Public Function bajaReserva(ByVal objR As Reserva) As Boolean
         If colReservas.ContainsKey(objR.Id) Then
             objR.Rembolso = calcularRembolso(objR)
+            objR.cancelame()
             colReservas.Remove(objR.Id)
             colReservas.Add(objR.Id, objR)
         End If
@@ -71,6 +72,11 @@ Public Class ReservasAdmin
             Return objR.montoReserva
         End If
         Return 0
+    End Function
+
+    Public Function devolverReserva(ByVal idres As Integer) As Reserva
+        Dim objR As Reserva = CType(colReservas.Item(idres), Reserva)
+        Return objR
     End Function
 
     Public Function devolverReservas() As Hashtable

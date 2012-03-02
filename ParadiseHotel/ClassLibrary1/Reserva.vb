@@ -15,6 +15,10 @@
         objPers.guardar(Me)
     End Sub
 
+    Public Sub cancelame()
+        objPers.modificar(Me)
+    End Sub
+
     Public Sub eliminame()
         objPers.eliminar(Me)
     End Sub

@@ -51,7 +51,7 @@ Public Class PersHotel
 
     Public Function ObtenerDataSetReservas() As DataSet
         abrirConexion()
-        Me.objcomando = New OleDbCommand("SELECT * FROM Reservas", objconexion)
+        Me.objcomando = New OleDbCommand("SELECT * FROM Reservas where MontoReembolsado=" & -1, objconexion)
         objdataadapter = New OleDbDataAdapter(objcomando)
         Dim objdataset As New DataSet()
         objdataadapter.Fill(objdataset, "Reservas")

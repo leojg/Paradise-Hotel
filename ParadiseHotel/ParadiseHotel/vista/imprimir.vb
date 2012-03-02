@@ -9,9 +9,9 @@
             Dim frm As New frmReporteHab
             frm.Show()
         ElseIf Me.chkbox_imprimir_habitaciones.Checked = True Then
-            MsgBox("no anda vithe")
+            MsgBox("no anda viteh")
         ElseIf Me.chkbox_imprimir_habitaciones.Checked = True Then
-            MsgBox("no anda vithe")
+            MsgBox("no anda viteh")
         End If
     End Sub
 End Class

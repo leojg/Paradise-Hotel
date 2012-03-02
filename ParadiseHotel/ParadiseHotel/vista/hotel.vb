@@ -167,6 +167,7 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar.Click
+        Fachada.bajaReserva(2)
         Me.limpiar_panel_reservas()
     End Sub
 

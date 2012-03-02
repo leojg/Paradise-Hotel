@@ -3,6 +3,23 @@ Imports Dominio
 Public Class PersReserva
     Inherits Persistencia
 
+    Public Sub cancelar(ByVal objR As Reserva)
+        abrirConexion()
+        objcomando = New OleDbCommand("Select * From Reservas where Id=" & objR.Id, objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataSet As New DataSet()
+        objdataadapter.Fill(objdataSet, "Reservas")
+        Dim contcomandos As New OleDbCommandBuilder(objdataadapter)
+        objdataadapter.UpdateCommand() = contcomandos.GetUpdateCommand()
+        cerrarConexion()
+        Dim objFila As DataRow = objdataSet.Tables("Reservas").Rows.Item(0)
+        objFila.BeginEdit()
+        objFila("MontoReembolsado") = objR.Rembolso
+        objFila.EndEdit()
+        objdataadapter.Update(objdataSet, "Reservas")
+        modificarReservasHuespedes(objR.devolverHuespedes, objR)
+    End Sub
+
     Public Overrides Sub eliminar(ByVal xobj As Object)
         Dim objR As Reserva = CType(xobj, Reserva)
         abrirConexion()
