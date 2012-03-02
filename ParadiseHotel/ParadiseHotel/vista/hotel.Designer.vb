@@ -93,7 +93,9 @@ Partial Class Hotel
         Me.telefono = New System.Windows.Forms.ColumnHeader
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
-        Me.btn_ver_reporte = New System.Windows.Forms.Button
+        Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
+        Me.aklja = New System.Windows.Forms.Label
+        Me.lbl_res_id = New System.Windows.Forms.Label
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -189,6 +191,8 @@ Partial Class Hotel
         '
         'tab_reservar
         '
+        Me.tab_reservar.Controls.Add(Me.lbl_res_id)
+        Me.tab_reservar.Controls.Add(Me.aklja)
         Me.tab_reservar.Controls.Add(Me.lview_habitaciones)
         Me.tab_reservar.Controls.Add(Me.lbl_aniadir_huepedes)
         Me.tab_reservar.Controls.Add(Me.Panel1)
@@ -213,7 +217,7 @@ Partial Class Hotel
         Me.lview_habitaciones.GridLines = True
         Me.lview_habitaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lview_habitaciones.HideSelection = False
-        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 100)
+        Me.lview_habitaciones.Location = New System.Drawing.Point(12, 126)
         Me.lview_habitaciones.Name = "lview_habitaciones"
         Me.lview_habitaciones.Size = New System.Drawing.Size(644, 135)
         Me.lview_habitaciones.TabIndex = 13
@@ -249,8 +253,7 @@ Partial Class Hotel
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
-        Me.lbl_aniadir_huepedes.Enabled = False
-        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(25, 248)
+        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(549, 103)
         Me.lbl_aniadir_huepedes.Name = "lbl_aniadir_huepedes"
         Me.lbl_aniadir_huepedes.Size = New System.Drawing.Size(92, 13)
         Me.lbl_aniadir_huepedes.TabIndex = 23
@@ -266,12 +269,12 @@ Partial Class Hotel
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(12, 42)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(644, 52)
+        Me.Panel1.Size = New System.Drawing.Size(644, 40)
         Me.Panel1.TabIndex = 22
         '
         'btn_comprobar
         '
-        Me.btn_comprobar.Location = New System.Drawing.Point(540, 11)
+        Me.btn_comprobar.Location = New System.Drawing.Point(540, 5)
         Me.btn_comprobar.Name = "btn_comprobar"
         Me.btn_comprobar.Size = New System.Drawing.Size(75, 23)
         Me.btn_comprobar.TabIndex = 23
@@ -280,7 +283,7 @@ Partial Class Hotel
         '
         'dtp_checkout
         '
-        Me.dtp_checkout.Location = New System.Drawing.Point(329, 14)
+        Me.dtp_checkout.Location = New System.Drawing.Point(329, 8)
         Me.dtp_checkout.Name = "dtp_checkout"
         Me.dtp_checkout.Size = New System.Drawing.Size(169, 20)
         Me.dtp_checkout.TabIndex = 22
@@ -288,7 +291,7 @@ Partial Class Hotel
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(265, 21)
+        Me.Label4.Location = New System.Drawing.Point(265, 15)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(58, 13)
         Me.Label4.TabIndex = 21
@@ -296,7 +299,7 @@ Partial Class Hotel
         '
         'dtp_checkin
         '
-        Me.dtp_checkin.Location = New System.Drawing.Point(69, 15)
+        Me.dtp_checkin.Location = New System.Drawing.Point(69, 9)
         Me.dtp_checkin.Name = "dtp_checkin"
         Me.dtp_checkin.Size = New System.Drawing.Size(169, 20)
         Me.dtp_checkin.TabIndex = 19
@@ -304,7 +307,7 @@ Partial Class Hotel
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 21)
+        Me.Label3.Location = New System.Drawing.Point(13, 15)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(50, 13)
         Me.Label3.TabIndex = 20
@@ -475,7 +478,7 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(579, 79)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
+        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
         Me.checkbox_reservas.TabIndex = 20
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
@@ -718,21 +721,39 @@ Partial Class Hotel
         Me.num_habitacion.Text = "Habitacion"
         Me.num_habitacion.Width = 70
         '
-        'btn_ver_reporte
+        'btn_ir_a_imprimir
         '
-        Me.btn_ver_reporte.Location = New System.Drawing.Point(363, 12)
-        Me.btn_ver_reporte.Name = "btn_ver_reporte"
-        Me.btn_ver_reporte.Size = New System.Drawing.Size(92, 23)
-        Me.btn_ver_reporte.TabIndex = 16
-        Me.btn_ver_reporte.Text = "Ver Reporte"
-        Me.btn_ver_reporte.UseVisualStyleBackColor = True
+        Me.btn_ir_a_imprimir.Location = New System.Drawing.Point(363, 12)
+        Me.btn_ir_a_imprimir.Name = "btn_ir_a_imprimir"
+        Me.btn_ir_a_imprimir.Size = New System.Drawing.Size(92, 23)
+        Me.btn_ir_a_imprimir.TabIndex = 16
+        Me.btn_ir_a_imprimir.Text = "Imprimir"
+        Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
+        '
+        'aklja
+        '
+        Me.aklja.AutoSize = True
+        Me.aklja.Location = New System.Drawing.Point(25, 103)
+        Me.aklja.Name = "aklja"
+        Me.aklja.Size = New System.Drawing.Size(62, 13)
+        Me.aklja.TabIndex = 24
+        Me.aklja.Text = "Reserva Nº"
+        '
+        'lbl_res_id
+        '
+        Me.lbl_res_id.AutoSize = True
+        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
+        Me.lbl_res_id.Name = "lbl_res_id"
+        Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_res_id.TabIndex = 25
+        Me.lbl_res_id.Text = "Label5"
         '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1156, 732)
-        Me.Controls.Add(Me.btn_ver_reporte)
+        Me.Controls.Add(Me.btn_ir_a_imprimir)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
         Me.Controls.Add(Me.gbox_huespedes)
@@ -837,5 +858,7 @@ Partial Class Hotel
     Friend WithEvents dtp_checkin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btn_comprobar As System.Windows.Forms.Button
-    Friend WithEvents btn_ver_reporte As System.Windows.Forms.Button
+    Friend WithEvents btn_ir_a_imprimir As System.Windows.Forms.Button
+    Friend WithEvents aklja As System.Windows.Forms.Label
+    Friend WithEvents lbl_res_id As System.Windows.Forms.Label
 End Class

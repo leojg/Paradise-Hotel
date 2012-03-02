@@ -36,7 +36,7 @@
         Me.reserva = Reserva
         Me.frealizacion = fRealizacion
         Me.total = total
-        Me.montoRembolsado = Nothing
+        Me.montoRembolsado = -1
         objPers = New PersReserva
     End Sub
 

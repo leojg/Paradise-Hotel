@@ -20,6 +20,7 @@ Public Class Fachada
         Dim montoTotal = arr.Item(0)
         Dim montoAdelanto = arr.Item(1)
         Dim objR As Reserva = crearReserva(id, objH, colHuespedes, cin, cout, montoAdelanto, Date.Today, montoTotal)
+        ReservasAdmin.GetInstance.altaReserva(objR)
     End Function
 
     Public Shared Function bajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
@@ -40,6 +41,10 @@ Public Class Fachada
 
     Public Shared Function calcularNroHabitacion() As Integer
         Return Hotel.GetInstance.CalcularNroHabitacion
+    End Function
+
+    Public Shared Function calcularNroReserva() As Integer
+        Return ReservasAdmin.GetInstance.calcularNumeroReserva
     End Function
 
     Private Shared Function crearHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte) As Habitacion
@@ -104,11 +109,12 @@ Public Class Fachada
         Return Hotel.GetInstance.DevolverServicios
     End Function
 
+    Public Shared Function obtener_identificaciones() As ArrayList
+        Return HuespedAdmin.GetInstance.obtener_identificaciones()
+    End Function
+
     Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
         Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 
-    Public Shared Function obtener_identificaciones() As ArrayList
-        Return HuespedAdmin.GetInstance.obtener_identificaciones()
-    End Function
 End Class

@@ -8,6 +8,7 @@ Public Class Hotel
         arr.Add("SuiteSr")
         arr.Add("Individual")
         arr.Add("Doble")
+        Me.lbl_res_id.Text = Fachada.calcularNroReserva.ToString
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
         'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
@@ -63,9 +64,9 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_reservar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_reservar.Click
-        If Me.panel_reservar_completo() Then
-            'Dominio.Fachada.altaReserva(Me.txt_id_cliente.Text, Me.lview_servicios.SelectedItems.Item, Me.dtp_checkin.Value, Me.dtp_checkout.Value)
-        End If
+        'If Me.panel_reservar_completo() Then
+        Dominio.Fachada.altaReserva(CInt(lbl_res_id.Text), 10, Fachada.devolverHuespedes, DateValue("20/4/12"), DateValue("20/5/12"))
+        'End If
     End Sub
 
     '*****************CONTROL DE DATOS*****************

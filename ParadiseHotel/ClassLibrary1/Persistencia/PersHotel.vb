@@ -49,6 +49,26 @@ Public Class PersHotel
         Return objdataset
     End Function
 
+    Public Function ObtenerDataSetReservas() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM Reservas", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "Reservas")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
+    Public Function ObtenerDataSetReservasHuespedes() As DataSet
+        abrirConexion()
+        Me.objcomando = New OleDbCommand("SELECT * FROM ReservasHuespedes", objconexion)
+        objdataadapter = New OleDbDataAdapter(objcomando)
+        Dim objdataset As New DataSet()
+        objdataadapter.Fill(objdataset, "ReservasHuespedes")
+        objconexion.Close()
+        Return objdataset
+    End Function
+
     'Public Function CargarReporte() As
     '    Dim sqlConn As OleDbConnection
     '    Dim sqlDaHab As OleDbDataAdapter
