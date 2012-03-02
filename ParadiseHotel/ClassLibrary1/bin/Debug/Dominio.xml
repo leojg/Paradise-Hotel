@@ -6,7 +6,33 @@ Dominio
 </name>
 </assembly>
 <members>
-<member name="P:Dominio.My.Resources.Resources.ResourceManager">
+<member name="M:Dominio.ReservasAdmin.CalcularCostosReserva(System.DateTime,System.DateTime,Dominio.Habitacion)">
+	<summary>
+ Calcula el costo de las reservas según la habitación y dias pasados.
+ Devuelve un array con el costo total(posición 0), el monto de adelanto(posición 1) 
+ y el numero de dias de reserva(posición 2).
+ </summary>
+	<param name="fecha_inicio"></param>
+	<param name="fecha_fin"></param>
+	<param name="objH"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Dominio.ReservasAdmin.verificarHabitacionesDisponibles(System.DateTime,System.DateTime)">
+	<summary>
+ Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
+ que sus fechas de ingreso y salida coincidan con los parametros y compara cada habitacion con
+ las de dichas reservas y devuelve aquellas que no están reservadas
+ </summary>
+	<param name="fecha_inicio"></param>
+	<param name="fecha_fin"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Dominio.ReservasAdmin">
+	<summary>
+ Clase encargada de gestionar las reservas de habitaciones
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dominio.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -103,32 +129,6 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
-</member><member name="M:Dominio.ReservasAdmin.CalcularCostosReserva(System.DateTime,System.DateTime,Dominio.Habitacion)">
-	<summary>
- Calcula el costo de las reservas según la habitación y dias pasados.
- Devuelve un array con el costo total(posición 0), el monto de adelanto(posición 1) 
- y el numero de dias de reserva(posición 2).
- </summary>
-	<param name="fecha_inicio"></param>
-	<param name="fecha_fin"></param>
-	<param name="objH"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:Dominio.ReservasAdmin.VerificarHabitacionesDisponibles(System.DateTime,System.DateTime)">
-	<summary>
- Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
- que sus fechas de ingreso y salida coincidan con los parametros y compara cada habitacion con
- las de dichas reservas y devuelve aquellas que no están reservadas
- </summary>
-	<param name="fecha_inicio"></param>
-	<param name="fecha_fin"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="T:Dominio.ReservasAdmin">
-	<summary>
- Clase encargada de gestionar las reservas de habitaciones
- </summary>
-	<remarks></remarks>
 </member><member name="T:Dominio.Fachada">
 	<summary>
  Clase encargada de brindar un acceso unificado y controlado a la capa de dominio

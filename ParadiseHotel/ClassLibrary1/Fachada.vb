@@ -117,4 +117,7 @@ Public Class Fachada
         Return ReservasAdmin.GetInstance.VerificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
     End Function
 
+    Public Shared Function devolverHuesped(ByVal id As Integer) As Huesped
+        Return HuespedAdmin.GetInstance.devolverHuesped(id)
+    End Function
 End Class

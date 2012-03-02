@@ -24,21 +24,6 @@ Public Class Lib_util
             End With
             lview.Items.Add(item)
         Next
-        'Dim DE As DictionaryEntry
-        'Dim objH As Habitacion
-        'Dim lvItem As ListViewItem
-        'For Each DE In col_habitaciones
-        '    objH = CType(DE.Value, Habitacion)
-        '    lvItem = New ListViewItem(objH.Numero)
-        '    With lvItem
-        '        '.SubItems.Add(objV.Matricula)
-        '        .SubItems.Add(objV.Marca)
-        '        .SubItems.Add(objV.Modelo)
-        '        .SubItems.Add(objV.Anio)
-        '        .Tag = objV
-        '    End With
-        '    xlview.Items.Add(lvItem)
-        'Next
     End Sub
 
     Public Shared Sub cargar_lview_hab_hash(ByVal col_habitaciones As Hashtable, ByVal lview As ListView)
@@ -85,7 +70,7 @@ Public Class Lib_util
     End Sub
 
     Public Shared Function integridad_del_tiempo(ByVal dtp_ini As DateTimePicker, ByVal dtp_fin As DateTimePicker) As Integer
-        If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) < 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) < 0 Then
+        If DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
             Return 2
         ElseIf DateDiff(DateInterval.Day, dtp_ini.Value, dtp_fin.Value) < 0 Then
             Return 1

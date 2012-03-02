@@ -31,6 +31,8 @@ Partial Class Hotel
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tab_reservar = New System.Windows.Forms.TabPage
+        Me.lbl_res_id = New System.Windows.Forms.Label
+        Me.aklja = New System.Windows.Forms.Label
         Me.lview_habitaciones = New System.Windows.Forms.ListView
         Me.id = New System.Windows.Forms.ColumnHeader
         Me.mtrs2 = New System.Windows.Forms.ColumnHeader
@@ -94,8 +96,6 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
-        Me.aklja = New System.Windows.Forms.Label
-        Me.lbl_res_id = New System.Windows.Forms.Label
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -209,6 +209,24 @@ Partial Class Hotel
         Me.tab_reservar.Text = "Reservar"
         Me.tab_reservar.UseVisualStyleBackColor = True
         '
+        'lbl_res_id
+        '
+        Me.lbl_res_id.AutoSize = True
+        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
+        Me.lbl_res_id.Name = "lbl_res_id"
+        Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_res_id.TabIndex = 25
+        Me.lbl_res_id.Text = "Label5"
+        '
+        'aklja
+        '
+        Me.aklja.AutoSize = True
+        Me.aklja.Location = New System.Drawing.Point(25, 103)
+        Me.aklja.Name = "aklja"
+        Me.aklja.Size = New System.Drawing.Size(62, 13)
+        Me.aklja.TabIndex = 24
+        Me.aklja.Text = "Reserva Nº"
+        '
         'lview_habitaciones
         '
         Me.lview_habitaciones.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.mtrs2, Me.categoria, Me.terraza, Me.costo})
@@ -253,7 +271,7 @@ Partial Class Hotel
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
-        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(549, 103)
+        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(564, 14)
         Me.lbl_aniadir_huepedes.Name = "lbl_aniadir_huepedes"
         Me.lbl_aniadir_huepedes.Size = New System.Drawing.Size(92, 13)
         Me.lbl_aniadir_huepedes.TabIndex = 23
@@ -341,7 +359,8 @@ Partial Class Hotel
         'lbl_filtro
         '
         Me.lbl_filtro.AutoSize = True
-        Me.lbl_filtro.Location = New System.Drawing.Point(437, 13)
+        Me.lbl_filtro.Enabled = False
+        Me.lbl_filtro.Location = New System.Drawing.Point(428, 98)
         Me.lbl_filtro.Name = "lbl_filtro"
         Me.lbl_filtro.Size = New System.Drawing.Size(29, 13)
         Me.lbl_filtro.TabIndex = 15
@@ -349,8 +368,9 @@ Partial Class Hotel
         '
         'cbox_filtro
         '
+        Me.cbox_filtro.Enabled = False
         Me.cbox_filtro.FormattingEnabled = True
-        Me.cbox_filtro.Location = New System.Drawing.Point(472, 10)
+        Me.cbox_filtro.Location = New System.Drawing.Point(472, 95)
         Me.cbox_filtro.Name = "cbox_filtro"
         Me.cbox_filtro.Size = New System.Drawing.Size(184, 21)
         Me.cbox_filtro.TabIndex = 14
@@ -478,7 +498,7 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(579, 79)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
+        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
         Me.checkbox_reservas.TabIndex = 20
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
@@ -729,24 +749,6 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.TabIndex = 16
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
-        '
-        'aklja
-        '
-        Me.aklja.AutoSize = True
-        Me.aklja.Location = New System.Drawing.Point(25, 103)
-        Me.aklja.Name = "aklja"
-        Me.aklja.Size = New System.Drawing.Size(62, 13)
-        Me.aklja.TabIndex = 24
-        Me.aklja.Text = "Reserva Nº"
-        '
-        'lbl_res_id
-        '
-        Me.lbl_res_id.AutoSize = True
-        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
-        Me.lbl_res_id.Name = "lbl_res_id"
-        Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_res_id.TabIndex = 25
-        Me.lbl_res_id.Text = "Label5"
         '
         'Hotel
         '

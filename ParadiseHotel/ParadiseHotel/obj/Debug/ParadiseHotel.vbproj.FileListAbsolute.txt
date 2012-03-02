@@ -20,7 +20,6 @@ C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHo
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.hotel.resources
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Mantenimiento.resources
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.vbproj.GenerateResource.Cache
-C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\BDHotelParaiso.mdb
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.exe
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.pdb
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\bin\Debug\ParadiseHotel.xml
@@ -32,3 +31,5 @@ E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHote
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Mantenimiento.resources
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.Man_habitacion.resources
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.imprimir.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.agregar_huespedes.resources
+C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.imprimir.resources

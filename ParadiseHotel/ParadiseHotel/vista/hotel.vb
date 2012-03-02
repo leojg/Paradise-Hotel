@@ -8,6 +8,8 @@ Public Class Hotel
         arr.Add("SuiteSr")
         arr.Add("Individual")
         arr.Add("Doble")
+        Me.dtp_checkin.MinDate = Date.Now
+        Me.dtp_checkout.MinDate = Date.Now
         Me.lbl_res_id.Text = Fachada.calcularNroReserva.ToString
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
         'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
@@ -124,13 +126,19 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_comprobar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_comprobar.Click
+        If Me.txt_id_cliente.Text = "" Then
+            MsgBox("No ha ingresado un número de documento válido")
+            Exit Sub
+        End If
+
         Dim limpiar As Boolean = False
 
         If Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 3 Then
             Lib_util.cargar_lview(Dominio.Fachada.VerificarFechasDisponibles(Me.dtp_checkin.Value, Me.dtp_checkout.Value), Me.lview_habitaciones)
             Me.lview_habitaciones.Enabled = True
+            Me.cbox_filtro.Enabled = True
         ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 2 Then
-            MsgBox("Ninguna fecha puede ser anterior a la fecha de hoy")
+            MsgBox("La fecha de Check out no puede ser hoy mismo")
             limpiar = True
         ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 1 Then
             MsgBox("La fecha de check-out que has seleccionado es anterior a la de check-in")
@@ -169,17 +177,45 @@ Public Class Hotel
         Me.lview_habitaciones.Enabled = False
     End Sub
 
+    Private Sub txt_id_cliente_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_id_cliente.LostFocus
+        If Me.txt_id_cliente.Text <> "" Then
+            Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
+        Else
+            Fachada.devolverHuesped(-1)
+        End If
+    End Sub
+
     Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
         Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
     End Sub
 
-    Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ver_reporte.Click
+    Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
         Dim frm_imprimir As imprimir = New imprimir
         frm_imprimir.ShowDialog()
     End Sub
 
     Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
-        Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones))
-        frm_agregar_huespedes.ShowDialog()
+        If Me.txt_id_cliente.Text <> "" Then
+            Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones))
+            frm_agregar_huespedes.ShowDialog()
+        Else
+            MsgBox("Debe ingresar el número de documento del huesped responsable de la reserva")
+        End If
+    End Sub
+
+    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub dtp_checkout_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkout.ValueChanged
+
+    End Sub
+
+    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub dtp_checkin_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkin.ValueChanged
+
     End Sub
 End Class
