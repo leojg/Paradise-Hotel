@@ -15,6 +15,10 @@
         Return instance
     End Function
 
+    Public Function devolverHuesped(ByVal id As Integer) As Huesped
+        Return Me.colHuespedes.Item(id)
+    End Function
+
     Public Function devolverHuespedes() As Hashtable
         Return colHuespedes
     End Function

@@ -6,9 +6,11 @@ Public Class ReservasAdmin
 
     Shared instance As ReservasAdmin
     Dim colReservas As Hashtable
+    Dim objPers As PersHotel
 
     Private Sub New()
         colReservas = New Hashtable
+        objPers = New PersHotel
     End Sub
 
     Public Shared Function GetInstance() As ReservasAdmin
@@ -27,7 +29,9 @@ Public Class ReservasAdmin
 
     Public Function bajaReserva(ByVal objR As Reserva) As Boolean
         If colReservas.ContainsKey(objR.Id) Then
+            objR.Rembolso = calcularRembolso(objR)
             colReservas.Remove(objR.Id)
+            colReservas.Add(objR.Id, objR)
         End If
     End Function
 
@@ -54,7 +58,7 @@ Public Class ReservasAdmin
 
     Public Function calcularNumeroReserva() As Integer
         Dim nroResMax As Integer = 0
-        For Each objR As Reserva In colReservas
+        For Each objR As Reserva In colReservas.Values
             If (nroResMax < objR.Id) Then
                 nroResMax = objR.Id
             End If
@@ -62,9 +66,47 @@ Public Class ReservasAdmin
         Return nroResMax + 1
     End Function
 
+    Public Function calcularRembolso(ByVal objR As Reserva) As Integer
+        If (DateDiff(DateInterval.Hour, Date.Today, objR.CheckIn) <= 72) Then
+            Return objR.montoReserva
+        End If
+        Return 0
+    End Function
+
     Public Function devolverReservas() As Hashtable
         Return colReservas
     End Function
+
+    Public Sub obtenerReservas()
+        Dim objDataSetReservas As DataSet = objPers.ObtenerDataSetReservas
+        Dim objDataSetReservasHuespedes As DataSet = objPers.ObtenerDataSetReservasHuespedes
+        For Each objfila As DataRow In objDataSetReservas.Tables("Reservas").Rows
+            Dim objR As Reserva
+            Dim id As Integer = CInt(objfila("Id"))
+            Dim nrohab As Integer = CInt(objfila("NumeroHabitacion"))
+            Dim cin As Date = CDate(objfila("FechaEntrada"))
+            Dim cout As Date = CDate(objfila("FechaSalida"))
+            Dim freal As Date = CDate(objfila("FechaRealizacion"))
+            Dim madel As Integer = CInt(objfila("MontoAdelantado"))
+            Dim mtot As Integer = CInt(objfila("MontoTotal"))
+            Dim fpago As Date = CDate(objfila("FechaPagoSaldo"))
+            Dim montoRem As Integer = CInt(objfila("MontoReembolsado"))
+
+            Dim objhab As Habitacion = Hotel.GetInstance.DevolverHabitacion(nrohab)
+            Dim colHuespedes As New Hashtable
+            For Each objfila2 As DataRow In objDataSetReservasHuespedes.Tables("ReservasHuespedes").Rows
+                If (CInt(objfila("Id")) = (CInt(objfila2("reserva_id")))) Then
+                    Dim huesped_id As Integer = CInt(objfila2("pasajero_id"))
+                    Dim objh As Huesped = HuespedAdmin.GetInstance.devolverHuesped(huesped_id)
+                    colHuespedes.Add(objh.Documento, objh)
+                End If
+            Next
+            objR = New Reserva(id, objhab, colHuespedes, cin, cout, madel, freal, mtot)
+            objR.Rembolso = montoRem
+            objR.FechaPago = fpago
+            Me.colReservas.Add(objR.Id, objR)
+        Next
+    End Sub
 
     ''' <summary>
     ''' Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
@@ -75,15 +117,13 @@ Public Class ReservasAdmin
     ''' <param name="fecha_fin"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function VerificarHabitacionesDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
+    Public Function verificarHabitacionesDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
         Dim colhab As ArrayList = Hotel.GetInstance.DevolverHabitacionPorTipo("Todo")
         For Each objR As Reserva In colReservas.Values
             If (Not objR.CheckOut < fecha_inicio Or Not objR.CheckIn > fecha_fin) Then
-                For Each objhab As Habitacion In colhab
-                    If Not objhab.Numero = objR.Habitacion.Numero Then
-                        colhab.Remove(objhab.Numero)
-                    End If
-                Next
+                If (colhab.Contains(objR.Habitacion)) Then
+                    colhab.Remove(objR.Habitacion)
+                End If
             End If
         Next
         Return colhab
