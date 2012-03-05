@@ -23,6 +23,14 @@ Public Class Fachada
         ReservasAdmin.GetInstance.altaReserva(objR)
     End Function
 
+    Public Shared Function altaReserva(ByVal id As Integer, ByVal objH As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date)
+        Dim arr As ArrayList = ReservasAdmin.GetInstance.CalcularCostosReserva(cin, cout, objH)
+        Dim montoTotal = arr.Item(0)
+        Dim montoAdelanto = arr.Item(1)
+        Dim objR As Reserva = crearReserva(id, objH, colHuespedes, cin, cout, montoAdelanto, Date.Today, montoTotal)
+        ReservasAdmin.GetInstance.altaReserva(objR)
+    End Function
+
     Public Shared Function bajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
@@ -44,9 +52,14 @@ Public Class Fachada
     End Function
 
     Public Shared Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal habid As Int16) As ArrayList
-        Dim objH As Habitacion
+        Dim objH As Habitacion = Hotel.GetInstance.DevolverHabitacion(habid)
         Return ReservasAdmin.GetInstance.CalcularCostosReserva(fecha_inicio, fecha_fin, objH)
     End Function
+
+    Public Shared Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal objH As Habitacion) As ArrayList
+        Return ReservasAdmin.GetInstance.CalcularCostosReserva(fecha_inicio, fecha_fin, objH)
+    End Function
+
 
     Public Shared Function calcularNroHabitacion() As Integer
         Return Hotel.GetInstance.CalcularNroHabitacion
@@ -120,6 +133,10 @@ Public Class Fachada
 
     Public Shared Function devolverServicios() As Hashtable
         Return Hotel.GetInstance.DevolverServicios
+    End Function
+
+    Public Shared Function devolverHabitacionesReservadas() As Hashtable
+        Return ReservasAdmin.GetInstance.devolverHabitacionesReservadas
     End Function
 
     Public Shared Function obtener_identificaciones() As ArrayList

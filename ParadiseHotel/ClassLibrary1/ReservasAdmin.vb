@@ -83,6 +83,14 @@ Public Class ReservasAdmin
         Return colReservas
     End Function
 
+    Public Function devolverHabitacionesReservadas() As Hashtable
+        Dim hash As New Hashtable
+        For Each objR As Reserva In colReservas.Values
+            hash.Add(objR.Habitacion.Numero, objR.Habitacion)
+        Next
+        Return hash
+    End Function
+
     Public Sub obtenerReservas()
         Dim objDataSetReservas As DataSet = objPers.ObtenerDataSetReservas
         Dim objDataSetReservasHuespedes As DataSet = objPers.ObtenerDataSetReservasHuespedes

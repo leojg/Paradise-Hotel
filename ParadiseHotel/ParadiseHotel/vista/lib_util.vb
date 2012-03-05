@@ -130,4 +130,14 @@ Public Class Lib_util
             Next i
         End With
     End Sub
+
+    Public Shared Sub setearLView(ByVal lview As ListView, ByVal obj As Object)
+        'For Each c As ColumnHeader In lview.Columns
+        '    lview.Columns.Remove(c)
+        'Next
+        'For Each objO In obj.GetType.Attribute
+        '    lview.Columns.Add()
+        'Next
+    End Sub
+
 End Class

@@ -10,6 +10,7 @@ Public Class Hotel
         arr.Add("Doble")
         Me.lbl_res_id.Text = Fachada.calcularNroReserva.ToString
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
+        Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesReservadas, lview_hab_reservadas)
         'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Lib_util.cargar_lview_huespedes(lview_huespedes, Fachada.devolverHuespedes)
@@ -18,8 +19,6 @@ Public Class Hotel
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
         Me.btn_habitaciones.Select()
-
-
     End Sub
 
     Private Sub hide_gboxs()
@@ -65,8 +64,14 @@ Public Class Hotel
 
     Private Sub btn_reservar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_reservar.Click
         'If Me.panel_reservar_completo() Then
-        Dominio.Fachada.altaReserva(CInt(lbl_res_id.Text), 10, Fachada.devolverHuespedes, DateValue("20/4/12"), DateValue("20/5/12"))
-        'End If
+        For Each objO As ListViewItem In lview_habitaciones.SelectedItems
+            If (Not objO.Tag Is Nothing) Then
+                Dim objH As Habitacion
+                objH = objO.Tag
+                Dominio.Fachada.altaReserva(CInt(lbl_res_id.Text), objH, Fachada.devolverHuespedes, dtp_checkin.Value, dtp_checkout.Value)
+                'End If
+            End If
+        Next
     End Sub
 
     '*****************CONTROL DE DATOS*****************
@@ -187,5 +192,31 @@ Public Class Hotel
     Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
         Dim frm_imprimir As imprimir = New imprimir
         frm_imprimir.ShowDialog()
+    End Sub
+
+    Private Sub lview_habitaciones_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_habitaciones.SelectedIndexChanged
+        For Each objO As ListViewItem In lview_habitaciones.SelectedItems
+            If (Not objO.Tag Is Nothing) Then
+                Dim objH As Habitacion
+                objH = objO.Tag
+                Dim arr As ArrayList = Fachada.CalcularCostosReserva(dtp_checkin.Value, dtp_checkout.Value, objH)
+                lbl_tot_cost.Text = arr(0)
+                lbl_adelanto.Text = arr(1)
+                lbl_nro_dias.Text = arr(2)
+            End If
+        Next
+    End Sub
+
+    Private Sub checkbox_reservas_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles checkbox_reservas.CheckedChanged
+        If (checkbox_reservas.Checked = True) Then
+
+        ElseIf checkbox_reservas.Checked = False Then
+            Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesReservadas, lview_hab_reservadas)
+        End If
+    End Sub
+
+    Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
+        MsgBox("Ojo! Esto borra el contenido del lview... funcionalidad en estado de prueba!!!")
+        Lib_util.setearLView(lview_habitaciones, Dominio.Fachada.devolverPisos)
     End Sub
 End Class
