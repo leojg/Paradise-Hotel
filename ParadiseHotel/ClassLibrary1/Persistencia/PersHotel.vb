@@ -51,7 +51,7 @@ Public Class PersHotel
 
     Public Function ObtenerDataSetReservas() As DataSet
         abrirConexion()
-        Me.objcomando = New OleDbCommand("SELECT * FROM Reservas", objconexion)
+        Me.objcomando = New OleDbCommand("SELECT * FROM Reservas where MontoReembolsado=" & -1, objconexion)
         objdataadapter = New OleDbDataAdapter(objcomando)
         Dim objdataset As New DataSet()
         objdataadapter.Fill(objdataset, "Reservas")
@@ -69,34 +69,27 @@ Public Class PersHotel
         Return objdataset
     End Function
 
-    'Public Function CargarReporte() As
-    '    Dim sqlConn As OleDbConnection
-    '    Dim sqlDaHab As OleDbDataAdapter
-    '    Dim sqlDaDen As OleDbDataAdapter
-    '    Dim sqlDaTipo As OleDbDataAdapter
-    '    Dim dsMetraje As New DataSet 'dsprodxcat
+    Public Function cargarReporte() As DataSet
+        abrirConexion()
 
+        Dim sqlDaHab As OleDbDataAdapter
+        Dim sqlDaDen As OleDbDataAdapter
+        Dim sqlDaTipo As OleDbDataAdapter
+        Dim dsMetraje As New DataSet 'dsprodxcat
 
-    '    Dim datoConexion As String = "Provider = Microsoft.jet.oledb.4.0; Data Source = .\BDHotelParaiso.mdb"
+        Dim StrCommHab = New OleDbCommand("Select * From Habitaciones", objconexion)
+        Dim strCommDen = New OleDbCommand("Select * From DenominacionesSuites", objconexion)
+        Dim strCommTipo = New OleDbCommand("Select * From TiposHabitacion", objconexion)
 
-    '    Dim StrCommHab As String = "Select * From Habitaciones"
-    '    Dim strCommDen As String = "Select * From DenominacionesSuites"
-    '    Dim strCommTipo As String = "Select * From TiposHabitacion"
+        sqlDaHab = New OleDbDataAdapter(StrCommHab)
+        sqlDaDen = New OleDbDataAdapter(strCommDen)
+        sqlDaTipo = New OleDbDataAdapter(strCommTipo)
 
+        sqlDaHab.Fill(dsMetraje, "Habitaciones")
+        sqlDaDen.Fill(dsMetraje, "DenominacionesSuites")
+        sqlDaTipo.Fill(dsMetraje, "TiposHabitacion")
 
-    '    sqlConn = New OleDbConnection(datoConexion)
-    '    sqlDaHab = New OleDbDataAdapter(StrCommHab, sqlConn)
-    '    sqlDaDen = New OleDbDataAdapter(strCommDen, sqlConn)
-    '    sqlDaTipo = New OleDbDataAdapter(strCommTipo, sqlConn)
+        Return dsMetraje
 
-    '    sqlDaHab.Fill(dsMetraje, "Habitaciones")
-    '    sqlDaDen.Fill(dsMetraje, "DenominacionesSuites")
-    '    sqlDaTipo.Fill(dsMetraje, "TiposHabitacion")
-
-    '    'Dim info As New CrystalReportPrueba
-    '    'info.SetDataSource(dsMetraje)
-    '    'crvPruebaHab.ReportSource = info
-    '    'Me.crvPruebaHab.RefreshReport()
-
-    'End Function
+    End Function
 End Class

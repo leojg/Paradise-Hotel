@@ -109,6 +109,24 @@ Public Class Hotel
         Return arr
     End Function
 
+    Public Function DevolverHabitacionPorTipo(ByVal colHab As Hashtable, ByVal tipo As String) As ArrayList
+        Dim arr As New ArrayList
+        For Each objH As Habitacion In colHab.Values
+            If (tipo = "Todo") Then
+                arr.Add(objH)
+            Else
+                If (objH.GetType.Name = tipo) Then
+                    arr.Add(objH)
+                End If
+            End If
+        Next
+        Return arr
+    End Function
+
+    Public Function cargarReporte() As DataSet
+        Return objPers.cargarReporte()
+    End Function
+
     Public Function ModificarHabitacion(ByVal objH As Habitacion) As Boolean
         Dim objP As Piso = DevolverPiso(objH.Piso)
         If objH.GetType.Name = "Suite" Then
