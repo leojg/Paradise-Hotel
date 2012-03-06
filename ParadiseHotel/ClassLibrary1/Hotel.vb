@@ -29,18 +29,14 @@ Public Class Hotel
 
     Public Function AltaHabitacion(ByVal objH As Habitacion) As Boolean
         Dim objP As Piso = DevolverPiso(objH.Piso)
-        If objH.GetType.Name = "Suite" Then
-            Dim objSuite As Suite = CType(objH, Suite)
-            For Each objP2 As Piso In colPisos.Values
-                For Each objHab As Suite In objP.DevolverHabitaciones.Values
-                    If (Not objSuite.Nombre = objHab.Nombre) Then
-                        Return objP.AgregarHabitacion(objH)
-                    End If
-                    Return False
-                Next
-            Next
+        If (objH.GetType.Name = "SuiteJr" Or objH.GetType.Name = "SuiteSr") Then
+            If (Me.controlarNombre(CType(objH, Suite))) Then
+                Throw New ExNombreRepetido
+            End If
+            Return objP.AgregarHabitacion(objH)
+        Else
+            Return objP.AgregarHabitacion(objH)
         End If
-        Return objP.AgregarHabitacion(objH)
     End Function
 
 
@@ -90,7 +86,7 @@ Public Class Hotel
                 End If
             Next
         Next
-        Throw New HabitacionNoEncontradaEx
+        Throw New ExHabitacionNoEncontrada
     End Function
 
     Public Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
@@ -125,6 +121,19 @@ Public Class Hotel
 
     Public Function cargarReporte() As DataSet
         Return objPers.cargarReporte()
+    End Function
+
+    Private Function controlarNombre(ByVal objH As Suite) As Boolean
+        For Each objP As Piso In colPisos.Values
+            For Each objHab As Habitacion In objP.DevolverHabitaciones.Values
+                If (objHab.GetType.Name = "SuiteJr" Or objHab.GetType.Name = "SuiteSr") Then
+                    If objH.Nombre = CType(objHab, Suite).Nombre Then
+                        Return True
+                    End If
+                End If
+            Next
+        Next
+        Return False
     End Function
 
     Public Function ModificarHabitacion(ByVal objH As Habitacion) As Boolean

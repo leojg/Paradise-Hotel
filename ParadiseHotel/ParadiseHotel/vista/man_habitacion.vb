@@ -3,6 +3,20 @@ Imports Dominio
 
 Public Class Man_habitacion
     Inherits ParadiseHotel.Mantenimiento
+    Dim objH As Habitacion
+
+    Public Sub New(ByVal objH As Habitacion)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+        Me.objH = objH
+    End Sub
+
+    Public Sub New()
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+    End Sub
 
     Private Sub cargarLbox(ByVal lbx As ListBox, ByVal hash As Hashtable)
         lbx.Items.Clear()
@@ -13,81 +27,119 @@ Public Class Man_habitacion
 
     Private Sub Man_habitacion_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.lbl_titulo.Text = "Mantenimiento de habitaciones"
-        Me.lbl_descripcion.Text = "Informacion a definir"
-        Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
-        For Each objp As Piso In Fachada.devolverPisos.Values
-            cbox_piso.Items.Add(objp.Numero)
-        Next
-        Me.lbl_nombre_suite.Visible = False
-        Me.tx_nom_suite.Visible = False
+        If (objH Is Nothing) Then
+            Me.lbl_descripcion.Text = "Mantenimiento General"
+            Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+            For Each objp As Piso In Fachada.devolverPisos.Values
+                cbox_piso.Items.Add(objp.Numero)
+            Next
+            Me.lbl_nombre_suite.Visible = False
+            Me.tx_nom_suite.Visible = False
+        Else
+            Me.lbl_descripcion.Text = "Edición de Habitación"
+            cbox_piso.Enabled = False
+            Me.tx_num.Text = objH.Numero
+            Me.tx_costo.Text = objH.Costo
+            Me.cbox_piso.Items.Add(objH.Piso)
+            cbox_piso.SelectedItem = objH.Piso
+            Me.cbox_tipo.SelectedItem = objH.GetType.Name
+            Me.btn_agregar.Visible = False
+            Me.btn_eliminar.Visible = False
+            Me.cbox_tipo.Enabled = False
+            If (objH.GetType.Name = "SuiteJr" Or objH.GetType.Name = "SuiteSr") Then
+                Me.tx_nom_suite.Text = CType(objH, Suite).Nombre
+            End If
+        End If
 
     End Sub
 
     Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_piso.SelectedIndexChanged
-        cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
-        lbl_metrajedispo.Visible = True
-        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
-        lbl_metrajedispo.ForeColor = Color.Blue
-        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+        If (objH Is Nothing) Then
+
+
+            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            lbl_metrajedispo.Visible = True
+            Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+            lbl_metrajedispo.ForeColor = Color.Blue
+            lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+        End If
     End Sub
 
     Private Sub btn_agregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_agregar.Click
-        Dim tipoStr = CStr(cbox_tipo.SelectedItem)
-        Dim tipoInt
-        If (tipoStr = GetType(Individual).Name) Then
-            tipoInt = 1
-        ElseIf (tipoStr = GetType(Doble).Name) Then
-            tipoInt = 2
-        ElseIf (tipoStr = GetType(SuiteJr).Name) Then
-            tipoInt = 3
-        ElseIf (tipoStr = GetType(SuiteSr).Name) Then
-            tipoInt = 4
-        End If
-        Fachada.altaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
-        cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
-        Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
-        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
-        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
+        Try
+            Dim tipoStr = CStr(cbox_tipo.SelectedItem)
+            Dim tipoInt
+            If (tipoStr = GetType(Individual).Name) Then
+                tipoInt = 1
+            ElseIf (tipoStr = GetType(Doble).Name) Then
+                tipoInt = 2
+            ElseIf (tipoStr = GetType(SuiteJr).Name) Then
+                tipoInt = 3
+            ElseIf (tipoStr = GetType(SuiteSr).Name) Then
+                tipoInt = 4
+            End If
+            Fachada.altaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+            Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+            lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+        Catch ex As ExNombreRepetido
+            MsgBox(ex.Message)
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Intente Nuevamente")
+        End Try
     End Sub
 
     Private Sub btn_modificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar.Click
-        MsgBox("funca")
-        Dim tipoStr = CStr(cbox_tipo.SelectedItem)
-        Dim tipoInt
-        If (tipoStr = "Indivudual") Then
-            tipoInt = 1
-        ElseIf (tipoStr = "Doble") Then
-            tipoInt = 2
-        ElseIf (tipoStr = "SuiteJr") Then
-            tipoInt = 3
-        ElseIf (tipoStr = "SuiteSr") Then
-            tipoInt = 4
-        End If
-        Fachada.modHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
-        cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
-        Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
-        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
-        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
+        Try
+
+
+            Dim tipoStr = CStr(cbox_tipo.SelectedItem)
+            Dim tipoInt
+            If (tipoStr = "Indivudual") Then
+                tipoInt = 1
+            ElseIf (tipoStr = "Doble") Then
+                tipoInt = 2
+            ElseIf (tipoStr = "SuiteJr") Then
+                tipoInt = 3
+            ElseIf (tipoStr = "SuiteSr") Then
+                tipoInt = 4
+            End If
+            Fachada.modHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+            Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+            lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+        Catch ex As ExNombreRepetido
+            MsgBox(ex.Message)
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Intente Nuevamente")
+        End Try
     End Sub
 
     Private Sub btn_eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar.Click
-        MsgBox("funca")
-        Dim tipoStr = CStr(cbox_tipo.SelectedItem)
-        Dim tipoInt
-        If (tipoStr = "Indivudual") Then
-            tipoInt = 1
-        ElseIf (tipoStr = "Doble") Then
-            tipoInt = 2
-        ElseIf (tipoStr = "SuiteJr") Then
-            tipoInt = 3
-        ElseIf (tipoStr = "SuiteSr") Then
-            tipoInt = 4
-        End If
-        Fachada.bajaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
-        cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
-        Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
-        Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
-        lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & Piso.MetrajeDisponible & " m2"
+        Try
+            Dim tipoStr = CStr(cbox_tipo.SelectedItem)
+            Dim tipoInt
+            If (tipoStr = "Indivudual") Then
+                tipoInt = 1
+            ElseIf (tipoStr = "Doble") Then
+                tipoInt = 2
+            ElseIf (tipoStr = "SuiteJr") Then
+                tipoInt = 3
+            ElseIf (tipoStr = "SuiteSr") Then
+                tipoInt = 4
+            End If
+            Fachada.bajaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
+            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
+            Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
+            lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+        Catch ex As ExNombreRepetido
+            MsgBox(ex.Message)
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Intente Nuevamente")
+        End Try
     End Sub
 
     Private Sub lb_hab_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lb_hab.SelectedIndexChanged

@@ -34,3 +34,4 @@ E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHote
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.imprimir.resources
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.frmReporteHab.resources
 E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.reserva.resources
+E:\Programacion\Taller VB.net\ParadiseHotel\ParadiseHotel\obj\Debug\ParadiseHotel.agregar_huespedes.resources

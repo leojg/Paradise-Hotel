@@ -22,7 +22,6 @@ Partial Class Hotel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
         Me.btn_habitaciones = New System.Windows.Forms.Button
         Me.btn_servicios = New System.Windows.Forms.Button
         Me.btn_huespedes = New System.Windows.Forms.Button
@@ -32,12 +31,6 @@ Partial Class Hotel
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tab_reservar = New System.Windows.Forms.TabPage
-        Me.lbl_nro_dias = New System.Windows.Forms.Label
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.lbl_adelanto = New System.Windows.Forms.Label
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.lbl_tot_cost = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
         Me.lbl_res_id = New System.Windows.Forms.Label
         Me.aklja = New System.Windows.Forms.Label
         Me.lview_habitaciones = New System.Windows.Forms.ListView
@@ -62,7 +55,7 @@ Partial Class Hotel
         Me.btn_eliminar_habitacion = New System.Windows.Forms.Button
         Me.btn_modificar_habitacion = New System.Windows.Forms.Button
         Me.link_nueva_hab = New System.Windows.Forms.LinkLabel
-        Me.ListView1 = New System.Windows.Forms.ListView
+        Me.lview_hab_admin = New System.Windows.Forms.ListView
         Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader
@@ -80,12 +73,12 @@ Partial Class Hotel
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
-        Me.lview_hab_reservadas = New System.Windows.Forms.ListView
-        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader8 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader10 = New System.Windows.Forms.ColumnHeader
+        Me.lview_reservas = New System.Windows.Forms.ListView
+        Me.chId = New System.Windows.Forms.ColumnHeader
+        Me.chCout = New System.Windows.Forms.ColumnHeader
+        Me.chmRes = New System.Windows.Forms.ColumnHeader
+        Me.chHab = New System.Windows.Forms.ColumnHeader
+        Me.chTot = New System.Windows.Forms.ColumnHeader
         Me.gbox_servicios = New System.Windows.Forms.GroupBox
         Me.tab_mostrar_servicios = New System.Windows.Forms.TabControl
         Me.tabpage_servicios = New System.Windows.Forms.TabPage
@@ -103,8 +96,8 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
-        Me.cmsDetallesReserva = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.smiVerdetallesReserva = New System.Windows.Forms.ToolStripMenuItem
+        Me.chCin = New System.Windows.Forms.ColumnHeader
+        Me.chfReal = New System.Windows.Forms.ColumnHeader
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -120,7 +113,6 @@ Partial Class Hotel
         Me.gbox_huespedes.SuspendLayout()
         Me.tab_huespedes.SuspendLayout()
         Me.tabpage_huespedes.SuspendLayout()
-        Me.cmsDetallesReserva.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_habitaciones
@@ -201,12 +193,6 @@ Partial Class Hotel
         '
         'tab_reservar
         '
-        Me.tab_reservar.Controls.Add(Me.lbl_nro_dias)
-        Me.tab_reservar.Controls.Add(Me.Label7)
-        Me.tab_reservar.Controls.Add(Me.lbl_adelanto)
-        Me.tab_reservar.Controls.Add(Me.Label8)
-        Me.tab_reservar.Controls.Add(Me.lbl_tot_cost)
-        Me.tab_reservar.Controls.Add(Me.Label6)
         Me.tab_reservar.Controls.Add(Me.lbl_res_id)
         Me.tab_reservar.Controls.Add(Me.aklja)
         Me.tab_reservar.Controls.Add(Me.lview_habitaciones)
@@ -225,64 +211,10 @@ Partial Class Hotel
         Me.tab_reservar.Text = "Reservar"
         Me.tab_reservar.UseVisualStyleBackColor = True
         '
-        'lbl_nro_dias
-        '
-        Me.lbl_nro_dias.AutoSize = True
-        Me.lbl_nro_dias.Location = New System.Drawing.Point(439, 103)
-        Me.lbl_nro_dias.Name = "lbl_nro_dias"
-        Me.lbl_nro_dias.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_nro_dias.TabIndex = 31
-        Me.lbl_nro_dias.Text = "Label5"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(375, 103)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 13)
-        Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Nº de Dias"
-        '
-        'lbl_adelanto
-        '
-        Me.lbl_adelanto.AutoSize = True
-        Me.lbl_adelanto.Location = New System.Drawing.Point(321, 103)
-        Me.lbl_adelanto.Name = "lbl_adelanto"
-        Me.lbl_adelanto.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_adelanto.TabIndex = 29
-        Me.lbl_adelanto.Text = "Label5"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(266, 103)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 13)
-        Me.Label8.TabIndex = 28
-        Me.Label8.Text = "Adelanto"
-        '
-        'lbl_tot_cost
-        '
-        Me.lbl_tot_cost.AutoSize = True
-        Me.lbl_tot_cost.Location = New System.Drawing.Point(211, 103)
-        Me.lbl_tot_cost.Name = "lbl_tot_cost"
-        Me.lbl_tot_cost.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_tot_cost.TabIndex = 27
-        Me.lbl_tot_cost.Text = "Label5"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(144, 103)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 13)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "Costo Total"
-        '
         'lbl_res_id
         '
         Me.lbl_res_id.AutoSize = True
-        Me.lbl_res_id.Location = New System.Drawing.Point(89, 103)
+        Me.lbl_res_id.Location = New System.Drawing.Point(93, 103)
         Me.lbl_res_id.Name = "lbl_res_id"
         Me.lbl_res_id.Size = New System.Drawing.Size(39, 13)
         Me.lbl_res_id.TabIndex = 25
@@ -306,7 +238,6 @@ Partial Class Hotel
         Me.lview_habitaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lview_habitaciones.HideSelection = False
         Me.lview_habitaciones.Location = New System.Drawing.Point(12, 126)
-        Me.lview_habitaciones.MultiSelect = False
         Me.lview_habitaciones.Name = "lview_habitaciones"
         Me.lview_habitaciones.Size = New System.Drawing.Size(644, 135)
         Me.lview_habitaciones.TabIndex = 13
@@ -342,7 +273,7 @@ Partial Class Hotel
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
-        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(549, 103)
+        Me.lbl_aniadir_huepedes.Location = New System.Drawing.Point(564, 14)
         Me.lbl_aniadir_huepedes.Name = "lbl_aniadir_huepedes"
         Me.lbl_aniadir_huepedes.Size = New System.Drawing.Size(92, 13)
         Me.lbl_aniadir_huepedes.TabIndex = 23
@@ -430,7 +361,8 @@ Partial Class Hotel
         'lbl_filtro
         '
         Me.lbl_filtro.AutoSize = True
-        Me.lbl_filtro.Location = New System.Drawing.Point(437, 13)
+        Me.lbl_filtro.Enabled = False
+        Me.lbl_filtro.Location = New System.Drawing.Point(428, 98)
         Me.lbl_filtro.Name = "lbl_filtro"
         Me.lbl_filtro.Size = New System.Drawing.Size(29, 13)
         Me.lbl_filtro.TabIndex = 15
@@ -438,8 +370,9 @@ Partial Class Hotel
         '
         'cbox_filtro
         '
+        Me.cbox_filtro.Enabled = False
         Me.cbox_filtro.FormattingEnabled = True
-        Me.cbox_filtro.Location = New System.Drawing.Point(472, 10)
+        Me.cbox_filtro.Location = New System.Drawing.Point(472, 95)
         Me.cbox_filtro.Name = "cbox_filtro"
         Me.cbox_filtro.Size = New System.Drawing.Size(184, 21)
         Me.cbox_filtro.TabIndex = 14
@@ -449,7 +382,7 @@ Partial Class Hotel
         Me.tab_admin_habitaciones.Controls.Add(Me.btn_eliminar_habitacion)
         Me.tab_admin_habitaciones.Controls.Add(Me.btn_modificar_habitacion)
         Me.tab_admin_habitaciones.Controls.Add(Me.link_nueva_hab)
-        Me.tab_admin_habitaciones.Controls.Add(Me.ListView1)
+        Me.tab_admin_habitaciones.Controls.Add(Me.lview_hab_admin)
         Me.tab_admin_habitaciones.Location = New System.Drawing.Point(4, 22)
         Me.tab_admin_habitaciones.Name = "tab_admin_habitaciones"
         Me.tab_admin_habitaciones.Padding = New System.Windows.Forms.Padding(3)
@@ -486,18 +419,18 @@ Partial Class Hotel
         Me.link_nueva_hab.TabStop = True
         Me.link_nueva_hab.Text = "Nueva habitación"
         '
-        'ListView1
+        'lview_hab_admin
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
-        Me.ListView1.GridLines = True
-        Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.ListView1.Location = New System.Drawing.Point(6, 49)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(644, 217)
-        Me.ListView1.TabIndex = 14
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.lview_hab_admin.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.lview_hab_admin.GridLines = True
+        Me.lview_hab_admin.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.lview_hab_admin.Location = New System.Drawing.Point(6, 49)
+        Me.lview_hab_admin.MultiSelect = False
+        Me.lview_hab_admin.Name = "lview_hab_admin"
+        Me.lview_hab_admin.Size = New System.Drawing.Size(644, 217)
+        Me.lview_hab_admin.TabIndex = 14
+        Me.lview_hab_admin.UseCompatibleStateImageBehavior = False
+        Me.lview_hab_admin.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
         '
@@ -553,7 +486,7 @@ Partial Class Hotel
         Me.tab_control.Controls.Add(Me.Label1)
         Me.tab_control.Controls.Add(Me.Label2)
         Me.tab_control.Controls.Add(Me.ComboBox2)
-        Me.tab_control.Controls.Add(Me.lview_hab_reservadas)
+        Me.tab_control.Controls.Add(Me.lview_reservas)
         Me.tab_control.Location = New System.Drawing.Point(4, 22)
         Me.tab_control.Name = "tab_control"
         Me.tab_control.Padding = New System.Windows.Forms.Padding(3)
@@ -647,44 +580,44 @@ Partial Class Hotel
         Me.ComboBox2.Size = New System.Drawing.Size(184, 21)
         Me.ComboBox2.TabIndex = 14
         '
-        'lview_hab_reservadas
+        'lview_reservas
         '
-        Me.lview_hab_reservadas.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10})
-        Me.lview_hab_reservadas.GridLines = True
-        Me.lview_hab_reservadas.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lview_hab_reservadas.Location = New System.Drawing.Point(12, 102)
-        Me.lview_hab_reservadas.MultiSelect = False
-        Me.lview_hab_reservadas.Name = "lview_hab_reservadas"
-        Me.lview_hab_reservadas.Size = New System.Drawing.Size(644, 160)
-        Me.lview_hab_reservadas.TabIndex = 13
-        Me.lview_hab_reservadas.UseCompatibleStateImageBehavior = False
-        Me.lview_hab_reservadas.View = System.Windows.Forms.View.Details
+        Me.lview_reservas.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chId, Me.chHab, Me.chTot, Me.chmRes, Me.chCin, Me.chCout, Me.chfReal})
+        Me.lview_reservas.GridLines = True
+        Me.lview_reservas.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.lview_reservas.Location = New System.Drawing.Point(12, 102)
+        Me.lview_reservas.MultiSelect = False
+        Me.lview_reservas.Name = "lview_reservas"
+        Me.lview_reservas.Size = New System.Drawing.Size(644, 160)
+        Me.lview_reservas.TabIndex = 13
+        Me.lview_reservas.UseCompatibleStateImageBehavior = False
+        Me.lview_reservas.View = System.Windows.Forms.View.Details
         '
-        'ColumnHeader6
+        'chId
         '
-        Me.ColumnHeader6.Tag = ""
-        Me.ColumnHeader6.Text = "Nro. Id."
-        Me.ColumnHeader6.Width = 96
+        Me.chId.Tag = ""
+        Me.chId.Text = "Nro. Id."
+        Me.chId.Width = 63
         '
-        'ColumnHeader7
+        'chCout
         '
-        Me.ColumnHeader7.Text = "Mtrs. 2"
-        Me.ColumnHeader7.Width = 62
+        Me.chCout.Text = "Fecha Check Out"
+        Me.chCout.Width = 120
         '
-        'ColumnHeader8
+        'chmRes
         '
-        Me.ColumnHeader8.Text = "Categoría"
-        Me.ColumnHeader8.Width = 115
+        Me.chmRes.Text = "Adelanto"
+        Me.chmRes.Width = 68
         '
-        'ColumnHeader9
+        'chHab
         '
-        Me.ColumnHeader9.Text = "Terraza"
-        Me.ColumnHeader9.Width = 49
+        Me.chHab.Text = "Habitacion"
+        Me.chHab.Width = 71
         '
-        'ColumnHeader10
+        'chTot
         '
-        Me.ColumnHeader10.Text = "Costo"
-        Me.ColumnHeader10.Width = 56
+        Me.chTot.Text = "Monto Total"
+        Me.chTot.Width = 84
         '
         'gbox_servicios
         '
@@ -819,23 +752,21 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
         '
-        'cmsDetallesReserva
+        'chCin
         '
-        Me.cmsDetallesReserva.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.smiVerdetallesReserva})
-        Me.cmsDetallesReserva.Name = "ContextMenuStrip1"
-        Me.cmsDetallesReserva.Size = New System.Drawing.Size(190, 26)
+        Me.chCin.Text = "Fecha Check Out"
+        Me.chCin.Width = 115
         '
-        'smiVerdetallesReserva
+        'chfReal
         '
-        Me.smiVerdetallesReserva.Name = "smiVerdetallesReserva"
-        Me.smiVerdetallesReserva.Size = New System.Drawing.Size(189, 22)
-        Me.smiVerdetallesReserva.Text = "Ver Detalles de Reserva"
+        Me.chfReal.Text = "Fecha Realizacion"
+        Me.chfReal.Width = 117
         '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(804, 582)
+        Me.ClientSize = New System.Drawing.Size(1156, 732)
         Me.Controls.Add(Me.btn_ir_a_imprimir)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
@@ -867,7 +798,6 @@ Partial Class Hotel
         Me.gbox_huespedes.ResumeLayout(False)
         Me.tab_huespedes.ResumeLayout(False)
         Me.tabpage_huespedes.ResumeLayout(False)
-        Me.cmsDetallesReserva.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -892,7 +822,7 @@ Partial Class Hotel
     Friend WithEvents tab_admin_habitaciones As System.Windows.Forms.TabPage
     Friend WithEvents btn_modificar_habitacion As System.Windows.Forms.Button
     Friend WithEvents link_nueva_hab As System.Windows.Forms.LinkLabel
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents lview_hab_admin As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
@@ -907,12 +837,12 @@ Partial Class Hotel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents lview_hab_reservadas As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents lview_reservas As System.Windows.Forms.ListView
+    Friend WithEvents chId As System.Windows.Forms.ColumnHeader
+    Friend WithEvents chCout As System.Windows.Forms.ColumnHeader
+    Friend WithEvents chmRes As System.Windows.Forms.ColumnHeader
+    Friend WithEvents chHab As System.Windows.Forms.ColumnHeader
+    Friend WithEvents chTot As System.Windows.Forms.ColumnHeader
     Friend WithEvents gbox_accion As System.Windows.Forms.GroupBox
     Friend WithEvents rbtn_checkout As System.Windows.Forms.RadioButton
     Friend WithEvents rbtn_checkin As System.Windows.Forms.RadioButton
@@ -945,12 +875,6 @@ Partial Class Hotel
     Friend WithEvents btn_ir_a_imprimir As System.Windows.Forms.Button
     Friend WithEvents aklja As System.Windows.Forms.Label
     Friend WithEvents lbl_res_id As System.Windows.Forms.Label
-    Friend WithEvents cmsDetallesReserva As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents smiVerdetallesReserva As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents lbl_adelanto As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents lbl_tot_cost As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents lbl_nro_dias As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents chCin As System.Windows.Forms.ColumnHeader
+    Friend WithEvents chfReal As System.Windows.Forms.ColumnHeader
 End Class

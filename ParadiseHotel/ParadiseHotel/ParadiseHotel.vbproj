@@ -91,6 +91,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="vista\agregar_huespedes.Designer.vb">
+      <DependentUpon>agregar_huespedes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="vista\agregar_huespedes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="vista\frmReporteHab.Designer.vb">
       <DependentUpon>frmReporteHab.vb</DependentUpon>
     </Compile>
@@ -134,6 +140,10 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\agregar_huespedes.resx">
+      <DependentUpon>agregar_huespedes.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\frmReporteHab.resx">

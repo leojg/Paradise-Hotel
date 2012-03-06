@@ -8,17 +8,22 @@ Public Class Hotel
         arr.Add("SuiteSr")
         arr.Add("Individual")
         arr.Add("Doble")
+        Me.dtp_checkin.MinDate = Date.Now
+        Me.dtp_checkout.MinDate = Date.Now
         Me.lbl_res_id.Text = Fachada.calcularNroReserva.ToString
+        Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
-        Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesReservadas, lview_hab_reservadas)
         'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Lib_util.cargar_lview_huespedes(lview_huespedes, Fachada.devolverHuespedes)
+        Lib_util.cargar_lview_reservas(lview_reservas, Fachada.devolverReservas)
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
         Me.btn_habitaciones.Select()
+
+
     End Sub
 
     Private Sub hide_gboxs()
@@ -125,27 +130,23 @@ Public Class Hotel
     End Function
 
     Private Sub cbox_filtro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_filtro.SelectedIndexChanged
-        If lview_habitaciones.Enabled = False Then
-            Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
-        Else
-            Dim hash As New Hashtable
-            For Each obj As ListViewItem In lview_habitaciones.Items
-                Dim objH As Habitacion = obj.Tag
-                hash.Add(objH.Numero, objH)
-            Next
-            Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(hash, Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
-
-        End If
-        End Sub
+        Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.SelectedItem), Me.lview_habitaciones)
+    End Sub
 
     Private Sub btn_comprobar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_comprobar.Click
+        If Me.txt_id_cliente.Text = "" Then
+            MsgBox("No ha ingresado un número de documento válido")
+            Exit Sub
+        End If
+
         Dim limpiar As Boolean = False
 
         If Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 3 Then
             Lib_util.cargar_lview(Dominio.Fachada.VerificarFechasDisponibles(Me.dtp_checkin.Value, Me.dtp_checkout.Value), Me.lview_habitaciones)
             Me.lview_habitaciones.Enabled = True
+            Me.cbox_filtro.Enabled = True
         ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 2 Then
-            MsgBox("Ninguna fecha puede ser anterior a la fecha de hoy")
+            MsgBox("La fecha de Check out no puede ser hoy mismo")
             limpiar = True
         ElseIf Lib_util.integridad_del_tiempo(Me.dtp_checkin, Me.dtp_checkout) = 1 Then
             MsgBox("La fecha de check-out que has seleccionado es anterior a la de check-in")
@@ -172,7 +173,6 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar.Click
-        Fachada.bajaReserva(2)
         Me.limpiar_panel_reservas()
     End Sub
 
@@ -185,6 +185,14 @@ Public Class Hotel
         Me.lview_habitaciones.Enabled = False
     End Sub
 
+    Private Sub txt_id_cliente_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_id_cliente.LostFocus
+        If Me.txt_id_cliente.Text <> "" Then
+            Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
+        Else
+            Fachada.devolverHuesped(-1)
+        End If
+    End Sub
+
     Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
         Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
     End Sub
@@ -194,29 +202,91 @@ Public Class Hotel
         frm_imprimir.ShowDialog()
     End Sub
 
-    Private Sub lview_habitaciones_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_habitaciones.SelectedIndexChanged
-        For Each objO As ListViewItem In lview_habitaciones.SelectedItems
-            If (Not objO.Tag Is Nothing) Then
-                Dim objH As Habitacion
-                objH = objO.Tag
-                Dim arr As ArrayList = Fachada.CalcularCostosReserva(dtp_checkin.Value, dtp_checkout.Value, objH)
-                lbl_tot_cost.Text = arr(0)
-                lbl_adelanto.Text = arr(1)
-                lbl_nro_dias.Text = arr(2)
-            End If
-        Next
-    End Sub
-
-    Private Sub checkbox_reservas_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles checkbox_reservas.CheckedChanged
-        If (checkbox_reservas.Checked = True) Then
-
-        ElseIf checkbox_reservas.Checked = False Then
-            Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesReservadas, lview_hab_reservadas)
+    Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
+        If Me.txt_id_cliente.Text <> "" Then
+            Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones))
+            frm_agregar_huespedes.ShowDialog()
+        Else
+            MsgBox("Debe ingresar el número de documento del huesped responsable de la reserva")
         End If
     End Sub
 
-    Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
-        MsgBox("Ojo! Esto borra el contenido del lview... funcionalidad en estado de prueba!!!")
-        Lib_util.setearLView(lview_habitaciones, Dominio.Fachada.devolverPisos)
+    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub dtp_checkout_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkout.ValueChanged
+
+    End Sub
+
+    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub dtp_checkin_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkin.ValueChanged
+
+    End Sub
+
+    Private Sub btn_eliminar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar_habitacion.Click
+        Try
+
+            For Each obj As ListViewItem In Me.lview_hab_admin.SelectedItems
+                If (obj.Tag.GetType.Name = "SuiteSr") Then
+                    Dim objH As SuiteSr = obj.Tag
+                    Fachada.bajaHabitacion(objH.Nombre, objH.Numero, objH.Piso, objH.Costo, 4)
+                ElseIf (obj.Tag.GetType.Name = "SuiteJr") Then
+                    Dim objH As SuiteJr = obj.Tag
+                    Fachada.bajaHabitacion(objH.Nombre, objH.Numero, objH.Piso, objH.Costo, 3)
+                ElseIf (obj.Tag.GetType.Name = "Doble") Then
+                    Dim objH As Doble = obj.Tag
+                    Fachada.bajaHabitacion("", objH.Numero, objH.Piso, objH.Costo, 2)
+                ElseIf (obj.Tag.GetType.Name = "Individual") Then
+                    Dim objH As Individual = obj.Tag
+                    Fachada.bajaHabitacion("", objH.Numero, objH.Piso, objH.Costo, 1)
+                End If
+            Next
+            Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
+        Catch ex As ExElementoNoSelecionado
+            MsgBox(ex.Message)
+        Catch ex As ExHabitacionNoEncontrada
+            MsgBox(ex.Message)
+        Catch ex As NullReferenceException
+            MsgBox("Se ha seleccionado un elemento invalido. Vuelva a Intentarlo")
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Vuelva a intentar la operación")
+        End Try
+    End Sub
+
+    Private Sub btn_modificar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar_habitacion.Click
+        Try
+            Dim frm As Man_habitacion
+            For Each obj As ListViewItem In Me.lview_hab_admin.SelectedItems
+                If (obj.Tag.GetType.Name = "SuiteSr") Then
+                    Dim objH As SuiteSr = obj.Tag
+                    frm = New Man_habitacion(objH)
+
+                ElseIf (obj.Tag.GetType.Name = "SuiteJr") Then
+                    Dim objH As SuiteJr = obj.Tag
+                    frm = New Man_habitacion(objH)
+                    frm.ShowDialog()
+                ElseIf (obj.Tag.GetType.Name = "Doble") Then
+                    Dim objH As Doble = obj.Tag
+                    frm = New Man_habitacion(objH)
+                ElseIf (obj.Tag.GetType.Name = "Individual") Then
+                    Dim objH As Individual = obj.Tag
+                    frm = New Man_habitacion(objH)
+                End If
+            Next
+            frm.ShowDialog()
+            Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
+        Catch ex As ExElementoNoSelecionado
+            MsgBox(ex.Message)
+        Catch ex As ExHabitacionNoEncontrada
+            MsgBox(ex.Message)
+        Catch ex As NullReferenceException
+            MsgBox("Se ha seleccionado un elemento invalido. Vuelva a Intentarlo")
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Vuelva a intentar la operación")
+        End Try
     End Sub
 End Class

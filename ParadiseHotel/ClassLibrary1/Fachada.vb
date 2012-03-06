@@ -139,9 +139,19 @@ Public Class Fachada
         Return ReservasAdmin.GetInstance.devolverHabitacionesReservadas
     End Function
 
+    Public Shared Function devolverHuesped(ByVal id As Integer) As Huesped
+        Return HuespedAdmin.GetInstance.devolverHuesped(id)
+    End Function
+
+    Public Shared Function devolverReservas() As Hashtable
+        Return ReservasAdmin.GetInstance.devolverReservas
+    End Function
+
     Public Shared Function obtener_identificaciones() As ArrayList
         Return HuespedAdmin.GetInstance.obtener_identificaciones()
     End Function
+
+
 
     Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
         Return ReservasAdmin.GetInstance.verificarHabitacionesDisponibles(fecha_inicio, fecha_fin)

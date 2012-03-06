@@ -24,21 +24,6 @@ Public Class Lib_util
             End With
             lview.Items.Add(item)
         Next
-        'Dim DE As DictionaryEntry
-        'Dim objH As Habitacion
-        'Dim lvItem As ListViewItem
-        'For Each DE In col_habitaciones
-        '    objH = CType(DE.Value, Habitacion)
-        '    lvItem = New ListViewItem(objH.Numero)
-        '    With lvItem
-        '        '.SubItems.Add(objV.Matricula)
-        '        .SubItems.Add(objV.Marca)
-        '        .SubItems.Add(objV.Modelo)
-        '        .SubItems.Add(objV.Anio)
-        '        .Tag = objV
-        '    End With
-        '    xlview.Items.Add(lvItem)
-        'Next
     End Sub
 
     Public Shared Sub cargar_lview_hab_hash(ByVal col_habitaciones As Hashtable, ByVal lview As ListView)
@@ -58,7 +43,7 @@ Public Class Lib_util
     Public Shared Sub cargar_lview_huespedes(ByVal lview As ListView, ByVal hash As Hashtable)
         Dim item As ListViewItem
         For Each objH As Huesped In hash.Values
-            item = New ListViewItem()
+            item = New ListViewItem(objH.Documento)
             With item
                 .SubItems.Add(objH.Nombre)
                 .SubItems.Add(objH.Apellido)
@@ -74,10 +59,10 @@ Public Class Lib_util
     Public Shared Sub cargar_lview_servicios(ByVal lview As ListView, ByVal hash As Hashtable)
         Dim item As ListViewItem
         For Each objS As Servicio In hash.Values
-            item = New ListViewItem()
-            item.SubItems.Add(objS.Nombre)
+            item = New ListViewItem(objS.Id)
+
             With item
-                .SubItems.Add(objS.Id)
+                .SubItems.Add(objS.Nombre)
                 .Tag = objS
             End With
             lview.Items.Add(item)
@@ -92,7 +77,7 @@ Public Class Lib_util
     End Sub
 
     Public Shared Function integridad_del_tiempo(ByVal dtp_ini As DateTimePicker, ByVal dtp_fin As DateTimePicker) As Integer
-        If DateDiff(DateInterval.Day, dtp_ini.Value, Date.Now) = 0 Or DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
+        If DateDiff(DateInterval.Day, Date.Now, dtp_fin.Value) = 0 Then
             Return 2
         ElseIf DateDiff(DateInterval.Day, dtp_ini.Value, dtp_fin.Value) < 0 Then
             Return 1
@@ -131,13 +116,33 @@ Public Class Lib_util
         End With
     End Sub
 
-    Public Shared Sub setearLView(ByVal lview As ListView, ByVal obj As Object)
-        'For Each c As ColumnHeader In lview.Columns
-        '    lview.Columns.Remove(c)
-        'Next
-        'For Each objO In obj.GetType.Attribute
-        '    lview.Columns.Add()
-        'Next
+    Public Shared Sub cargar_lview_reservas(ByVal lview As ListView, ByVal hash As Hashtable)
+        Dim item As ListViewItem
+        For Each objR As Dominio.Reserva In hash.Values
+            item = New ListViewItem(objR.Id)
+
+            With item
+                .SubItems.Add(objR.Habitacion.Numero)
+                .SubItems.Add(objR.montoTotal)
+                .SubItems.Add(objR.montoReserva)
+                .SubItems.Add(objR.CheckIn)
+                .SubItems.Add(objR.CheckOut)
+                .SubItems.Add(objR.fechaRealizacion)
+                .Tag = objR
+            End With
+            lview.Items.Add(item)
+        Next
     End Sub
 
+    Public Shared Function habitacion_del_listview(ByVal lview As ListView) As Habitacion
+        Dim i As Integer
+        Dim item As ListViewItem
+        Dim objH As Habitacion
+        For Each i In lview.SelectedIndices
+            item = lview.Items(i)
+            objH = CType(item.Tag, Habitacion)
+            Return objH
+        Next
+        Return Nothing
+    End Function
 End Class
