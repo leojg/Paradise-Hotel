@@ -1,6 +1,7 @@
 ﻿Imports Dominio
 Public Class Hotel
     Private _col_acompaniantes As Hashtable
+    Private _objH_titular As Huesped
 
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.relocate_controls()
@@ -24,8 +25,6 @@ Public Class Hotel
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
         Me.btn_habitaciones.Select()
-
-
     End Sub
 
     Private Sub hide_gboxs()
@@ -63,6 +62,8 @@ Public Class Hotel
     Private Sub btn_check_in_out_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_check_in_out.Click
         Me.hide_gboxs()
         Me.gbox_checkinout.Visible = True
+        Me.checkbox_reservas.CheckState = CheckState.Checked
+        Me.rbtn_checkin.Select()
     End Sub
 
     Private Sub link_nueva_hab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles link_nueva_hab.LinkClicked
@@ -72,11 +73,13 @@ Public Class Hotel
 
     Private Sub btn_reservar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_reservar.Click
         'If Me.panel_reservar_completo() Then
+        Me._col_acompaniantes.Add(Me._objH_titular.Documento, Me._objH_titular)
+        'la coleccion de acompaniantes y el titular se pasan separados, no juntos como aparece arriba
         For Each objO As ListViewItem In lview_habitaciones.SelectedItems
             If (Not objO.Tag Is Nothing) Then
                 Dim objH As Habitacion
                 objH = objO.Tag
-                Dominio.Fachada.altaReserva(CInt(lbl_res_id.Text), objH, Fachada.devolverHuespedes, dtp_checkin.Value, dtp_checkout.Value)
+                Dominio.Fachada.altaReserva(CInt(lbl_res_id.Text), objH, Me._col_acompaniantes, dtp_checkin.Value, dtp_checkout.Value)
                 'End If
             End If
         Next
@@ -175,7 +178,7 @@ Public Class Hotel
         End If
     End Sub
 
-    Private Sub btn_cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar.Click
+    Private Sub btn_cancelar_reserva_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_reserva.Click
         Me.limpiar_panel_reservas()
     End Sub
 
@@ -190,7 +193,7 @@ Public Class Hotel
 
     Private Sub txt_id_cliente_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_id_cliente.LostFocus
         If Me.txt_id_cliente.Text <> "" Then
-            Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
+            Me._objH_titular = Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
         Else
             Fachada.devolverHuesped(-1)
         End If
@@ -296,5 +299,23 @@ Public Class Hotel
     Public Sub depositar_acompaniantes(ByVal colAcomp As Hashtable)
         Me._col_acompaniantes = colAcomp
         Me.lbl_nro_acompaniantes.Text = CStr(Me._col_acompaniantes.Count())
+    End Sub
+
+    Private Sub btn_cancelar_reservado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_reservado.Click
+        For Each objR As ListViewItem In Me.lview_reservas.SelectedItems
+            If (Not objR.Tag Is Nothing) Then
+                Dim objReserva As Dominio.Reserva
+                objReserva = CType(objR.Tag, Dominio.Reserva)
+                Dominio.Fachada.bajaReserva(objReserva.id)
+                'End If
+            End If
+        Next
+    End Sub
+
+    Private Sub checkbox_reservas_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkbox_reservas.CheckedChanged
+        If Me.checkbox_reservas.CheckState = CheckState.Checked Then
+            Me.checkbox_reservas.CheckState = CheckState.Unchecked
+            Lib_util.cambiar_list_view(Me.lview_reservas, "habitacion")
+        End If
     End Sub
 End Class

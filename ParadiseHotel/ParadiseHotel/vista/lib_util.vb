@@ -145,4 +145,40 @@ Public Class Lib_util
         Next
         Return Nothing
     End Function
+
+    Public Shared Sub cambiar_list_view(ByVal lview As ListView, ByVal tipo As String)
+        lview.Clear()
+        If tipo = "habitacion" Then
+            Dim vec_headers(4) As ColumnHeader
+
+            Dim header1, header2, header3, header4, header5 As ColumnHeader
+            header1 = New ColumnHeader
+            header2 = New ColumnHeader
+            header3 = New ColumnHeader
+            header4 = New ColumnHeader
+            header5 = New ColumnHeader
+
+            header1.Name = "id"
+            header1.Text = "Id"
+            vec_headers(0) = header1
+
+            header2.Name = "metraje"
+            header2.Text = "Metraje"
+            vec_headers(1) = header2
+
+            header3.Name = "tipo"
+            header3.Text = "Tipo"
+            vec_headers(2) = header3
+
+            header4.Name = "terraza"
+            header4.Text = "Terraza"
+            vec_headers(3) = header4
+
+            header5.Name = "costo"
+            header5.Text = "Costo"
+            vec_headers(4) = header5
+
+            lview.Columns.AddRange(vec_headers)
+        End If
+    End Sub
 End Class
