@@ -75,10 +75,12 @@ Partial Class Hotel
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
         Me.lview_reservas = New System.Windows.Forms.ListView
         Me.chId = New System.Windows.Forms.ColumnHeader
-        Me.chCout = New System.Windows.Forms.ColumnHeader
-        Me.chmRes = New System.Windows.Forms.ColumnHeader
         Me.chHab = New System.Windows.Forms.ColumnHeader
         Me.chTot = New System.Windows.Forms.ColumnHeader
+        Me.chmRes = New System.Windows.Forms.ColumnHeader
+        Me.chCin = New System.Windows.Forms.ColumnHeader
+        Me.chCout = New System.Windows.Forms.ColumnHeader
+        Me.chfReal = New System.Windows.Forms.ColumnHeader
         Me.gbox_servicios = New System.Windows.Forms.GroupBox
         Me.tab_mostrar_servicios = New System.Windows.Forms.TabControl
         Me.tabpage_servicios = New System.Windows.Forms.TabPage
@@ -96,8 +98,8 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
-        Me.chCin = New System.Windows.Forms.ColumnHeader
-        Me.chfReal = New System.Windows.Forms.ColumnHeader
+        Me.lbl_acompaniantes = New System.Windows.Forms.Label
+        Me.lbl_nro_acompaniantes = New System.Windows.Forms.Label
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -193,6 +195,8 @@ Partial Class Hotel
         '
         'tab_reservar
         '
+        Me.tab_reservar.Controls.Add(Me.lbl_nro_acompaniantes)
+        Me.tab_reservar.Controls.Add(Me.lbl_acompaniantes)
         Me.tab_reservar.Controls.Add(Me.lbl_res_id)
         Me.tab_reservar.Controls.Add(Me.aklja)
         Me.tab_reservar.Controls.Add(Me.lview_habitaciones)
@@ -294,11 +298,11 @@ Partial Class Hotel
         '
         'btn_comprobar
         '
-        Me.btn_comprobar.Location = New System.Drawing.Point(540, 5)
+        Me.btn_comprobar.Location = New System.Drawing.Point(504, 5)
         Me.btn_comprobar.Name = "btn_comprobar"
-        Me.btn_comprobar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_comprobar.Size = New System.Drawing.Size(137, 23)
         Me.btn_comprobar.TabIndex = 23
-        Me.btn_comprobar.Text = "Comprobar"
+        Me.btn_comprobar.Text = "Comprobar fechas"
         Me.btn_comprobar.UseVisualStyleBackColor = True
         '
         'dtp_checkout
@@ -500,7 +504,7 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(579, 79)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
+        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
         Me.checkbox_reservas.TabIndex = 20
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
@@ -599,16 +603,6 @@ Partial Class Hotel
         Me.chId.Text = "Nro. Id."
         Me.chId.Width = 63
         '
-        'chCout
-        '
-        Me.chCout.Text = "Fecha Check Out"
-        Me.chCout.Width = 120
-        '
-        'chmRes
-        '
-        Me.chmRes.Text = "Adelanto"
-        Me.chmRes.Width = 68
-        '
         'chHab
         '
         Me.chHab.Text = "Habitacion"
@@ -618,6 +612,26 @@ Partial Class Hotel
         '
         Me.chTot.Text = "Monto Total"
         Me.chTot.Width = 84
+        '
+        'chmRes
+        '
+        Me.chmRes.Text = "Adelanto"
+        Me.chmRes.Width = 68
+        '
+        'chCin
+        '
+        Me.chCin.Text = "Fecha Check Out"
+        Me.chCin.Width = 115
+        '
+        'chCout
+        '
+        Me.chCout.Text = "Fecha Check Out"
+        Me.chCout.Width = 120
+        '
+        'chfReal
+        '
+        Me.chfReal.Text = "Fecha Realizacion"
+        Me.chfReal.Width = 117
         '
         'gbox_servicios
         '
@@ -752,15 +766,23 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
         '
-        'chCin
+        'lbl_acompaniantes
         '
-        Me.chCin.Text = "Fecha Check Out"
-        Me.chCin.Width = 115
+        Me.lbl_acompaniantes.AutoSize = True
+        Me.lbl_acompaniantes.Location = New System.Drawing.Point(214, 103)
+        Me.lbl_acompaniantes.Name = "lbl_acompaniantes"
+        Me.lbl_acompaniantes.Size = New System.Drawing.Size(84, 13)
+        Me.lbl_acompaniantes.TabIndex = 26
+        Me.lbl_acompaniantes.Text = "Acompañantes: "
         '
-        'chfReal
+        'lbl_nro_acompaniantes
         '
-        Me.chfReal.Text = "Fecha Realizacion"
-        Me.chfReal.Width = 117
+        Me.lbl_nro_acompaniantes.AutoSize = True
+        Me.lbl_nro_acompaniantes.Location = New System.Drawing.Point(304, 103)
+        Me.lbl_nro_acompaniantes.Name = "lbl_nro_acompaniantes"
+        Me.lbl_nro_acompaniantes.Size = New System.Drawing.Size(13, 13)
+        Me.lbl_nro_acompaniantes.TabIndex = 27
+        Me.lbl_nro_acompaniantes.Text = "0"
         '
         'Hotel
         '
@@ -877,4 +899,6 @@ Partial Class Hotel
     Friend WithEvents lbl_res_id As System.Windows.Forms.Label
     Friend WithEvents chCin As System.Windows.Forms.ColumnHeader
     Friend WithEvents chfReal As System.Windows.Forms.ColumnHeader
+    Friend WithEvents lbl_nro_acompaniantes As System.Windows.Forms.Label
+    Friend WithEvents lbl_acompaniantes As System.Windows.Forms.Label
 End Class

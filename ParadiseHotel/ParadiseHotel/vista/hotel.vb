@@ -1,5 +1,7 @@
 ﻿Imports Dominio
 Public Class Hotel
+    Private _col_acompaniantes As Hashtable
+
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.relocate_controls()
         Dim arr As New ArrayList()
@@ -204,7 +206,7 @@ Public Class Hotel
 
     Private Sub lbl_aniadir_huepedes_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lbl_aniadir_huepedes.LinkClicked
         If Me.txt_id_cliente.Text <> "" Then
-            Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones))
+            Dim frm_agregar_huespedes As agregar_huespedes = New agregar_huespedes(Lib_util.habitacion_del_listview(Me.lview_habitaciones), CInt(Me.txt_id_cliente.Text), Me)
             frm_agregar_huespedes.ShowDialog()
         Else
             MsgBox("Debe ingresar el número de documento del huesped responsable de la reserva")
@@ -288,5 +290,10 @@ Public Class Hotel
         Catch ex As Exception
             MsgBox("Error Inesperado. Vuelva a intentar la operación")
         End Try
+    End Sub
+
+    Public Sub depositar_acompaniantes(ByVal colAcomp As Hashtable)
+        Me._col_acompaniantes = colAcomp
+        Me.lbl_nro_acompaniantes.Text = CStr(Me._col_acompaniantes.Count())
     End Sub
 End Class

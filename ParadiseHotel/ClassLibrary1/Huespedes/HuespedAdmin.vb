@@ -54,4 +54,8 @@
         Next
         Return arr_ids
     End Function
+
+    Public Function existe_huesped(ByVal id As Integer) As Boolean
+        Return Me.colHuespedes.ContainsKey(id)
+    End Function
 End Class
