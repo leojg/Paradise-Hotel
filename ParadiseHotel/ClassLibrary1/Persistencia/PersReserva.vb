@@ -76,6 +76,9 @@ Public Class PersReserva
         Dim objFila As DataRow = objDataSet.Tables("ReservasHuespedes").NewRow()
         objFila("pasajero_id") = objH.Documento.ToString
         objFila("reserva_id") = objR.Id
+        If (objH.Documento = objR.Resposalbe.Documento) Then
+            objFila("responsable") = True
+        End If
         objDataSet.Tables("ReservasHuespedes").Rows.Add(objFila)
         objDataAdapter.Update(objDataSet, "ReservasHuespedes")
     End Sub

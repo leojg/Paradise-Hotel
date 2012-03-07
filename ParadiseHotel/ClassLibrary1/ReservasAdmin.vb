@@ -108,14 +108,19 @@ Public Class ReservasAdmin
 
             Dim objhab As Habitacion = Hotel.GetInstance.DevolverHabitacion(nrohab)
             Dim colHuespedes As New Hashtable
+            Dim objResposable As Huesped
             For Each objfila2 As DataRow In objDataSetReservasHuespedes.Tables("ReservasHuespedes").Rows
                 If (CInt(objfila("Id")) = (CInt(objfila2("reserva_id")))) Then
                     Dim huesped_id As Integer = CInt(objfila2("pasajero_id"))
                     Dim objh As Huesped = HuespedAdmin.GetInstance.devolverHuesped(huesped_id)
-                    colHuespedes.Add(objh.Documento, objh)
+                    If (CBool(objfila("responsable")) = True) Then
+                        colHuespedes.Add(objh.Documento, objh)
+                    Else
+                        objResposable = objh
+                    End If
                 End If
             Next
-            objR = New Reserva(id, objhab, colHuespedes, cin, cout, madel, freal, mtot)
+            objR = New Reserva(objResposable, id, objhab, colHuespedes, cin, cout, madel, freal, mtot)
             objR.Rembolso = montoRem
             objR.FechaPago = fpago
             Me.colReservas.Add(objR.Id, objR)

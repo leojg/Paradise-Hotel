@@ -2,6 +2,7 @@
     Dim idRes As Integer
     Dim objHab As Habitacion
     Dim colHuespedes As Hashtable
+    Dim objResponsable As Huesped
     Dim CIn As Date
     Dim COut As Date
     Dim reserva As Integer
@@ -31,7 +32,7 @@
         Return Me.colHuespedes
     End Function
 
-    Public Sub New(ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
+    Public Sub New(ByVal objResp As Huesped, ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
         Me.idRes = id
         Me.objHab = objhab
         Me.colHuespedes = colHuespedes
@@ -41,8 +42,18 @@
         Me.frealizacion = fRealizacion
         Me.total = total
         Me.montoRembolsado = -1
+        Me.objResponsable = objResp
         objPers = New PersReserva
     End Sub
+
+    Public Property Resposalbe() As Huesped
+        Get
+            Return Me.objResponsable
+        End Get
+        Set(ByVal value As Huesped)
+            objResponsable = value
+        End Set
+    End Property
 
     Public Overrides Function ToString() As String
         Return "Reserva: " & idRes & " - Hab.: " & objHab.Numero & " Desde: " & CIn & " - Hasta: " & COut
