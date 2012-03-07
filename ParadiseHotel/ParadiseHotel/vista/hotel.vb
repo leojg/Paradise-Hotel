@@ -50,6 +50,7 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_servicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_servicios.Click
+        MsgBox("hi")
         Me.hide_gboxs()
         Me.gbox_servicios.Visible = True
     End Sub
