@@ -86,6 +86,9 @@ Public Class PersHotel
         sqlDaTipo = New OleDbDataAdapter(strCommTipo)
 
         sqlDaHab.Fill(dsMetraje, "Habitaciones")
+        If (dsMetraje.Tables("Habitaciones").Rows.Count < 1) Then
+            Throw New ExNoExistenHabitaciones
+        End If
         sqlDaDen.Fill(dsMetraje, "DenominacionesSuites")
         sqlDaTipo.Fill(dsMetraje, "TiposHabitacion")
 

@@ -84,6 +84,7 @@
     <Compile Include="Exceptions\ExElementoNoSelecionado.vb" />
     <Compile Include="Exceptions\ExHabitacionNoEncontrada.vb" />
     <Compile Include="Exceptions\ExMetrajeSuperado.vb" />
+    <Compile Include="Exceptions\ExNoExistenHabitaciones.vb" />
     <Compile Include="Exceptions\ExNombreRepetido.vb" />
     <Compile Include="Habitaciones\Doble.vb" />
     <Compile Include="Habitaciones\Suite.vb" />
