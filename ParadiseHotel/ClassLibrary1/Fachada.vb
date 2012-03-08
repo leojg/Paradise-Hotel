@@ -151,10 +151,12 @@ Public Class Fachada
         Return HuespedAdmin.GetInstance.obtener_identificaciones()
     End Function
 
-
-
     Public Shared Function VerificarFechasDisponibles(ByVal fecha_inicio As Date, ByVal fecha_fin As Date) As ArrayList
         Return ReservasAdmin.GetInstance.verificarHabitacionesDisponibles(fecha_inicio, fecha_fin)
+    End Function
+
+    Public Shared Function existe_huesped(ByVal id As Integer) As Boolean
+        Return HuespedAdmin.GetInstance.existe_huesped(id)
     End Function
 
 End Class

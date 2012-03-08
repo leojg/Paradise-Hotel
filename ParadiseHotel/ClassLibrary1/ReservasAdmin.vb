@@ -68,7 +68,7 @@ Public Class ReservasAdmin
     End Function
 
     Public Function calcularRembolso(ByVal objR As Reserva) As Integer
-        If (DateDiff(DateInterval.Hour, Date.Today, objR.CheckIn) <= 72) Then
+        If (DateDiff(DateInterval.Hour, Date.Today, objR.CheckIn) > 72) Then
             Return objR.montoReserva
         End If
         Return 0
@@ -113,7 +113,7 @@ Public Class ReservasAdmin
                 If (CInt(objfila("Id")) = (CInt(objfila2("reserva_id")))) Then
                     Dim huesped_id As Integer = CInt(objfila2("pasajero_id"))
                     Dim objh As Huesped = HuespedAdmin.GetInstance.devolverHuesped(huesped_id)
-                    If (CBool(objfila("responsable")) = True) Then
+                    If (CBool(objfila2("responsable")) = True) Then
                         colHuespedes.Add(objh.Documento, objh)
                     Else
                         objResposable = objh
