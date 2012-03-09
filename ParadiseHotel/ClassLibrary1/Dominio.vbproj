@@ -82,6 +82,7 @@
       <DependentUpon>DataSetHotel.xsd</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\ExElementoNoSelecionado.vb" />
+    <Compile Include="Exceptions\ExHabitacionConReservas.vb" />
     <Compile Include="Exceptions\ExHabitacionNoEncontrada.vb" />
     <Compile Include="Exceptions\ExMetrajeSuperado.vb" />
     <Compile Include="Exceptions\ExNoExistenHabitaciones.vb" />

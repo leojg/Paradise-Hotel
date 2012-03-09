@@ -112,15 +112,15 @@ Public Class PersHabitacion
         objFila("Numero") = objHab.Numero
         objFila("NumeroPiso") = objHab.Piso
         objFila("CostoUnitario") = objHab.Costo
-        If objHab.GetType.Name = "Suite Jr" Then
+        objFila.EndEdit()
+        objdataadapter.Update(objdataSet, "Habitaciones")
+        If objHab.GetType.Name = "SuiteJr" Then
             objHab = CType(objHab, SuiteJr)
             modificarDenominacionSuite(objHab.Numero, CType(objHab, SuiteJr).Nombre)
-        ElseIf objHab.GetType.Name = "Suite Sr" Then
+        ElseIf objHab.GetType.Name = "SuiteSr" Then
             objHab = CType(objHab, SuiteSr)
             modificarDenominacionSuite(objHab.Numero, CType(objHab, SuiteSr).Nombre)
         End If
-        objFila.EndEdit()
-        objdataadapter.Update(objdataSet, "Habitaciones")
     End Sub
 
     Public Sub modificarDenominacionSuite(ByVal numeroSuite As Int16, ByVal nombreSuite As String)
@@ -134,7 +134,7 @@ Public Class PersHabitacion
         cerrarConexion()
         Dim objFila As DataRow = objdataSet.Tables("DenominacionesSuites").Rows.Item(0)
         objFila.BeginEdit()
-        objFila("Numero") = nombreSuite
+        objFila("Denominacion") = nombreSuite
         objFila.EndEdit()
         objdataadapter.Update(objdataSet, "DenominacionesSuites")
     End Sub

@@ -127,7 +127,7 @@ Public Class Hotel
         For Each objP As Piso In colPisos.Values
             For Each objHab As Habitacion In objP.DevolverHabitaciones.Values
                 If (objHab.GetType.Name = "SuiteJr" Or objHab.GetType.Name = "SuiteSr") Then
-                    If objH.Nombre = CType(objHab, Suite).Nombre Then
+                    If objH.Nombre = CType(objHab, Suite).Nombre And Not objH.Numero = objHab.Numero Then
                         Return True
                     End If
                 End If
@@ -138,16 +138,11 @@ Public Class Hotel
 
     Public Function ModificarHabitacion(ByVal objH As Habitacion) As Boolean
         Dim objP As Piso = DevolverPiso(objH.Piso)
-        If objH.GetType.Name = "Suite" Then
-            Dim objSuite As Suite = CType(objH, Suite)
-            For Each objP2 As Piso In colPisos.Values
-                For Each objHab As Suite In objP.DevolverHabitaciones.Values
-                    If (Not objSuite.Nombre = objHab.Nombre) Then
-                        Return objP.ModificarHabitacion(objH)
-                    End If
-                    Return False
-                Next
-            Next
+        If objH.GetType.Name = "SuiteSr" Or objH.GetType.Name = "SuiteJr" Then
+            If (Not controlarNombre(CType(objH, Suite))) Then
+                Return objP.ModificarHabitacion(objH)
+            End If
+            Throw New ExNombreRepetido
         End If
         Return objP.ModificarHabitacion(objH)
     End Function

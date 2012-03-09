@@ -103,6 +103,8 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
+        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
+        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -256,7 +258,7 @@ Partial Class Hotel
         '
         'lview_habitaciones
         '
-        Me.lview_habitaciones.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.mtrs2, Me.categoria, Me.terraza, Me.costo})
+        Me.lview_habitaciones.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.mtrs2, Me.categoria, Me.terraza, Me.costo, Me.ColumnHeader6})
         Me.lview_habitaciones.Enabled = False
         Me.lview_habitaciones.FullRowSelect = True
         Me.lview_habitaciones.GridLines = True
@@ -446,7 +448,8 @@ Partial Class Hotel
         '
         'lview_hab_admin
         '
-        Me.lview_hab_admin.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.lview_hab_admin.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader7})
+        Me.lview_hab_admin.FullRowSelect = True
         Me.lview_hab_admin.GridLines = True
         Me.lview_hab_admin.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lview_hab_admin.Location = New System.Drawing.Point(6, 49)
@@ -821,6 +824,14 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
         '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Nombre"
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Nombre"
+        '
         'Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -941,4 +952,6 @@ Partial Class Hotel
     Friend WithEvents btn_cancelar_reservado As System.Windows.Forms.Button
     Friend WithEvents btn_cancelar_control As System.Windows.Forms.Button
     Friend WithEvents btn_check As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
 End Class

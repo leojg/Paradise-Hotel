@@ -23,7 +23,7 @@ Partial Class Man_habitacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lbl_nro_habitacion = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.lbl_costo = New System.Windows.Forms.Label
         Me.tx_costo = New System.Windows.Forms.TextBox
         Me.cbox_piso = New System.Windows.Forms.ComboBox
         Me.Piso = New System.Windows.Forms.Label
@@ -55,15 +55,15 @@ Partial Class Man_habitacion
         Me.lbl_nro_habitacion.TabIndex = 3
         Me.lbl_nro_habitacion.Text = "Número"
         '
-        'Label1
+        'lbl_costo
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(210, 86)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 15)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Costo/Noche"
+        Me.lbl_costo.AutoSize = True
+        Me.lbl_costo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_costo.Location = New System.Drawing.Point(210, 86)
+        Me.lbl_costo.Name = "lbl_costo"
+        Me.lbl_costo.Size = New System.Drawing.Size(77, 15)
+        Me.lbl_costo.TabIndex = 4
+        Me.lbl_costo.Text = "Costo/Noche"
         '
         'tx_costo
         '
@@ -180,12 +180,12 @@ Partial Class Man_habitacion
         Me.Controls.Add(Me.Piso)
         Me.Controls.Add(Me.cbox_piso)
         Me.Controls.Add(Me.tx_costo)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_costo)
         Me.Controls.Add(Me.lbl_nro_habitacion)
         Me.Name = "Man_habitacion"
         Me.Text = "man_habitacion"
         Me.Controls.SetChildIndex(Me.lbl_nro_habitacion, 0)
-        Me.Controls.SetChildIndex(Me.Label1, 0)
+        Me.Controls.SetChildIndex(Me.lbl_costo, 0)
         Me.Controls.SetChildIndex(Me.tx_costo, 0)
         Me.Controls.SetChildIndex(Me.cbox_piso, 0)
         Me.Controls.SetChildIndex(Me.Piso, 0)
@@ -201,7 +201,7 @@ Partial Class Man_habitacion
 
     End Sub
     Friend WithEvents lbl_nro_habitacion As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_costo As System.Windows.Forms.Label
     Friend WithEvents tx_costo As System.Windows.Forms.TextBox
     Friend WithEvents cbox_piso As System.Windows.Forms.ComboBox
     Friend WithEvents Piso As System.Windows.Forms.Label

@@ -34,7 +34,9 @@ Public Class Fachada
     Public Shared Function bajaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Dim objP As Piso = Hotel.GetInstance().DevolverPiso(numpiso)
-        Return objP.BajaHabitacion(objh)
+        If ReservasAdmin.GetInstance.verificarHabitacionTieneReservas(objh) Then
+            Return objP.BajaHabitacion(objh)
+        End If
     End Function
 
     Public Shared Function bajaPiso(ByVal num As Int16, ByVal metraje As Int16)
@@ -70,21 +72,32 @@ Public Class Fachada
     End Function
 
     Private Shared Function crearHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte) As Habitacion
-        Dim objH As Habitacion
-        If (nom = Nothing) Then
-            If (tipo = 1) Then
-                objH = New Individual(id, numpiso, costo)
-            ElseIf (tipo = 2) Then
-                objH = New Doble(id, numpiso, costo)
+        Try
+            Dim objH As Habitacion
+            If (nom = Nothing) Then
+                If (tipo = 1) Then
+                    objH = New Individual(id, numpiso, costo)
+                ElseIf (tipo = 2) Then
+                    objH = New Doble(id, numpiso, costo)
+                End If
+            Else
+                If (tipo = 3) Then
+                    objH = New SuiteJr(nom, id, numpiso, costo)
+                ElseIf (tipo = 4) Then
+                    objH = New SuiteSr(nom, id, numpiso, costo)
+                End If
             End If
-        Else
-            If (tipo = 3) Then
-                objH = New SuiteJr(nom, id, numpiso, costo)
-            ElseIf (tipo = 4) Then
-                objH = New SuiteSr(nom, id, numpiso, costo)
+            Return objH
+        Catch ex As NullReferenceException
+            If (nom Is Nothing And tipo > 2) Then
+                ex = New NullReferenceException("El campo Nombre está vacio")
+            ElseIf (Not IsNumeric(costo)) Then
+                ex = New NullReferenceException("El campo Costo está vacio")
+            ElseIf (Not IsNumeric(numpiso)) Then
+                ex = New NullReferenceException("El campo Piso está vacio")
             End If
-        End If
-        Return objH
+            Throw ex
+        End Try
     End Function
 
     Private Shared Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
@@ -93,8 +106,14 @@ Public Class Fachada
     End Function
 
     Private Shared Function crearReserva(ByVal objResp As Huesped, ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
-        Dim objR As New Reserva(objResp, id, objhab, colHuespedes, cin, cout, Reserva, fRealizacion, total)
-        Return objR
+        Try
+
+            Dim objR As New Reserva(objResp, id, objhab, colHuespedes, cin, cout, Reserva, fRealizacion, total)
+            Return objR
+        Catch ex As NullReferenceException
+
+        End Try
+
     End Function
 
     Public Shared Function modHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)

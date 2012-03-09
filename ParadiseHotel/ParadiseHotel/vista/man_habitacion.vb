@@ -35,6 +35,11 @@ Public Class Man_habitacion
             Next
             Me.lbl_nombre_suite.Visible = False
             Me.tx_nom_suite.Visible = False
+            Me.tx_costo.Visible = False
+            Me.cbox_piso.Visible = False
+            Me.btn_agregar.Enabled = False
+            Me.lbl_costo.Visible = False
+            Me.Piso.Visible = False
         Else
             Me.lbl_descripcion.Text = "Edición de Habitación"
             cbox_piso.Enabled = False
@@ -83,20 +88,34 @@ Public Class Man_habitacion
             Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+            MsgBox("Habitación Agregada")
         Catch ex As ExNombreRepetido
             MsgBox(ex.Message)
+        Catch ex As ExMetrajeSuperado
+            MsgBox(ex.Message)
+        Catch ex As NullReferenceException
+            If (cbox_piso.SelectedItem Is Nothing) Then
+                MsgBox("El campo Piso está vacio")
+            End If
+        Catch ex As InvalidCastException
+            If (tx_costo.Text = "") Then
+                MsgBox("El campo Costo está vacio")
+            End If
         Catch ex As Exception
             MsgBox("Error Inesperado. Intente Nuevamente")
         End Try
     End Sub
 
     Private Sub btn_modificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar.Click
+
+        If (Me.tx_costo.Text = "" Or Me.tx_nom_suite.Text = "") Then
+            MsgBox("Algunos campos están vacios. Ingrese datos para continuar")
+            Return
+        End If
         Try
-
-
             Dim tipoStr = CStr(cbox_tipo.SelectedItem)
             Dim tipoInt
-            If (tipoStr = "Indivudual") Then
+            If (tipoStr = "Individual") Then
                 tipoInt = 1
             ElseIf (tipoStr = "Doble") Then
                 tipoInt = 2
@@ -110,7 +129,12 @@ Public Class Man_habitacion
             Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+            MsgBox("Suite Modificada con Exito")
         Catch ex As ExNombreRepetido
+            MsgBox(ex.Message)
+        Catch ex As ExMetrajeSuperado
+            MsgBox(ex.Message)
+        Catch ex As NullReferenceException
             MsgBox(ex.Message)
         Catch ex As Exception
             MsgBox("Error Inesperado. Intente Nuevamente")
@@ -121,7 +145,7 @@ Public Class Man_habitacion
         Try
             Dim tipoStr = CStr(cbox_tipo.SelectedItem)
             Dim tipoInt
-            If (tipoStr = "Indivudual") Then
+            If (tipoStr = "Individual") Then
                 tipoInt = 1
             ElseIf (tipoStr = "Doble") Then
                 tipoInt = 2
@@ -135,7 +159,12 @@ Public Class Man_habitacion
             Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
+            MsgBox("Habitacion Eliminada Correctamente")
         Catch ex As ExNombreRepetido
+            MsgBox(ex.Message)
+        Catch ex As NullReferenceException
+            MsgBox(ex.Message)
+        Catch ex As ExHabitacionConReservas
             MsgBox(ex.Message)
         Catch ex As Exception
             MsgBox("Error Inesperado. Intente Nuevamente")
@@ -157,6 +186,13 @@ Public Class Man_habitacion
     End Sub
 
     Private Sub cbox_tipo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_tipo.SelectedIndexChanged
+        If (objH Is Nothing) Then
+            Me.tx_costo.Visible = True
+            Me.cbox_piso.Visible = True
+            Me.btn_agregar.Enabled = True
+            Me.lbl_costo.Visible = True
+            Me.Piso.Visible = True
+        End If
         If (Me.cbox_tipo.SelectedItem = "SuiteJr" Or Me.cbox_tipo.SelectedItem = "SuiteSr") Then
             Me.lbl_nombre_suite.Visible = True
             Me.tx_nom_suite.Visible = True

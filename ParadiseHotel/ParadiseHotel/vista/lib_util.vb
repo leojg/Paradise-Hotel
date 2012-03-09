@@ -13,6 +13,9 @@ Public Class Lib_util
                 .SubItems.Add(habitacion.GetType.Name) 'aca va tipo
                 .SubItems.Add(habitacion.tieneTerraza)
                 .SubItems.Add(habitacion.Costo)
+                If (habitacion.GetType.Name = "SuiteJr" Or habitacion.GetType.Name = "SuiteSr") Then
+                    .SubItems.Add(CType(habitacion, Suite).Nombre)
+                End If
                 Try
                     If (Not CType(habitacion, Suite).Nombre = Nothing) Then
                         .SubItems.Add(CType(habitacion, Suite).Nombre)

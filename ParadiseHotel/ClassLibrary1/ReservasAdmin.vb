@@ -127,6 +127,15 @@ Public Class ReservasAdmin
         Next
     End Sub
 
+    Public Function verificarHabitacionTieneReservas(ByVal objH As Habitacion)
+        For Each objR As Reserva In colReservas.Values
+            If (objR.Habitacion.Numero = objH.Numero) Then
+                Throw New ExHabitacionConReservas
+            End If
+        Next
+        Return True
+    End Function
+
     ''' <summary>
     ''' Dadas las fechas de checkin y checkout indicadas, recorre las reservas y obtiene aquellas
     ''' que sus fechas de ingreso y salida coincidan con los parametros y compara cada habitacion con

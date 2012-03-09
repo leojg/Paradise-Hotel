@@ -30,7 +30,7 @@
 
     Private Function ControlarMetraje(ByVal objHab As Habitacion) As Boolean
         If (objHab.Metraje > Me.mDisponible) Then
-            Return False
+            Throw New ExMetrajeSuperado
         End If
         Return True
     End Function

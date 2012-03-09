@@ -252,12 +252,15 @@ Public Class Hotel
                 End If
             Next
             Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
+            MsgBox("Habitacion Eliminada Correctamente")
         Catch ex As ExElementoNoSelecionado
             MsgBox(ex.Message)
         Catch ex As ExHabitacionNoEncontrada
             MsgBox(ex.Message)
         Catch ex As NullReferenceException
             MsgBox("Se ha seleccionado un elemento invalido. Vuelva a Intentarlo")
+        Catch ex As ExHabitacionConReservas
+            MsgBox(ex.Message)
         Catch ex As Exception
             MsgBox("Error Inesperado. Vuelva a intentar la operación")
         End Try
