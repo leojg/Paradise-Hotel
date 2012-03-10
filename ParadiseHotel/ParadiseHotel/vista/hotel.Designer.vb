@@ -30,7 +30,7 @@ Partial Class Hotel
         Me.btn_cancelar_reserva = New System.Windows.Forms.Button
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
-        Me.tab_reservar = New System.Windows.Forms.TabPage
+        Me.tabpage_reservar = New System.Windows.Forms.TabPage
         Me.lbl_nro_acompaniantes = New System.Windows.Forms.Label
         Me.lbl_acompaniantes = New System.Windows.Forms.Label
         Me.lbl_res_id = New System.Windows.Forms.Label
@@ -107,7 +107,7 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
-        Me.tab_reservar.SuspendLayout()
+        Me.tabpage_reservar.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.tab_admin_habitaciones.SuspendLayout()
         Me.gbox_checkinout.SuspendLayout()
@@ -190,7 +190,7 @@ Partial Class Hotel
         '
         'tab_gral_habitaciones
         '
-        Me.tab_gral_habitaciones.Controls.Add(Me.tab_reservar)
+        Me.tab_gral_habitaciones.Controls.Add(Me.tabpage_reservar)
         Me.tab_gral_habitaciones.Controls.Add(Me.tab_admin_habitaciones)
         Me.tab_gral_habitaciones.Location = New System.Drawing.Point(6, 19)
         Me.tab_gral_habitaciones.Name = "tab_gral_habitaciones"
@@ -198,27 +198,27 @@ Partial Class Hotel
         Me.tab_gral_habitaciones.Size = New System.Drawing.Size(673, 298)
         Me.tab_gral_habitaciones.TabIndex = 0
         '
-        'tab_reservar
+        'tabpage_reservar
         '
-        Me.tab_reservar.Controls.Add(Me.lbl_nro_acompaniantes)
-        Me.tab_reservar.Controls.Add(Me.lbl_acompaniantes)
-        Me.tab_reservar.Controls.Add(Me.lbl_res_id)
-        Me.tab_reservar.Controls.Add(Me.aklja)
-        Me.tab_reservar.Controls.Add(Me.lview_habitaciones)
-        Me.tab_reservar.Controls.Add(Me.lbl_aniadir_huepedes)
-        Me.tab_reservar.Controls.Add(Me.Panel1)
-        Me.tab_reservar.Controls.Add(Me.cbox_tipo_id)
-        Me.tab_reservar.Controls.Add(Me.txt_id_cliente)
-        Me.tab_reservar.Controls.Add(Me.lbl_id_cliente)
-        Me.tab_reservar.Controls.Add(Me.lbl_filtro)
-        Me.tab_reservar.Controls.Add(Me.cbox_filtro)
-        Me.tab_reservar.Location = New System.Drawing.Point(4, 22)
-        Me.tab_reservar.Name = "tab_reservar"
-        Me.tab_reservar.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_reservar.Size = New System.Drawing.Size(665, 272)
-        Me.tab_reservar.TabIndex = 0
-        Me.tab_reservar.Text = "Reservar"
-        Me.tab_reservar.UseVisualStyleBackColor = True
+        Me.tabpage_reservar.Controls.Add(Me.lbl_nro_acompaniantes)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_acompaniantes)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_res_id)
+        Me.tabpage_reservar.Controls.Add(Me.aklja)
+        Me.tabpage_reservar.Controls.Add(Me.lview_habitaciones)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_aniadir_huepedes)
+        Me.tabpage_reservar.Controls.Add(Me.Panel1)
+        Me.tabpage_reservar.Controls.Add(Me.cbox_tipo_id)
+        Me.tabpage_reservar.Controls.Add(Me.txt_id_cliente)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_id_cliente)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_filtro)
+        Me.tabpage_reservar.Controls.Add(Me.cbox_filtro)
+        Me.tabpage_reservar.Location = New System.Drawing.Point(4, 22)
+        Me.tabpage_reservar.Name = "tabpage_reservar"
+        Me.tabpage_reservar.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabpage_reservar.Size = New System.Drawing.Size(665, 272)
+        Me.tabpage_reservar.TabIndex = 0
+        Me.tabpage_reservar.Text = "Reservar"
+        Me.tabpage_reservar.UseVisualStyleBackColor = True
         '
         'lbl_nro_acompaniantes
         '
@@ -850,8 +850,8 @@ Partial Class Hotel
         Me.Text = "Main"
         Me.gbox_habitaciones.ResumeLayout(False)
         Me.tab_gral_habitaciones.ResumeLayout(False)
-        Me.tab_reservar.ResumeLayout(False)
-        Me.tab_reservar.PerformLayout()
+        Me.tabpage_reservar.ResumeLayout(False)
+        Me.tabpage_reservar.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.tab_admin_habitaciones.ResumeLayout(False)
@@ -877,7 +877,7 @@ Partial Class Hotel
     Friend WithEvents btn_check_in_out As System.Windows.Forms.Button
     Friend WithEvents gbox_habitaciones As System.Windows.Forms.GroupBox
     Friend WithEvents tab_gral_habitaciones As System.Windows.Forms.TabControl
-    Friend WithEvents tab_reservar As System.Windows.Forms.TabPage
+    Friend WithEvents tabpage_reservar As System.Windows.Forms.TabPage
     Friend WithEvents cbox_tipo_id As System.Windows.Forms.ComboBox
     Friend WithEvents txt_id_cliente As System.Windows.Forms.TextBox
     Friend WithEvents lbl_id_cliente As System.Windows.Forms.Label

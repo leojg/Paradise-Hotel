@@ -34,7 +34,13 @@ Partial Class Man_habitacion
         Me.tx_nom_suite = New System.Windows.Forms.TextBox
         Me.lbl_nombre_suite = New System.Windows.Forms.Label
         Me.lbl_pesos = New System.Windows.Forms.Label
-        Me.lb_hab = New System.Windows.Forms.ListBox
+        Me.lview_habitaciones = New System.Windows.Forms.ListView
+        Me.id = New System.Windows.Forms.ColumnHeader
+        Me.mtrs2 = New System.Windows.Forms.ColumnHeader
+        Me.categoria = New System.Windows.Forms.ColumnHeader
+        Me.terraza = New System.Windows.Forms.ColumnHeader
+        Me.costo = New System.Windows.Forms.ColumnHeader
+        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
         Me.SuspendLayout()
         '
         'btn_agregar
@@ -137,7 +143,7 @@ Partial Class Man_habitacion
         '
         Me.lbl_metrajedispo.AutoSize = True
         Me.lbl_metrajedispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_metrajedispo.Location = New System.Drawing.Point(5, 315)
+        Me.lbl_metrajedispo.Location = New System.Drawing.Point(5, 311)
         Me.lbl_metrajedispo.Name = "lbl_metrajedispo"
         Me.lbl_metrajedispo.Size = New System.Drawing.Size(111, 15)
         Me.lbl_metrajedispo.TabIndex = 16
@@ -172,28 +178,64 @@ Partial Class Man_habitacion
         Me.lbl_pesos.TabIndex = 19
         Me.lbl_pesos.Text = "$"
         '
-        'lb_hab
+        'lview_habitaciones
         '
-        Me.lb_hab.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_hab.FormattingEnabled = True
-        Me.lb_hab.ItemHeight = 20
-        Me.lb_hab.Location = New System.Drawing.Point(8, 343)
-        Me.lb_hab.Name = "lb_hab"
-        Me.lb_hab.Size = New System.Drawing.Size(429, 144)
-        Me.lb_hab.TabIndex = 6
+        Me.lview_habitaciones.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.mtrs2, Me.categoria, Me.terraza, Me.costo, Me.ColumnHeader6})
+        Me.lview_habitaciones.Enabled = False
+        Me.lview_habitaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lview_habitaciones.FullRowSelect = True
+        Me.lview_habitaciones.GridLines = True
+        Me.lview_habitaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.lview_habitaciones.HideSelection = False
+        Me.lview_habitaciones.Location = New System.Drawing.Point(7, 342)
+        Me.lview_habitaciones.Name = "lview_habitaciones"
+        Me.lview_habitaciones.Size = New System.Drawing.Size(430, 145)
+        Me.lview_habitaciones.TabIndex = 20
+        Me.lview_habitaciones.UseCompatibleStateImageBehavior = False
+        Me.lview_habitaciones.View = System.Windows.Forms.View.Details
+        '
+        'id
+        '
+        Me.id.Tag = ""
+        Me.id.Text = "Nro. Id."
+        Me.id.Width = 96
+        '
+        'mtrs2
+        '
+        Me.mtrs2.Text = "Mtrs. 2"
+        Me.mtrs2.Width = 62
+        '
+        'categoria
+        '
+        Me.categoria.Text = "Categoría"
+        Me.categoria.Width = 115
+        '
+        'terraza
+        '
+        Me.terraza.Text = "Terraza"
+        Me.terraza.Width = 49
+        '
+        'costo
+        '
+        Me.costo.Text = "Costo"
+        Me.costo.Width = 56
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Nombre"
         '
         'Man_habitacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(446, 548)
+        Me.Controls.Add(Me.lview_habitaciones)
         Me.Controls.Add(Me.lbl_pesos)
         Me.Controls.Add(Me.tx_nom_suite)
         Me.Controls.Add(Me.lbl_nombre_suite)
         Me.Controls.Add(Me.lbl_metrajedispo)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_tipo)
-        Me.Controls.Add(Me.lb_hab)
         Me.Controls.Add(Me.tx_num)
         Me.Controls.Add(Me.Piso)
         Me.Controls.Add(Me.cbox_piso)
@@ -208,13 +250,13 @@ Partial Class Man_habitacion
         Me.Controls.SetChildIndex(Me.cbox_piso, 0)
         Me.Controls.SetChildIndex(Me.Piso, 0)
         Me.Controls.SetChildIndex(Me.tx_num, 0)
-        Me.Controls.SetChildIndex(Me.lb_hab, 0)
         Me.Controls.SetChildIndex(Me.cbox_tipo, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)
         Me.Controls.SetChildIndex(Me.lbl_metrajedispo, 0)
         Me.Controls.SetChildIndex(Me.lbl_nombre_suite, 0)
         Me.Controls.SetChildIndex(Me.tx_nom_suite, 0)
         Me.Controls.SetChildIndex(Me.lbl_pesos, 0)
+        Me.Controls.SetChildIndex(Me.lview_habitaciones, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -231,5 +273,11 @@ Partial Class Man_habitacion
     Friend WithEvents tx_nom_suite As System.Windows.Forms.TextBox
     Friend WithEvents lbl_nombre_suite As System.Windows.Forms.Label
     Friend WithEvents lbl_pesos As System.Windows.Forms.Label
-    Friend WithEvents lb_hab As System.Windows.Forms.ListBox
+    Friend WithEvents lview_habitaciones As System.Windows.Forms.ListView
+    Friend WithEvents id As System.Windows.Forms.ColumnHeader
+    Friend WithEvents mtrs2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents categoria As System.Windows.Forms.ColumnHeader
+    Friend WithEvents terraza As System.Windows.Forms.ColumnHeader
+    Friend WithEvents costo As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
 End Class

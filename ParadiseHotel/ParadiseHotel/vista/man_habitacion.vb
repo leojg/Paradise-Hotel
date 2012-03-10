@@ -4,6 +4,7 @@ Imports Dominio
 Public Class Man_habitacion
     Inherits ParadiseHotel.Mantenimiento
     Dim objH As Habitacion
+    Dim accion As String
 
     Public Sub New(ByVal objH As Habitacion)
         ' This call is required by the Windows Form Designer.
@@ -35,6 +36,7 @@ Public Class Man_habitacion
             For Each objp As Piso In Fachada.devolverPisos.Values
                 cbox_piso.Items.Add(objp.Numero)
             Next
+            Me.btn_eliminar.Enabled = False
             'Me.lbl_nombre_suite.Visible = False
             'Me.tx_nom_suite.Visible = False
             'Me.tx_costo.Visible = False
@@ -65,7 +67,7 @@ Public Class Man_habitacion
 
     Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_piso.SelectedIndexChanged
         If (objH Is Nothing) Then
-            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)), Me.lview_habitaciones)
             lbl_metrajedispo.Visible = True
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.ForeColor = Color.Blue
@@ -87,7 +89,7 @@ Public Class Man_habitacion
                 tipoInt = 4
             End If
             Fachada.altaHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
-            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
+            Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)), Me.lview_habitaciones)
             Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
@@ -132,7 +134,6 @@ Public Class Man_habitacion
                 tipoInt = 4
             End If
             Fachada.modHabitacion(tx_nom_suite.Text, CInt(tx_num.Text), CShort(cbox_piso.SelectedItem), CShort(tx_costo.Text), tipoInt)
-            cargarLbox(lb_hab, Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)))
             Me.tx_num.Text = CStr(Fachada.calcularNroHabitacion)
             Dim piso As Piso = Fachada.devolverPiso(CShort(cbox_piso.SelectedItem))
             lbl_metrajedispo.Text = "Metraje Disponible en el piso: " & piso.MetrajeDisponible & " m2"
@@ -179,8 +180,13 @@ Public Class Man_habitacion
         End Try
     End Sub
 
-    Private Sub lb_hab_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lb_hab.SelectedIndexChanged
-        Dim objh As Habitacion = CType(lb_hab.SelectedItem, Habitacion)
+    Private Sub lb_hab_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim objh As Habitacion = Nothing
+        For Each item As ListViewItem In Me.lview_habitaciones.SelectedItems
+            If (Not item.Tag Is Nothing) Then
+                objh = CType(item.Tag, Habitacion)
+            End If
+        Next
         Me.tx_num.Text = objh.Numero.ToString
         Me.tx_costo.Text = objh.Costo.ToString
         Me.cbox_piso.SelectedItem = objh.Piso

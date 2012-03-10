@@ -1,6 +1,6 @@
 ﻿Imports Dominio
 Public Class Hotel
-    Private _col_acompaniantes As Hashtable
+    Private _col_acompaniantes As New Hashtable
     Private _objH_titular As Huesped
 
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -20,16 +20,15 @@ Public Class Hotel
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Lib_util.cargar_lview_huespedes(lview_huespedes, Fachada.devolverHuespedes)
         Lib_util.cargar_lview_reservas(lview_reservas, Fachada.devolverReservas)
+        Me.btn_reservar.Enabled = False
         Me.cbox_filtro.SelectedIndex = 0
         Me.cbox_tipo_id.SelectedIndex = 0
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
-        Me.btn_habitaciones.Select()
-        '''''''No funca''''''''
-        Me.tab_reservar.Focus()
-        If Me.tab_reservar.Focused Then
-            Me.txt_id_cliente.Focus()
-        End If
+        'Me.btn_habitaciones.Select()
+        Me.tab_gral_habitaciones.SelectedTab = Me.tabpage_reservar
+        Me.txt_id_cliente.Select()
+        Me.txt_id_cliente.Focus()
     End Sub
 
     Private Sub hide_gboxs()
@@ -54,7 +53,6 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_servicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_servicios.Click
-        MsgBox("hi")
         Me.hide_gboxs()
         Me.gbox_servicios.Visible = True
     End Sub
@@ -78,7 +76,9 @@ Public Class Hotel
 
     Private Sub btn_reservar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_reservar.Click
         'If Me.panel_reservar_completo() Then
-        Me._col_acompaniantes.Add(Me._objH_titular.Documento, Me._objH_titular)
+        If Me._col_acompaniantes.Count > 0 Then
+            Me._col_acompaniantes.Add(Me._objH_titular.Documento, Me._objH_titular)
+        End If
         'la coleccion de acompaniantes y el titular se pasan separados, no juntos como aparece arriba
         For Each objO As ListViewItem In lview_habitaciones.SelectedItems
             If (Not objO.Tag Is Nothing) Then
@@ -88,6 +88,7 @@ Public Class Hotel
                 'End If
             End If
         Next
+        Me._col_acompaniantes.Clear()
     End Sub
 
     '*****************CONTROL DE DATOS*****************
@@ -334,5 +335,11 @@ Public Class Hotel
                 MsgBox("Error Inesperado")
             End Try
         Next
+    End Sub
+
+    Private Sub lview_habitaciones_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_habitaciones.SelectedIndexChanged
+        If (lview_habitaciones.SelectedItems.Count > 0) Then
+            btn_reservar.Enabled = True
+        End If
     End Sub
 End Class
