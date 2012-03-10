@@ -46,7 +46,7 @@
         objPers = New PersReserva
     End Sub
 
-    Public Property Resposalbe() As Huesped
+    Public Property Resposable() As Huesped
         Get
             Return Me.objResponsable
         End Get

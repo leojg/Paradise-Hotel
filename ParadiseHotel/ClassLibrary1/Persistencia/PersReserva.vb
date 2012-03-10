@@ -60,12 +60,10 @@ Public Class PersReserva
         objFila("MontoReembolsado") = objR.Rembolso
         objDataSet.Tables("Reservas").Rows.Add(objFila)
         objDataAdapter.Update(objDataSet, "Reservas")
-        For Each objH As Huesped In objR.devolverHuespedes.Values
-            guardarReservasHuespedes(objH, objR)
-        Next
-    End Sub
+             guardarReservasHuespedes(objR)
+      End Sub
 
-    Public Sub guardarReservasHuespedes(ByVal objH As Huesped, ByVal objR As Reserva)
+    Public Sub guardarReservasHuespedes(ByVal objR As Reserva)
         abrirConexion()
         Dim objComando = New OleDbCommand("select * from ReservasHuespedes", objconexion)
         Dim objDataAdapter = New OleDbDataAdapter(objComando)
@@ -74,11 +72,9 @@ Public Class PersReserva
         Dim constComando As New OleDbCommandBuilder(objDataAdapter)
         objDataAdapter.InsertCommand = constComando.GetInsertCommand
         Dim objFila As DataRow = objDataSet.Tables("ReservasHuespedes").NewRow()
-        objFila("pasajero_id") = objH.Documento.ToString
+        objFila("pasajero_id") = objR.Resposable.Documento.ToString
         objFila("reserva_id") = objR.Id
-        If (objH.Documento = objR.Resposalbe.Documento) Then
-            objFila("responsable") = True
-        End If
+        objFila("responsable") = True
         objDataSet.Tables("ReservasHuespedes").Rows.Add(objFila)
         objDataAdapter.Update(objDataSet, "ReservasHuespedes")
     End Sub

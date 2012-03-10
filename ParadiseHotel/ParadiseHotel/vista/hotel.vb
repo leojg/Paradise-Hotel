@@ -1,6 +1,6 @@
 ﻿Imports Dominio
 Public Class Hotel
-    Private _col_acompaniantes As Hashtable
+    Private _col_acompaniantes As New Hashtable
     Private _objH_titular As Huesped
 
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -67,7 +67,7 @@ Public Class Hotel
     Private Sub btn_check_in_out_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_check_in_out.Click
         Me.hide_gboxs()
         Me.gbox_checkinout.Visible = True
-        Me.checkbox_reservas.CheckState = CheckState.Checked
+        Me.checkbox_reservas.Checked = True
         Me.rbtn_checkin.Select()
     End Sub
 
@@ -77,17 +77,33 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_reservar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_reservar.Click
-        'If Me.panel_reservar_completo() Then
-        Me._col_acompaniantes.Add(Me._objH_titular.Documento, Me._objH_titular)
-        'la coleccion de acompaniantes y el titular se pasan separados, no juntos como aparece arriba
-        For Each objO As ListViewItem In lview_habitaciones.SelectedItems
-            If (Not objO.Tag Is Nothing) Then
-                Dim objH As Habitacion
-                objH = objO.Tag
-                Dominio.Fachada.altaReserva(Me._objH_titular, CInt(lbl_res_id.Text), objH, Me._col_acompaniantes, dtp_checkin.Value, dtp_checkout.Value)
-                'End If
+        Try
+            'If Me.panel_reservar_completo() Then
+            If (Not _col_acompaniantes.Count = 0) Then
+                Me._col_acompaniantes.Add(Me._objH_titular.Documento, Me._objH_titular)
             End If
-        Next
+            'la coleccion de acompaniantes y el titular se pasan separados, no juntos como aparece arriba
+            For Each objO As ListViewItem In lview_habitaciones.SelectedItems
+                If (Not objO.Tag Is Nothing) Then
+                    Dim objH As Habitacion
+                    objH = objO.Tag
+                    Dominio.Fachada.altaReserva(Me._objH_titular, CInt(lbl_res_id.Text), objH, Me._col_acompaniantes, dtp_checkin.Value, dtp_checkout.Value)
+                    'End If
+                    MsgBox("Reserva Agregada Exitosamente.")
+                    Me.lview_habitaciones.Enabled = False
+                    Me.txt_id_cliente.Clear()
+                    Me.cbox_filtro.Enabled = False
+                    lbltot.Text = 0
+                    lblAdelanto.Text = 0
+                    lbldias.Text = 0
+                End If
+            Next
+            _col_acompaniantes.Clear()
+        Catch ex As NullReferenceException
+            MsgBox("Uno de los campos está vacio. Ingrese datos para continuar")
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Intente Nuevamente")
+        End Try
     End Sub
 
     '*****************CONTROL DE DATOS*****************
@@ -222,22 +238,6 @@ Public Class Hotel
         End If
     End Sub
 
-    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub dtp_checkout_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkout.ValueChanged
-
-    End Sub
-
-    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub dtp_checkin_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkin.ValueChanged
-
-    End Sub
-
     Private Sub btn_eliminar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar_habitacion.Click
         Try
 
@@ -306,33 +306,43 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_cancelar_reservado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_reservado.Click
-        For Each objR As ListViewItem In Me.lview_reservas.SelectedItems
-            If (Not objR.Tag Is Nothing) Then
-                Dim objReserva As Dominio.Reserva
-                objReserva = CType(objR.Tag, Dominio.Reserva)
-                Dominio.Fachada.bajaReserva(objReserva.id)
-                'End If
-            End If
-        Next
-    End Sub
-    Private Sub checkbox_reservas_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles checkbox_reservas.Click
-        If Me.checkbox_reservas.CheckState = CheckState.Checked Then
-            Me.checkbox_reservas.CheckState = CheckState.Unchecked
-            Lib_util.cambiar_list_view(Me.lview_reservas, "habitacion")
-        ElseIf Me.checkbox_reservas.CheckState = CheckState.Unchecked Then
-            Me.checkbox_reservas.CheckState = CheckState.Checked
-            Lib_util.cambiar_list_view(Me.lview_reservas, "reserva")
-        End If
+        Try
+            For Each objR As ListViewItem In Me.lview_reservas.SelectedItems
+                If (Not objR.Tag Is Nothing) Then
+                    Dim objReserva As Dominio.Reserva
+                    objReserva = CType(objR.Tag, Dominio.Reserva)
+                    Dominio.Fachada.bajaReserva(objReserva.Id)
+                    MsgBox("Reserva cancelada de forma exitosa")
+                    Lib_util.cargar_lview_reservas(lview_reservas, Fachada.devolverReservas)
+                    'End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("Error Inesperado")
+        End Try
     End Sub
 
     Private Sub btn_cancelar_control_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_control.Click
-        For Each objR As ListViewItem In lview_reservas.SelectedItems
-            Try
-                Fachada.bajaReserva(CType(objR.Tag, Dominio.Reserva).Id)
-                MsgBox("Reserva cancelada de forma exitosa")
-            Catch ex As Exception
-                MsgBox("Error Inesperado")
-            End Try
+    End Sub
+
+
+
+    Private Sub lview_habitaciones_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_habitaciones.SelectedIndexChanged
+        For Each objI As ListViewItem In lview_habitaciones.SelectedItems
+            Dim arr As ArrayList = Fachada.CalcularCostosReserva(Me.dtp_checkin.Value, Me.dtp_checkout.Value, CType(objI.Tag, Habitacion))
+            lbltot.Text = arr(0)
+            lblAdelanto.Text = arr(1)
+            lbldias.Text = arr(2)
         Next
+    End Sub
+
+    Private Sub checkbox_reservas_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkbox_reservas.CheckedChanged
+        If Me.checkbox_reservas.Checked = False Then
+            'Me.checkbox_reservas.CheckState = CheckState.Unchecked
+            Lib_util.cambiar_list_view(Me.lview_reservas, "habitacion")
+        ElseIf Me.checkbox_reservas.Checked = True Then
+            'Me.checkbox_reservas.CheckState = CheckState.Checked
+            Lib_util.cambiar_list_view(Me.lview_reservas, "reserva")
+        End If
     End Sub
 End Class

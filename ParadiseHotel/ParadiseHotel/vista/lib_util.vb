@@ -121,6 +121,7 @@ Public Class Lib_util
 
     Public Shared Sub cargar_lview_reservas(ByVal lview As ListView, ByVal hash As Hashtable)
         Dim item As ListViewItem
+        lview.Items.Clear()
         For Each objR As Dominio.Reserva In hash.Values
             item = New ListViewItem(objR.Id)
 
@@ -182,6 +183,53 @@ Public Class Lib_util
             vec_headers(4) = header5
 
             lview.Columns.AddRange(vec_headers)
+
+            cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview)
+
+        ElseIf tipo = "reserva" Then
+            Dim vec_headers(6) As ColumnHeader
+
+            Dim header1, header2, header3, header4, header5, header6, header7 As ColumnHeader
+            header1 = New ColumnHeader
+            header2 = New ColumnHeader
+            header3 = New ColumnHeader
+            header4 = New ColumnHeader
+            header5 = New ColumnHeader
+            header6 = New ColumnHeader
+            header7 = New ColumnHeader
+
+            header1.Name = "id"
+            header1.Text = "Nro Id"
+            vec_headers(0) = header1
+
+            header2.Name = "hab"
+            header2.Text = "Habitacion"
+            vec_headers(1) = header2
+
+            header3.Name = "mtot"
+            header3.Text = "Monto Total"
+            vec_headers(2) = header3
+
+            header4.Name = "made"
+            header4.Text = "Adelanto"
+            vec_headers(3) = header4
+
+            header5.Name = "fcheckin"
+            header5.Text = "Fecha Check In"
+            vec_headers(4) = header5
+
+            header6.Name = "fcheckout"
+            header6.Text = "Fecha Check Out"
+            vec_headers(5) = header6
+
+            header7.Name = "freal"
+            header7.Text = "Fecha Realizacion"
+            vec_headers(6) = header7
+
+            lview.Columns.AddRange(vec_headers)
+
+            cargar_lview_reservas(lview, Fachada.devolverReservas)
+
         End If
     End Sub
 End Class

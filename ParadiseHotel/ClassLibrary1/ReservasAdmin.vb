@@ -32,7 +32,6 @@ Public Class ReservasAdmin
             objR.Rembolso = calcularRembolso(objR)
             objR.cancelame()
             colReservas.Remove(objR.Id)
-            colReservas.Add(objR.Id, objR)
         End If
     End Function
 
