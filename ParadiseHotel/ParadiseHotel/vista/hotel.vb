@@ -25,6 +25,11 @@ Public Class Hotel
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
         Me.btn_habitaciones.Select()
+        '''''''No funca''''''''
+        Me.tab_reservar.Focus()
+        If Me.tab_reservar.Focused Then
+            Me.txt_id_cliente.Focus()
+        End If
     End Sub
 
     Private Sub hide_gboxs()
@@ -269,23 +274,19 @@ Public Class Hotel
     Private Sub btn_modificar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar_habitacion.Click
         Try
             Dim frm As Man_habitacion
+            Dim objH As Habitacion = Nothing
             For Each obj As ListViewItem In Me.lview_hab_admin.SelectedItems
                 If (obj.Tag.GetType.Name = "SuiteSr") Then
-                    Dim objH As SuiteSr = obj.Tag
-                    frm = New Man_habitacion(objH)
-
+                    objH = obj.Tag
                 ElseIf (obj.Tag.GetType.Name = "SuiteJr") Then
-                    Dim objH As SuiteJr = obj.Tag
-                    frm = New Man_habitacion(objH)
-                    frm.ShowDialog()
+                    objH = obj.Tag
                 ElseIf (obj.Tag.GetType.Name = "Doble") Then
-                    Dim objH As Doble = obj.Tag
-                    frm = New Man_habitacion(objH)
+                    objH = obj.Tag
                 ElseIf (obj.Tag.GetType.Name = "Individual") Then
-                    Dim objH As Individual = obj.Tag
-                    frm = New Man_habitacion(objH)
+                    objH = obj.Tag
                 End If
             Next
+            frm = New Man_habitacion(objH)
             frm.ShowDialog()
             Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
         Catch ex As ExElementoNoSelecionado

@@ -58,7 +58,7 @@ Partial Class Mantenimiento
         Me.Panel1.Controls.Add(Me.btn_modificar)
         Me.Panel1.Controls.Add(Me.btn_agregar)
         Me.Panel1.Controls.Add(Me.btn_eliminar)
-        Me.Panel1.Location = New System.Drawing.Point(2, 492)
+        Me.Panel1.Location = New System.Drawing.Point(7, 492)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(430, 55)
@@ -112,7 +112,7 @@ Partial Class Mantenimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(444, 574)
+        Me.ClientSize = New System.Drawing.Size(444, 549)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lbl_descripcion)
         Me.Controls.Add(Me.lbl_titulo)

@@ -41,6 +41,7 @@ Partial Class Hotel
         Me.categoria = New System.Windows.Forms.ColumnHeader
         Me.terraza = New System.Windows.Forms.ColumnHeader
         Me.costo = New System.Windows.Forms.ColumnHeader
+        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
         Me.lbl_aniadir_huepedes = New System.Windows.Forms.LinkLabel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.btn_comprobar = New System.Windows.Forms.Button
@@ -63,6 +64,7 @@ Partial Class Hotel
         Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader4 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader5 = New System.Windows.Forms.ColumnHeader
+        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader
         Me.gbox_checkinout = New System.Windows.Forms.GroupBox
         Me.btn_cancelar_reservado = New System.Windows.Forms.Button
         Me.btn_cancelar_control = New System.Windows.Forms.Button
@@ -103,8 +105,6 @@ Partial Class Hotel
         Me.domicilio = New System.Windows.Forms.ColumnHeader
         Me.num_habitacion = New System.Windows.Forms.ColumnHeader
         Me.btn_ir_a_imprimir = New System.Windows.Forms.Button
-        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader
         Me.gbox_habitaciones.SuspendLayout()
         Me.tab_gral_habitaciones.SuspendLayout()
         Me.tab_reservar.SuspendLayout()
@@ -175,7 +175,7 @@ Partial Class Hotel
         Me.btn_cancelar_reserva.Location = New System.Drawing.Point(499, 323)
         Me.btn_cancelar_reserva.Name = "btn_cancelar_reserva"
         Me.btn_cancelar_reserva.Size = New System.Drawing.Size(75, 23)
-        Me.btn_cancelar_reserva.TabIndex = 13
+        Me.btn_cancelar_reserva.TabIndex = 8
         Me.btn_cancelar_reserva.Text = "Cancelar"
         Me.btn_cancelar_reserva.UseVisualStyleBackColor = True
         '
@@ -184,7 +184,7 @@ Partial Class Hotel
         Me.btn_reservar.Location = New System.Drawing.Point(600, 323)
         Me.btn_reservar.Name = "btn_reservar"
         Me.btn_reservar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_reservar.TabIndex = 12
+        Me.btn_reservar.TabIndex = 9
         Me.btn_reservar.Text = "Reservar"
         Me.btn_reservar.UseVisualStyleBackColor = True
         '
@@ -267,7 +267,7 @@ Partial Class Hotel
         Me.lview_habitaciones.Location = New System.Drawing.Point(12, 126)
         Me.lview_habitaciones.Name = "lview_habitaciones"
         Me.lview_habitaciones.Size = New System.Drawing.Size(644, 135)
-        Me.lview_habitaciones.TabIndex = 13
+        Me.lview_habitaciones.TabIndex = 7
         Me.lview_habitaciones.UseCompatibleStateImageBehavior = False
         Me.lview_habitaciones.View = System.Windows.Forms.View.Details
         '
@@ -297,6 +297,10 @@ Partial Class Hotel
         Me.costo.Text = "Costo"
         Me.costo.Width = 56
         '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Nombre"
+        '
         'lbl_aniadir_huepedes
         '
         Me.lbl_aniadir_huepedes.AutoSize = True
@@ -324,7 +328,7 @@ Partial Class Hotel
         Me.btn_comprobar.Location = New System.Drawing.Point(504, 5)
         Me.btn_comprobar.Name = "btn_comprobar"
         Me.btn_comprobar.Size = New System.Drawing.Size(137, 23)
-        Me.btn_comprobar.TabIndex = 23
+        Me.btn_comprobar.TabIndex = 5
         Me.btn_comprobar.Text = "Comprobar fechas"
         Me.btn_comprobar.UseVisualStyleBackColor = True
         '
@@ -333,7 +337,7 @@ Partial Class Hotel
         Me.dtp_checkout.Location = New System.Drawing.Point(329, 8)
         Me.dtp_checkout.Name = "dtp_checkout"
         Me.dtp_checkout.Size = New System.Drawing.Size(169, 20)
-        Me.dtp_checkout.TabIndex = 22
+        Me.dtp_checkout.TabIndex = 4
         '
         'Label4
         '
@@ -349,7 +353,7 @@ Partial Class Hotel
         Me.dtp_checkin.Location = New System.Drawing.Point(69, 9)
         Me.dtp_checkin.Name = "dtp_checkin"
         Me.dtp_checkin.Size = New System.Drawing.Size(169, 20)
-        Me.dtp_checkin.TabIndex = 19
+        Me.dtp_checkin.TabIndex = 3
         '
         'Label3
         '
@@ -367,14 +371,14 @@ Partial Class Hotel
         Me.cbox_tipo_id.Location = New System.Drawing.Point(328, 11)
         Me.cbox_tipo_id.Name = "cbox_tipo_id"
         Me.cbox_tipo_id.Size = New System.Drawing.Size(86, 21)
-        Me.cbox_tipo_id.TabIndex = 18
+        Me.cbox_tipo_id.TabIndex = 2
         '
         'txt_id_cliente
         '
         Me.txt_id_cliente.Location = New System.Drawing.Point(137, 11)
         Me.txt_id_cliente.Name = "txt_id_cliente"
         Me.txt_id_cliente.Size = New System.Drawing.Size(169, 20)
-        Me.txt_id_cliente.TabIndex = 17
+        Me.txt_id_cliente.TabIndex = 1
         '
         'lbl_id_cliente
         '
@@ -402,7 +406,7 @@ Partial Class Hotel
         Me.cbox_filtro.Location = New System.Drawing.Point(472, 95)
         Me.cbox_filtro.Name = "cbox_filtro"
         Me.cbox_filtro.Size = New System.Drawing.Size(184, 21)
-        Me.cbox_filtro.TabIndex = 14
+        Me.cbox_filtro.TabIndex = 6
         '
         'tab_admin_habitaciones
         '
@@ -423,7 +427,7 @@ Partial Class Hotel
         Me.btn_eliminar_habitacion.Location = New System.Drawing.Point(136, 14)
         Me.btn_eliminar_habitacion.Name = "btn_eliminar_habitacion"
         Me.btn_eliminar_habitacion.Size = New System.Drawing.Size(93, 23)
-        Me.btn_eliminar_habitacion.TabIndex = 17
+        Me.btn_eliminar_habitacion.TabIndex = 21
         Me.btn_eliminar_habitacion.Text = "Eliminar"
         Me.btn_eliminar_habitacion.UseVisualStyleBackColor = True
         '
@@ -432,7 +436,7 @@ Partial Class Hotel
         Me.btn_modificar_habitacion.Location = New System.Drawing.Point(6, 14)
         Me.btn_modificar_habitacion.Name = "btn_modificar_habitacion"
         Me.btn_modificar_habitacion.Size = New System.Drawing.Size(94, 23)
-        Me.btn_modificar_habitacion.TabIndex = 16
+        Me.btn_modificar_habitacion.TabIndex = 20
         Me.btn_modificar_habitacion.Text = "Modificar"
         Me.btn_modificar_habitacion.UseVisualStyleBackColor = True
         '
@@ -442,7 +446,7 @@ Partial Class Hotel
         Me.link_nueva_hab.Location = New System.Drawing.Point(559, 14)
         Me.link_nueva_hab.Name = "link_nueva_hab"
         Me.link_nueva_hab.Size = New System.Drawing.Size(91, 13)
-        Me.link_nueva_hab.TabIndex = 15
+        Me.link_nueva_hab.TabIndex = 23
         Me.link_nueva_hab.TabStop = True
         Me.link_nueva_hab.Text = "Nueva habitación"
         '
@@ -456,7 +460,7 @@ Partial Class Hotel
         Me.lview_hab_admin.MultiSelect = False
         Me.lview_hab_admin.Name = "lview_hab_admin"
         Me.lview_hab_admin.Size = New System.Drawing.Size(644, 217)
-        Me.lview_hab_admin.TabIndex = 14
+        Me.lview_hab_admin.TabIndex = 22
         Me.lview_hab_admin.UseCompatibleStateImageBehavior = False
         Me.lview_hab_admin.View = System.Windows.Forms.View.Details
         '
@@ -486,6 +490,10 @@ Partial Class Hotel
         Me.ColumnHeader5.Text = "Costo"
         Me.ColumnHeader5.Width = 56
         '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Nombre"
+        '
         'gbox_checkinout
         '
         Me.gbox_checkinout.Controls.Add(Me.btn_cancelar_reservado)
@@ -504,7 +512,7 @@ Partial Class Hotel
         Me.btn_cancelar_reservado.Location = New System.Drawing.Point(10, 323)
         Me.btn_cancelar_reservado.Name = "btn_cancelar_reservado"
         Me.btn_cancelar_reservado.Size = New System.Drawing.Size(156, 23)
-        Me.btn_cancelar_reservado.TabIndex = 16
+        Me.btn_cancelar_reservado.TabIndex = 17
         Me.btn_cancelar_reservado.Text = "Cancelar reserva"
         Me.btn_cancelar_reservado.UseVisualStyleBackColor = True
         '
@@ -513,7 +521,7 @@ Partial Class Hotel
         Me.btn_cancelar_control.Location = New System.Drawing.Point(499, 326)
         Me.btn_cancelar_control.Name = "btn_cancelar_control"
         Me.btn_cancelar_control.Size = New System.Drawing.Size(75, 23)
-        Me.btn_cancelar_control.TabIndex = 15
+        Me.btn_cancelar_control.TabIndex = 18
         Me.btn_cancelar_control.Text = "Cancelar"
         Me.btn_cancelar_control.UseVisualStyleBackColor = True
         '
@@ -523,7 +531,7 @@ Partial Class Hotel
         Me.btn_check.Location = New System.Drawing.Point(600, 326)
         Me.btn_check.Name = "btn_check"
         Me.btn_check.Size = New System.Drawing.Size(75, 23)
-        Me.btn_check.TabIndex = 14
+        Me.btn_check.TabIndex = 19
         Me.btn_check.Text = "Ejecutar"
         Me.btn_check.UseVisualStyleBackColor = True
         '
@@ -559,8 +567,8 @@ Partial Class Hotel
         Me.checkbox_reservas.AutoSize = True
         Me.checkbox_reservas.Location = New System.Drawing.Point(582, 42)
         Me.checkbox_reservas.Name = "checkbox_reservas"
-        Me.checkbox_reservas.Size = New System.Drawing.Size(69, 17)
-        Me.checkbox_reservas.TabIndex = 20
+        Me.checkbox_reservas.Size = New System.Drawing.Size(71, 17)
+        Me.checkbox_reservas.TabIndex = 14
         Me.checkbox_reservas.Text = "Reservas"
         Me.checkbox_reservas.UseVisualStyleBackColor = True
         '
@@ -581,7 +589,7 @@ Partial Class Hotel
         Me.rbtn_checkout.Location = New System.Drawing.Point(205, 19)
         Me.rbtn_checkout.Name = "rbtn_checkout"
         Me.rbtn_checkout.Size = New System.Drawing.Size(87, 17)
-        Me.rbtn_checkout.TabIndex = 1
+        Me.rbtn_checkout.TabIndex = 11
         Me.rbtn_checkout.TabStop = True
         Me.rbtn_checkout.Text = "CHECK OUT"
         Me.rbtn_checkout.UseVisualStyleBackColor = True
@@ -592,7 +600,7 @@ Partial Class Hotel
         Me.rbtn_checkin.Location = New System.Drawing.Point(69, 19)
         Me.rbtn_checkin.Name = "rbtn_checkin"
         Me.rbtn_checkin.Size = New System.Drawing.Size(75, 17)
-        Me.rbtn_checkin.TabIndex = 0
+        Me.rbtn_checkin.TabIndex = 10
         Me.rbtn_checkin.TabStop = True
         Me.rbtn_checkin.Text = "CHECK IN"
         Me.rbtn_checkin.UseVisualStyleBackColor = True
@@ -605,14 +613,14 @@ Partial Class Hotel
         Me.ComboBox1.Location = New System.Drawing.Point(328, 65)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(86, 21)
-        Me.ComboBox1.TabIndex = 18
+        Me.ComboBox1.TabIndex = 13
         '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(137, 65)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(169, 20)
-        Me.TextBox1.TabIndex = 17
+        Me.TextBox1.TabIndex = 12
         '
         'Label1
         '
@@ -639,7 +647,7 @@ Partial Class Hotel
         Me.ComboBox2.Location = New System.Drawing.Point(472, 65)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(184, 21)
-        Me.ComboBox2.TabIndex = 14
+        Me.ComboBox2.TabIndex = 15
         '
         'lview_reservas
         '
@@ -651,7 +659,7 @@ Partial Class Hotel
         Me.lview_reservas.MultiSelect = False
         Me.lview_reservas.Name = "lview_reservas"
         Me.lview_reservas.Size = New System.Drawing.Size(644, 160)
-        Me.lview_reservas.TabIndex = 13
+        Me.lview_reservas.TabIndex = 16
         Me.lview_reservas.UseCompatibleStateImageBehavior = False
         Me.lview_reservas.View = System.Windows.Forms.View.Details
         '
@@ -823,14 +831,6 @@ Partial Class Hotel
         Me.btn_ir_a_imprimir.TabIndex = 16
         Me.btn_ir_a_imprimir.Text = "Imprimir"
         Me.btn_ir_a_imprimir.UseVisualStyleBackColor = True
-        '
-        'ColumnHeader6
-        '
-        Me.ColumnHeader6.Text = "Nombre"
-        '
-        'ColumnHeader7
-        '
-        Me.ColumnHeader7.Text = "Nombre"
         '
         'Hotel
         '
