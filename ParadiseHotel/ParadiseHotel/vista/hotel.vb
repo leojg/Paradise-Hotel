@@ -2,6 +2,7 @@
 Public Class Hotel
     Private _col_acompaniantes As New Hashtable
     Private _objH_titular As Huesped
+    Private _auto_compl_col As New AutoCompleteStringCollection
 
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.relocate_controls()
@@ -29,6 +30,13 @@ Public Class Hotel
         Me.tab_gral_habitaciones.SelectedTab = Me.tabpage_reservar
         Me.txt_id_cliente.Select()
         Me.txt_id_cliente.Focus()
+        '*******AUTOCOMPLETADO MEJORADO*******'
+        Me._auto_compl_col = Lib_util.crear_string_collection(Fachada.obtener_identificaciones())
+        With Me.txt_id_cliente
+            .AutoCompleteCustomSource = Me._auto_compl_col
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
     End Sub
 
     Private Sub hide_gboxs()
@@ -174,15 +182,15 @@ Public Class Hotel
         End If
     End Sub
 
-    Private Sub txt_id_cliente_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_id_cliente.KeyPress
-        If InStr(1, "0123456789()" & Chr(8), e.KeyChar) = 0 Then
-            e.KeyChar = ""
-        End If
-        If e.KeyChar = ChrW(Keys.Enter) Then
-            e.Handled = True
-            SendKeys.Send("{TAB}")
-        End If
-    End Sub
+    'Private Sub txt_id_cliente_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_id_cliente.KeyPress
+    '    If InStr(1, "0123456789()" & Chr(8), e.KeyChar) = 0 Then
+    '        e.KeyChar = ""
+    '    End If
+    '    If e.KeyChar = ChrW(Keys.Enter) Then
+    '        e.Handled = True
+    '        SendKeys.Send("{TAB}")
+    '    End If
+    'End Sub
 
     Private Sub btn_cancelar_reserva_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_reserva.Click
         Me.limpiar_panel_reservas()
@@ -205,9 +213,9 @@ Public Class Hotel
         End If
     End Sub
 
-    Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
-        Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
-    End Sub
+    'Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
+    '    Lib_util.autocompletar_textbox(Me.txt_id_cliente, Me._auto_compl_col)
+    'End Sub
 
     Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
         Dim frm_imprimir As imprimir = New imprimir
@@ -221,22 +229,6 @@ Public Class Hotel
         Else
             MsgBox("Debe ingresar el número de documento del huesped responsable de la reserva")
         End If
-    End Sub
-
-    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub dtp_checkout_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkout.ValueChanged
-
-    End Sub
-
-    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub dtp_checkin_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtp_checkin.ValueChanged
-
     End Sub
 
     Private Sub btn_eliminar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar_habitacion.Click
