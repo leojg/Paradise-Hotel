@@ -134,8 +134,8 @@ Public Class Fachada
         Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo)
     End Function
 
-    Public Shared Function DevolverHabitacionPorTipo(ByVal hash As Hashtable, ByVal tipo As String) As ArrayList
-        Return Hotel.GetInstance.DevolverHabitacionPorTipo(hash, tipo)
+    Public Shared Function DevolverHabitacionPorTipo(ByVal tipo As String, ByVal h_table As String) As Hashtable
+        Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo, h_table)
     End Function
 
     Public Shared Function devolverHuespedes() As Hashtable
