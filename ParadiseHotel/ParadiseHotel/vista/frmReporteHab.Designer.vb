@@ -28,12 +28,14 @@ Partial Class frmReporteHab
         'crvHab
         '
         Me.crvHab.ActiveViewIndex = -1
+        Me.crvHab.AutoSize = True
+        Me.crvHab.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.crvHab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crvHab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.crvHab.Location = New System.Drawing.Point(0, 0)
         Me.crvHab.Name = "crvHab"
         Me.crvHab.SelectionFormula = ""
-        Me.crvHab.Size = New System.Drawing.Size(292, 270)
+        Me.crvHab.Size = New System.Drawing.Size(1341, 732)
         Me.crvHab.TabIndex = 0
         Me.crvHab.ViewTimeSelectionFormula = ""
         '
@@ -41,11 +43,15 @@ Partial Class frmReporteHab
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 270)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ClientSize = New System.Drawing.Size(1341, 732)
         Me.Controls.Add(Me.crvHab)
         Me.Name = "frmReporteHab"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmReporteHab"
+        Me.TopMost = True
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents crvHab As CrystalDecisions.Windows.Forms.CrystalReportViewer

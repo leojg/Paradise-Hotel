@@ -243,7 +243,6 @@ Partial Class Man_habitacion
         Me.Controls.Add(Me.lbl_costo)
         Me.Controls.Add(Me.lbl_nro_habitacion)
         Me.Name = "Man_habitacion"
-        Me.Text = "man_habitacion"
         Me.Controls.SetChildIndex(Me.lbl_nro_habitacion, 0)
         Me.Controls.SetChildIndex(Me.lbl_costo, 0)
         Me.Controls.SetChildIndex(Me.tx_costo, 0)

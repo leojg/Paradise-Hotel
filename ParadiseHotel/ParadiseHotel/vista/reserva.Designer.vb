@@ -185,7 +185,7 @@ Partial Class reserva
         Me.Controls.Add(Me.lblResNum)
         Me.Controls.Add(Me.Label1)
         Me.Name = "reserva"
-        Me.Text = "reserva"
+        Me.Text = "Reserva"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

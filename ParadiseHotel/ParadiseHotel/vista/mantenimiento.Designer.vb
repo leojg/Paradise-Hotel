@@ -22,6 +22,7 @@ Partial Class Mantenimiento
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento))
         Me.lbl_titulo = New System.Windows.Forms.Label
         Me.lbl_descripcion = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
@@ -117,9 +118,14 @@ Partial Class Mantenimiento
         Me.Controls.Add(Me.lbl_descripcion)
         Me.Controls.Add(Me.lbl_titulo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(6, 7, 6, 7)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Mantenimiento"
-        Me.Text = "mantenimiento"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Habitaciones"
+        Me.TopMost = True
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()

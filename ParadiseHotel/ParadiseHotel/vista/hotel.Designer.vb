@@ -22,6 +22,7 @@ Partial Class Hotel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Hotel))
         Me.btn_habitaciones = New System.Windows.Forms.Button
         Me.btn_servicios = New System.Windows.Forms.Button
         Me.btn_huespedes = New System.Windows.Forms.Button
@@ -846,8 +847,11 @@ Partial Class Hotel
         Me.Controls.Add(Me.btn_servicios)
         Me.Controls.Add(Me.btn_habitaciones)
         Me.Controls.Add(Me.gbox_checkinout)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Hotel"
-        Me.Text = "Main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Paradaise Hotel System"
         Me.gbox_habitaciones.ResumeLayout(False)
         Me.tab_gral_habitaciones.ResumeLayout(False)
         Me.tabpage_reservar.ResumeLayout(False)
