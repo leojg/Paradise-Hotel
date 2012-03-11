@@ -22,7 +22,6 @@ Partial Class imprimir
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(imprimir))
         Me.btn_imprimir = New System.Windows.Forms.Button
         Me.chkbox_imprimir_habitaciones = New System.Windows.Forms.CheckBox
         Me.chkbox_imprimir_huespedes = New System.Windows.Forms.CheckBox
@@ -91,8 +90,8 @@ Partial Class imprimir
         Me.ClientSize = New System.Drawing.Size(284, 169)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btn_imprimir)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "imprimir"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "imprimir"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

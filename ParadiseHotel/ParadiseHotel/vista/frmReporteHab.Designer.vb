@@ -22,21 +22,18 @@ Partial Class frmReporteHab
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReporteHab))
         Me.crvHab = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.SuspendLayout()
         '
         'crvHab
         '
         Me.crvHab.ActiveViewIndex = -1
-        Me.crvHab.AutoSize = True
-        Me.crvHab.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.crvHab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crvHab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.crvHab.Location = New System.Drawing.Point(0, 0)
         Me.crvHab.Name = "crvHab"
         Me.crvHab.SelectionFormula = ""
-        Me.crvHab.Size = New System.Drawing.Size(1341, 732)
+        Me.crvHab.Size = New System.Drawing.Size(1350, 732)
         Me.crvHab.TabIndex = 0
         Me.crvHab.ViewTimeSelectionFormula = ""
         '
@@ -44,16 +41,12 @@ Partial Class frmReporteHab
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1341, 732)
+        Me.ClientSize = New System.Drawing.Size(1350, 732)
         Me.Controls.Add(Me.crvHab)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmReporteHab"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmReporteHab"
-        Me.TopMost = True
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents crvHab As CrystalDecisions.Windows.Forms.CrystalReportViewer

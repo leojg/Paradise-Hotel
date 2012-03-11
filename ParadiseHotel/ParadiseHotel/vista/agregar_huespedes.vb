@@ -40,10 +40,6 @@ Public Class agregar_huespedes
         End If
     End Sub
 
-    Private Sub txt_nro_documento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_nro_documento.TextChanged
-        'Lib_util.autocompletar_textbox(Me.txt_nro_documento, Fachada.obtener_identificaciones())
-    End Sub
-
     Private Sub limpiar_cajas()
         Me.txt_nro_documento.Text = ""
         Me.txt_nombres.Text = ""

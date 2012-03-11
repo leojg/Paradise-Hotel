@@ -22,7 +22,6 @@ Partial Class Hotel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Hotel))
         Me.btn_habitaciones = New System.Windows.Forms.Button
         Me.btn_servicios = New System.Windows.Forms.Button
         Me.btn_huespedes = New System.Windows.Forms.Button
@@ -32,6 +31,12 @@ Partial Class Hotel
         Me.btn_reservar = New System.Windows.Forms.Button
         Me.tab_gral_habitaciones = New System.Windows.Forms.TabControl
         Me.tabpage_reservar = New System.Windows.Forms.TabPage
+        Me.lbldias = New System.Windows.Forms.Label
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.lblAdelanto = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.lbltot = New System.Windows.Forms.Label
+        Me.lbl_monto = New System.Windows.Forms.Label
         Me.lbl_nro_acompaniantes = New System.Windows.Forms.Label
         Me.lbl_acompaniantes = New System.Windows.Forms.Label
         Me.lbl_res_id = New System.Windows.Forms.Label
@@ -77,7 +82,7 @@ Partial Class Hotel
         Me.rbtn_checkout = New System.Windows.Forms.RadioButton
         Me.rbtn_checkin = New System.Windows.Forms.RadioButton
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.txt_id_cli_checkinout = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
@@ -201,6 +206,12 @@ Partial Class Hotel
         '
         'tabpage_reservar
         '
+        Me.tabpage_reservar.Controls.Add(Me.lbldias)
+        Me.tabpage_reservar.Controls.Add(Me.Label9)
+        Me.tabpage_reservar.Controls.Add(Me.lblAdelanto)
+        Me.tabpage_reservar.Controls.Add(Me.Label7)
+        Me.tabpage_reservar.Controls.Add(Me.lbltot)
+        Me.tabpage_reservar.Controls.Add(Me.lbl_monto)
         Me.tabpage_reservar.Controls.Add(Me.lbl_nro_acompaniantes)
         Me.tabpage_reservar.Controls.Add(Me.lbl_acompaniantes)
         Me.tabpage_reservar.Controls.Add(Me.lbl_res_id)
@@ -220,6 +231,60 @@ Partial Class Hotel
         Me.tabpage_reservar.TabIndex = 0
         Me.tabpage_reservar.Text = "Reservar"
         Me.tabpage_reservar.UseVisualStyleBackColor = True
+        '
+        'lbldias
+        '
+        Me.lbldias.AutoSize = True
+        Me.lbldias.Location = New System.Drawing.Point(331, 82)
+        Me.lbldias.Name = "lbldias"
+        Me.lbldias.Size = New System.Drawing.Size(13, 13)
+        Me.lbldias.TabIndex = 33
+        Me.lbldias.Text = "0"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(278, 82)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(28, 13)
+        Me.Label9.TabIndex = 32
+        Me.Label9.Text = "Dias"
+        '
+        'lblAdelanto
+        '
+        Me.lblAdelanto.AutoSize = True
+        Me.lblAdelanto.Location = New System.Drawing.Point(203, 82)
+        Me.lblAdelanto.Name = "lblAdelanto"
+        Me.lblAdelanto.Size = New System.Drawing.Size(13, 13)
+        Me.lblAdelanto.TabIndex = 31
+        Me.lblAdelanto.Text = "0"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(150, 82)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 13)
+        Me.Label7.TabIndex = 30
+        Me.Label7.Text = "Adelanto"
+        '
+        'lbltot
+        '
+        Me.lbltot.AutoSize = True
+        Me.lbltot.Location = New System.Drawing.Point(93, 82)
+        Me.lbltot.Name = "lbltot"
+        Me.lbltot.Size = New System.Drawing.Size(13, 13)
+        Me.lbltot.TabIndex = 29
+        Me.lbltot.Text = "0"
+        '
+        'lbl_monto
+        '
+        Me.lbl_monto.AutoSize = True
+        Me.lbl_monto.Location = New System.Drawing.Point(25, 82)
+        Me.lbl_monto.Name = "lbl_monto"
+        Me.lbl_monto.Size = New System.Drawing.Size(64, 13)
+        Me.lbl_monto.TabIndex = 28
+        Me.lbl_monto.Text = "Monto Total"
         '
         'lbl_nro_acompaniantes
         '
@@ -319,7 +384,7 @@ Partial Class Hotel
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.dtp_checkin)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(12, 42)
+        Me.Panel1.Location = New System.Drawing.Point(12, 39)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(644, 40)
         Me.Panel1.TabIndex = 22
@@ -519,11 +584,11 @@ Partial Class Hotel
         '
         'btn_cancelar_control
         '
-        Me.btn_cancelar_control.Location = New System.Drawing.Point(499, 326)
+        Me.btn_cancelar_control.Location = New System.Drawing.Point(482, 326)
         Me.btn_cancelar_control.Name = "btn_cancelar_control"
-        Me.btn_cancelar_control.Size = New System.Drawing.Size(75, 23)
+        Me.btn_cancelar_control.Size = New System.Drawing.Size(92, 23)
         Me.btn_cancelar_control.TabIndex = 18
-        Me.btn_cancelar_control.Text = "Cancelar"
+        Me.btn_cancelar_control.Text = "Limpiar Campos"
         Me.btn_cancelar_control.UseVisualStyleBackColor = True
         '
         'btn_check
@@ -550,7 +615,7 @@ Partial Class Hotel
         Me.tab_control.Controls.Add(Me.checkbox_reservas)
         Me.tab_control.Controls.Add(Me.gbox_accion)
         Me.tab_control.Controls.Add(Me.ComboBox1)
-        Me.tab_control.Controls.Add(Me.TextBox1)
+        Me.tab_control.Controls.Add(Me.txt_id_cli_checkinout)
         Me.tab_control.Controls.Add(Me.Label1)
         Me.tab_control.Controls.Add(Me.Label2)
         Me.tab_control.Controls.Add(Me.ComboBox2)
@@ -616,12 +681,12 @@ Partial Class Hotel
         Me.ComboBox1.Size = New System.Drawing.Size(86, 21)
         Me.ComboBox1.TabIndex = 13
         '
-        'TextBox1
+        'txt_id_cli_checkinout
         '
-        Me.TextBox1.Location = New System.Drawing.Point(137, 65)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(169, 20)
-        Me.TextBox1.TabIndex = 12
+        Me.txt_id_cli_checkinout.Location = New System.Drawing.Point(137, 65)
+        Me.txt_id_cli_checkinout.Name = "txt_id_cli_checkinout"
+        Me.txt_id_cli_checkinout.Size = New System.Drawing.Size(169, 20)
+        Me.txt_id_cli_checkinout.TabIndex = 12
         '
         'Label1
         '
@@ -837,7 +902,7 @@ Partial Class Hotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1156, 732)
+        Me.ClientSize = New System.Drawing.Size(804, 582)
         Me.Controls.Add(Me.btn_ir_a_imprimir)
         Me.Controls.Add(Me.gbox_servicios)
         Me.Controls.Add(Me.gbox_habitaciones)
@@ -847,11 +912,9 @@ Partial Class Hotel
         Me.Controls.Add(Me.btn_servicios)
         Me.Controls.Add(Me.btn_habitaciones)
         Me.Controls.Add(Me.gbox_checkinout)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "Hotel"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Paradaise Hotel System"
+        Me.Text = "Main"
         Me.gbox_habitaciones.ResumeLayout(False)
         Me.tab_gral_habitaciones.ResumeLayout(False)
         Me.tabpage_reservar.ResumeLayout(False)
@@ -907,7 +970,7 @@ Partial Class Hotel
     Friend WithEvents tab_control_check As System.Windows.Forms.TabControl
     Friend WithEvents tab_control As System.Windows.Forms.TabPage
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_id_cli_checkinout As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
@@ -958,4 +1021,10 @@ Partial Class Hotel
     Friend WithEvents btn_check As System.Windows.Forms.Button
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents lbldias As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents lblAdelanto As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents lbltot As System.Windows.Forms.Label
+    Friend WithEvents lbl_monto As System.Windows.Forms.Label
 End Class

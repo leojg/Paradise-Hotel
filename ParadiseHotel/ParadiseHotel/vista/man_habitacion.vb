@@ -49,7 +49,7 @@ Public Class Man_habitacion
         End If
     End Sub
 
-    Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbox_piso.SelectedIndexChanged
+    Private Sub cbox_piso_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs)
         'If (objH Is Nothing) Then
         '    Lib_util.cargar_lview_hab_hash(Fachada.devolverHabitacionesPiso(CShort(cbox_piso.SelectedItem)), Me.lview_habitaciones)
         '    lbl_metrajedispo.Visible = True
@@ -189,7 +189,7 @@ Public Class Man_habitacion
 
     End Sub
 
-    Private Sub cbox_tipo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_tipo.SelectedIndexChanged
+    Private Sub cbox_tipo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If (objH Is Nothing) Then
             Me.tx_costo.Visible = True
             Me.cbox_piso.Visible = True

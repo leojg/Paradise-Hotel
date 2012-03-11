@@ -22,7 +22,6 @@ Partial Class reserva
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(reserva))
         Me.Label1 = New System.Windows.Forms.Label
         Me.lblResNum = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
@@ -185,9 +184,8 @@ Partial Class reserva
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblResNum)
         Me.Controls.Add(Me.Label1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "reserva"
-        Me.Text = "Reserva"
+        Me.Text = "reserva"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

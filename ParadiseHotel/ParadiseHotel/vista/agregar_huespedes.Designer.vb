@@ -208,7 +208,7 @@ Partial Class agregar_huespedes
         Me.Controls.Add(Me.lbox_huespedes)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "agregar_huespedes"
-        Me.Text = "Huéspedes"
+        Me.Text = "agregar_huespedes"
         Me.Controls.SetChildIndex(Me.GroupBox1, 0)
         Me.Controls.SetChildIndex(Me.lbox_huespedes, 0)
         Me.GroupBox1.ResumeLayout(False)
