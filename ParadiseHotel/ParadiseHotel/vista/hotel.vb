@@ -1,5 +1,9 @@
 ﻿Imports Dominio
 Public Class Hotel
+    ''' <summary>
+    ''' Formulario principal de la aplicación
+    ''' </summary>
+    ''' <remarks></remarks>
     Private _col_acompaniantes As New Hashtable
     Private _objH_titular As Huesped
     Private _auto_compl_col As New AutoCompleteStringCollection

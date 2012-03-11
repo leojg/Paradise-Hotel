@@ -3,6 +3,10 @@ Imports Dominio
 
 Public Class Man_habitacion
     Inherits ParadiseHotel.Mantenimiento
+    ''' <summary>
+    ''' Formulario para alta y modificacion (y eliminación) de habitaciones.
+    ''' </summary>
+    ''' <remarks></remarks>
     Dim objH As Habitacion
     Dim accion As String
 

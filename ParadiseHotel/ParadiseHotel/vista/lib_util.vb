@@ -1,5 +1,9 @@
 ﻿Imports Dominio
 Public Class Lib_util
+    ''' <summary>
+    ''' Librería con varios procedimientos y funciones comunes a la vista
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Shared bKeyBack As Boolean
 
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)

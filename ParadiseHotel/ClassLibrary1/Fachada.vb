@@ -1,5 +1,5 @@
 ﻿''' <summary>
-''' Clase encargada de brindar un acceso unificado y controlado a la capa de dominio
+''' Clase encargada de brindar un acceso unificado y controlado a la capa de dominio.
 ''' </summary>
 ''' <remarks></remarks>
 Public Class Fachada

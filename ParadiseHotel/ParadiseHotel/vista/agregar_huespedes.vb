@@ -12,7 +12,6 @@ Public Class agregar_huespedes
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
         InitializeComponent()
-
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Me._objH = objH
         Me._objFrm = objFrm

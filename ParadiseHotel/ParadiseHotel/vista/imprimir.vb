@@ -1,5 +1,12 @@
 ﻿Public Class imprimir
-
+    ''' <summary>
+    ''' Formulario para seleccionar que reporte se generará e imprimirá.
+    ''' Por ahora solo funciona el reporte de habitaciones que era el solicitado
+    ''' en los requerimientos del cliente.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub imprimir_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.chkbox_imprimir_habitaciones.Checked = True
     End Sub

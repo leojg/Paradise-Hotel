@@ -1,5 +1,8 @@
-﻿
-Public Class Hotel
+﻿Public Class Hotel
+    ''' <summary>
+    ''' Clase administradora principal de la capa de negocio (dominio)
+    ''' </summary>
+    ''' <remarks></remarks>
     Dim nom As String
     Dim rut As Integer
     Dim dir As String
