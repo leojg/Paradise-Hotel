@@ -1,4 +1,8 @@
-﻿Public Class Extranjero
+﻿''' <summary>
+''' Representa los huespedes extranjeros
+''' </summary>
+''' <remarks></remarks>
+Public Class Extranjero
     Inherits Huesped
 
     Dim tieneVisa As Boolean

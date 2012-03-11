@@ -126,7 +126,7 @@ Public Class ReservasAdmin
         Next
     End Sub
 
-    Public Function verificarHabitacionTieneReservas(ByVal objH As Habitacion)
+    Public Function verificarHabitacionTieneReservas(ByVal objH As Habitacion) As Boolean
         For Each objR As Reserva In colReservas.Values
             If (objR.Habitacion.Numero = objH.Numero) Then
                 Throw New ExHabitacionConReservas

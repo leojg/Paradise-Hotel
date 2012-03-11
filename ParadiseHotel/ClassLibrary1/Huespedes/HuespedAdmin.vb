@@ -1,4 +1,8 @@
-﻿Public Class HuespedAdmin
+﻿''' <summary>
+''' Gestiona a los huespedes del hotel.
+''' </summary>
+''' <remarks></remarks>
+Public Class HuespedAdmin
     Private Shared instance As HuespedAdmin
     Dim colHuespedes As Hashtable
     Dim objPers As PersHotel
