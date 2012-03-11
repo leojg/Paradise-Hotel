@@ -3,15 +3,9 @@
 ''' </summary>
 ''' <remarks></remarks>
 Public Class Fachada
-
     Public Shared Function altaHabitacion(ByVal nom As String, ByVal id As Int32, ByVal numpiso As Int16, ByVal costo As Int16, ByVal tipo As Byte)
         Dim objh As Habitacion = crearHabitacion(nom, id, numpiso, costo, tipo)
         Return Hotel.GetInstance.AltaHabitacion(objh)
-    End Function
-
-    Public Shared Function altaPiso(ByVal num As Int16, ByVal metraje As Int16)
-        Dim objp = crearPiso(num, metraje)
-        Return Hotel.GetInstance.AltaPiso(objp)
     End Function
 
     Public Shared Function altaReserva(ByVal objResp As Huesped, ByVal id As Integer, ByVal idhab As Int32, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date)
@@ -39,11 +33,6 @@ Public Class Fachada
         End If
     End Function
 
-    Public Shared Function bajaPiso(ByVal num As Int16, ByVal metraje As Int16)
-        Dim objp = crearPiso(num, metraje)
-        Return Hotel.GetInstance.BajaPiso(objp)
-    End Function
-
     Public Shared Function bajaReserva(ByVal resId As Integer) As Boolean
         Dim objR As Reserva = ReservasAdmin.GetInstance.devolverReserva(resId)
         Return ReservasAdmin.GetInstance.bajaReserva(objR)
@@ -61,7 +50,6 @@ Public Class Fachada
     Public Shared Function CalcularCostosReserva(ByVal fecha_inicio As Date, ByVal fecha_fin As Date, ByVal objH As Habitacion) As ArrayList
         Return ReservasAdmin.GetInstance.CalcularCostosReserva(fecha_inicio, fecha_fin, objH)
     End Function
-
 
     Public Shared Function calcularNroHabitacion() As Integer
         Return Hotel.GetInstance.CalcularNroHabitacion
@@ -100,11 +88,6 @@ Public Class Fachada
         End Try
     End Function
 
-    Private Shared Function crearPiso(ByVal num As Int16, ByVal metraje As Int16) As Piso
-        Dim objP As New Piso(num, metraje)
-        Return objP
-    End Function
-
     Private Shared Function crearReserva(ByVal objResp As Huesped, ByVal id As Integer, ByVal objhab As Habitacion, ByVal colHuespedes As Hashtable, ByVal cin As Date, ByVal cout As Date, ByVal Reserva As Integer, ByVal fRealizacion As Date, ByVal total As Integer)
         Try
 
@@ -121,11 +104,6 @@ Public Class Fachada
         Return Hotel.GetInstance.ModificarHabitacion(objh)
     End Function
 
-    Public Shared Function modPiso(ByVal num As Int16, ByVal metraje As Int16)
-        Dim objp = crearPiso(num, metraje)
-        Return Hotel.GetInstance.ModificarPiso(objp)
-    End Function
-
     Public Shared Function devolverHabitacionesPiso(ByVal numPiso As Integer) As Hashtable
         Return Hotel.GetInstance.DevolverPiso(numPiso).DevolverHabitaciones
     End Function
@@ -136,6 +114,10 @@ Public Class Fachada
 
     Public Shared Function DevolverHabitacionPorTipo(ByVal tipo As String, ByVal h_table As String) As Hashtable
         Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo, h_table)
+    End Function
+
+    Public Shared Function DevolverHabitacionPorTipo(ByVal hash As Hashtable, ByVal tipo As String) As ArrayList
+        Return Hotel.GetInstance.DevolverHabitacionPorTipo(hash, tipo)
     End Function
 
     Public Shared Function devolverHuespedes() As Hashtable
@@ -177,5 +159,4 @@ Public Class Fachada
     Public Shared Function existe_huesped(ByVal id As Integer) As Boolean
         Return HuespedAdmin.GetInstance.existe_huesped(id)
     End Function
-
 End Class
