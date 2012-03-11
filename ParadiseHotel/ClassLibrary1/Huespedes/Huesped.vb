@@ -1,4 +1,8 @@
-﻿Public MustInherit Class Huesped
+﻿''' <summary>
+''' Brinda una interfaz e implementacion común a todos los huespedes
+''' </summary>
+''' <remarks></remarks>
+Public MustInherit Class Huesped
 
     Dim nom As String
     Dim ape As String

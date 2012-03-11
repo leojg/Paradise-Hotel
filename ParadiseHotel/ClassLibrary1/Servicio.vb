@@ -1,4 +1,8 @@
-﻿Public Class Servicio
+﻿''' <summary>
+''' Representa los servicios ofrecidos por el hotel
+''' </summary>
+''' <remarks></remarks>
+Public Class Servicio
 
     Dim idServ As Byte
     Dim nomServ As String
