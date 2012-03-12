@@ -44,7 +44,7 @@ Partial Class imprimir
         Me.chkbox_imprimir_habitaciones.AutoSize = True
         Me.chkbox_imprimir_habitaciones.Location = New System.Drawing.Point(35, 19)
         Me.chkbox_imprimir_habitaciones.Name = "chkbox_imprimir_habitaciones"
-        Me.chkbox_imprimir_habitaciones.Size = New System.Drawing.Size(136, 17)
+        Me.chkbox_imprimir_habitaciones.Size = New System.Drawing.Size(138, 17)
         Me.chkbox_imprimir_habitaciones.TabIndex = 1
         Me.chkbox_imprimir_habitaciones.Text = "Listado de habitaciones"
         Me.chkbox_imprimir_habitaciones.UseVisualStyleBackColor = True
@@ -55,7 +55,7 @@ Partial Class imprimir
         Me.chkbox_imprimir_huespedes.Enabled = False
         Me.chkbox_imprimir_huespedes.Location = New System.Drawing.Point(35, 42)
         Me.chkbox_imprimir_huespedes.Name = "chkbox_imprimir_huespedes"
-        Me.chkbox_imprimir_huespedes.Size = New System.Drawing.Size(128, 17)
+        Me.chkbox_imprimir_huespedes.Size = New System.Drawing.Size(130, 17)
         Me.chkbox_imprimir_huespedes.TabIndex = 2
         Me.chkbox_imprimir_huespedes.Text = "Listado de huespedes"
         Me.chkbox_imprimir_huespedes.UseVisualStyleBackColor = True
@@ -66,7 +66,7 @@ Partial Class imprimir
         Me.chkbox_imprimir_reservas.Enabled = False
         Me.chkbox_imprimir_reservas.Location = New System.Drawing.Point(35, 65)
         Me.chkbox_imprimir_reservas.Name = "chkbox_imprimir_reservas"
-        Me.chkbox_imprimir_reservas.Size = New System.Drawing.Size(116, 17)
+        Me.chkbox_imprimir_reservas.Size = New System.Drawing.Size(118, 17)
         Me.chkbox_imprimir_reservas.TabIndex = 3
         Me.chkbox_imprimir_reservas.Text = "Listado de reservas"
         Me.chkbox_imprimir_reservas.UseVisualStyleBackColor = True
@@ -91,6 +91,7 @@ Partial Class imprimir
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btn_imprimir)
         Me.Name = "imprimir"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "imprimir"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

@@ -20,7 +20,10 @@ Public Class HuespedAdmin
     End Function
 
     Public Function devolverHuesped(ByVal id As Integer) As Huesped
-        Return Me.colHuespedes.Item(id)
+        If (colHuespedes.ContainsKey(id)) Then
+            Return Me.colHuespedes.Item(id)
+        End If
+        Throw New ExHuespedNoEncontrado
     End Function
 
     Public Function devolverHuespedes() As Hashtable

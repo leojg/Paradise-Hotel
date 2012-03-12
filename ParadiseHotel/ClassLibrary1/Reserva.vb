@@ -17,15 +17,7 @@
     End Sub
 
     Public Sub cancelame()
-        objPers.modificar(Me)
-    End Sub
-
-    Public Sub eliminame()
-        objPers.eliminar(Me)
-    End Sub
-
-    Public Sub modificame()
-        objPers.modificar(Me)
+        objPers.cancelar(Me)
     End Sub
 
     Public Function devolverHuespedes() As Hashtable

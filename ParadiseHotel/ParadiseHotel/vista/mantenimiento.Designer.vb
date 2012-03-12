@@ -119,6 +119,7 @@ Partial Class Mantenimiento
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(6, 7, 6, 7)
         Me.Name = "Mantenimiento"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "mantenimiento"
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)

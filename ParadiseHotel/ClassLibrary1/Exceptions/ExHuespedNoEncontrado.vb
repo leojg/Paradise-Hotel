@@ -1,8 +1,8 @@
-﻿Public Class ExNoExistenHabitaciones
+﻿Public Class ExHuespedNoEncontrado
     Inherits Exception
 
     Public Sub New()
-        MyBase.New("No existen habitaciónes en la base de datos. Ingrese una para continuar.")
+        MyBase.New("No existe un huesped con ese id. Registrese en www.hotelparaiso.com.uy")
     End Sub
 
     Public Sub New(ByVal msg As String)

@@ -6,7 +6,17 @@ Dominio
 </name>
 </assembly>
 <members>
-<member name="P:Dominio.My.Resources.Resources.ResourceManager">
+<member name="T:Dominio.HuespedAdmin">
+	<summary>
+ Gestiona a los huespedes del hotel.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dominio.Nacional">
+	<summary>
+ Representa los huespedes nacionales
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dominio.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -19,6 +29,21 @@ Dominio
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="F:Dominio.Hotel.nom">
+	<summary>
+ Clase administradora principal de la capa de negocio (dominio)
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dominio.Extranjero">
+	<summary>
+ Representa los huespedes extranjeros
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dominio.Huesped">
+	<summary>
+ Brinda una interfaz e implementacion común a todos los huespedes
+ </summary>
+	<remarks></remarks>
 </member><member name="T:Dominio.DataSetHotel.HabitacionesDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -129,9 +154,14 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
  Clase encargada de gestionar las reservas de habitaciones
  </summary>
 	<remarks></remarks>
+</member><member name="T:Dominio.Servicio">
+	<summary>
+ Representa los servicios ofrecidos por el hotel
+ </summary>
+	<remarks></remarks>
 </member><member name="T:Dominio.Fachada">
 	<summary>
- Clase encargada de brindar un acceso unificado y controlado a la capa de dominio
+ Clase encargada de brindar un acceso unificado y controlado a la capa de dominio.
  </summary>
 	<remarks></remarks>
 </member>

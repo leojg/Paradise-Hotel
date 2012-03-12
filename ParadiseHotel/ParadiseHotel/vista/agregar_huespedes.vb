@@ -12,7 +12,6 @@ Public Class agregar_huespedes
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
         InitializeComponent()
-
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Me._objH = objH
         Me._objFrm = objFrm
@@ -38,10 +37,6 @@ Public Class agregar_huespedes
             MsgBox("El huesped con id = " & Me._id_huesped_1 & " ya está registrado como titular de la reserva.")
             Me.txt_nro_documento.Text = ""
         End If
-    End Sub
-
-    Private Sub txt_nro_documento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_nro_documento.TextChanged
-        Lib_util.autocompletar_textbox(Me.txt_nro_documento, Fachada.obtener_identificaciones())
     End Sub
 
     Private Sub limpiar_cajas()
@@ -78,4 +73,5 @@ Public Class agregar_huespedes
         Me._objFrm.depositar_acompaniantes(Me._col_huspedes)
         Me.Close()
     End Sub
+
 End Class

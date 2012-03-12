@@ -1,5 +1,9 @@
 ﻿Imports Dominio
 Public Class Lib_util
+    ''' <summary>
+    ''' Librería con varios procedimientos y funciones comunes a la vista
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Shared bKeyBack As Boolean
 
     Public Shared Sub cargar_lview(ByVal col_habitaciones As ArrayList, ByVal lview As ListView)
@@ -91,33 +95,16 @@ Public Class Lib_util
         End If
     End Function
 
-    Public Shared Sub autocompletar_textbox(ByVal tbox As TextBox, ByVal datos As ArrayList)
-        Dim i As Integer
-        Dim posSelect As Integer
-
-        Select Case (bKeyBack Or Len(tbox.Text) = 0)
-            Case True
-                bKeyBack = False
-                Exit Sub
-        End Select
-
-        With tbox
-            'Recorremos todos los elementos del array  
-            For i = 0 To datos.Count - 1
-                ' Buscamos coincidencias  
-                If InStr(1, datos(i), .Text, vbTextCompare) = 1 Then
-                    posSelect = .SelectionStart
-                    ' asignar el texto de array al textbox  
-                    .Text = datos(i)
-
-                    ' seleccionar el texto  
-                    .SelectionStart = posSelect
-                    .SelectionLength = Len(.Text) - posSelect
-                    Exit For ' salimos del bucle  
-                End If
-            Next i
-        End With
-    End Sub
+    Public Shared Function crear_string_collection(ByVal datos As ArrayList) As AutoCompleteStringCollection
+        Dim vec_strings(datos.Count - 1) As String
+        Dim last As Integer = datos.Count - 1
+        For i = 0 To last
+            vec_strings(i) = datos(i)
+        Next
+        Dim autocomp As New AutoCompleteStringCollection
+        autocomp.AddRange(vec_strings)
+        Return autocomp
+    End Function
 
     Public Shared Sub cargar_lview_reservas(ByVal lview As ListView, ByVal hash As Hashtable)
         Dim item As ListViewItem

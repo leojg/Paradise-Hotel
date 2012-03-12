@@ -1,7 +1,12 @@
 ﻿Imports Dominio
 Public Class Hotel
+    ''' <summary>
+    ''' Formulario principal de la aplicación
+    ''' </summary>
+    ''' <remarks></remarks>
     Private _col_acompaniantes As New Hashtable
     Private _objH_titular As Huesped
+    Private _auto_compl_col As New AutoCompleteStringCollection
 
     Private Sub Hotel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.relocate_controls()
@@ -16,7 +21,6 @@ Public Class Hotel
         Me.lbl_res_id.Text = Fachada.calcularNroReserva.ToString
         Lib_util.cargar_lview(Fachada.DevolverHabitacionPorTipo("Todo"), lview_hab_admin)
         Lib_util.cargar_cbox_categorias(arr, Me.cbox_filtro)
-        'Lib_util.cargar_lview(Dominio.Fachada.DevolverHabitacionPorTipo(Me.cbox_filtro.Items.Item(0)), Me.lview_habitaciones)
         Lib_util.cargar_lview_servicios(lview_servicios, Fachada.devolverServicios)
         Lib_util.cargar_lview_huespedes(lview_huespedes, Fachada.devolverHuespedes)
         Lib_util.cargar_lview_reservas(lview_reservas, Fachada.devolverReservas)
@@ -24,12 +28,24 @@ Public Class Hotel
         Me.cbox_tipo_id.SelectedIndex = 0
         Me.hide_gboxs()
         Me.gbox_habitaciones.Visible = True
-        Me.btn_habitaciones.Select()
-        '''''''No funca''''''''
-        Me.tab_reservar.Focus()
-        If Me.tab_reservar.Focused Then
-            Me.txt_id_cliente.Focus()
-        End If
+        Me.tab_gral_habitaciones.SelectedTab = Me.tabpage_reservar
+        Me.txt_id_cliente.Select()
+        Me.txt_id_cliente.Focus()
+        Me.btn_modificar_habitacion.Enabled = False
+
+        '*******AUTOCOMPLETADO MEJORADO*******'
+        Me._auto_compl_col = Lib_util.crear_string_collection(Fachada.obtener_identificaciones())
+        With Me.txt_id_cliente
+            .AutoCompleteCustomSource = Me._auto_compl_col
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
+        With Me.txt_id_cli_checkinout
+            .AutoCompleteCustomSource = Me._auto_compl_col
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
     End Sub
 
     Private Sub hide_gboxs()
@@ -54,7 +70,7 @@ Public Class Hotel
     End Sub
 
     Private Sub btn_servicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_servicios.Click
-        MsgBox("hi")
+        'MsgBox("hi")
         Me.hide_gboxs()
         Me.gbox_servicios.Visible = True
     End Sub
@@ -213,15 +229,17 @@ Public Class Hotel
     End Sub
 
     Private Sub txt_id_cliente_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_id_cliente.LostFocus
-        If Me.txt_id_cliente.Text <> "" Then
-            Me._objH_titular = Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
-        Else
-            Fachada.devolverHuesped(-1)
-        End If
-    End Sub
-
-    Private Sub txt_id_cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_id_cliente.TextChanged
-        Lib_util.autocompletar_textbox(Me.txt_id_cliente, Fachada.obtener_identificaciones())
+        Try
+            If Me.txt_id_cliente.Text <> "" Then
+                Me._objH_titular = Fachada.devolverHuesped(CInt(Me.txt_id_cliente.Text))
+                ' Else
+                '    Fachada.devolverHuesped(-1)
+            End If
+        Catch ex As ExHuespedNoEncontrado
+            MsgBox(ex.Message)
+        Catch ex As Exception
+            MsgBox("Error Inesperado. Intente Nuevamente")
+        End Try
     End Sub
 
     Private Sub btn_ir_a_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_ir_a_imprimir.Click
@@ -240,7 +258,6 @@ Public Class Hotel
 
     Private Sub btn_eliminar_habitacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar_habitacion.Click
         Try
-
             For Each obj As ListViewItem In Me.lview_hab_admin.SelectedItems
                 If (obj.Tag.GetType.Name = "SuiteSr") Then
                     Dim objH As SuiteSr = obj.Tag
@@ -322,11 +339,6 @@ Public Class Hotel
         End Try
     End Sub
 
-    Private Sub btn_cancelar_control_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar_control.Click
-    End Sub
-
-
-
     Private Sub lview_habitaciones_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_habitaciones.SelectedIndexChanged
         For Each objI As ListViewItem In lview_habitaciones.SelectedItems
             Dim arr As ArrayList = Fachada.CalcularCostosReserva(Me.dtp_checkin.Value, Me.dtp_checkout.Value, CType(objI.Tag, Habitacion))
@@ -340,9 +352,15 @@ Public Class Hotel
         If Me.checkbox_reservas.Checked = False Then
             'Me.checkbox_reservas.CheckState = CheckState.Unchecked
             Lib_util.cambiar_list_view(Me.lview_reservas, "habitacion")
+            Me.btn_cancelar_reservado.Enabled = False
         ElseIf Me.checkbox_reservas.Checked = True Then
             'Me.checkbox_reservas.CheckState = CheckState.Checked
             Lib_util.cambiar_list_view(Me.lview_reservas, "reserva")
+            Me.btn_cancelar_reservado.Enabled = True
         End If
+    End Sub
+
+    Private Sub lview_hab_admin_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lview_hab_admin.SelectedIndexChanged
+        Me.btn_modificar_habitacion.Enabled = True
     End Sub
 End Class

@@ -1,5 +1,8 @@
-﻿
-Public Class Hotel
+﻿Public Class Hotel
+    ''' <summary>
+    ''' Clase administradora principal de la capa de negocio (dominio)
+    ''' </summary>
+    ''' <remarks></remarks>
     Dim nom As String
     Dim rut As Integer
     Dim dir As String
@@ -117,6 +120,22 @@ Public Class Hotel
             End If
         Next
         Return arr
+    End Function
+
+    Public Function DevolverHabitacionPorTipo(ByVal tipo As String, ByVal h_table As String) As Hashtable
+        Dim hash As New Hashtable
+        For Each objP As Piso In colPisos.Values
+            For Each objH As Habitacion In objP.DevolverHabitaciones.Values
+                If (tipo = "Todo") Then
+                    hash.Add(objH.Numero, objH)
+                Else
+                    If (objH.GetType.Name = tipo) Then
+                        hash.Add(objH.Numero, objH)
+                    End If
+                End If
+            Next
+        Next
+        Return hash
     End Function
 
     Public Function cargarReporte() As DataSet

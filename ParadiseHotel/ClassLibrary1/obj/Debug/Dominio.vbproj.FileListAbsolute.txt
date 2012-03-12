@@ -17,3 +17,13 @@ C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHo
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.xml
 C:\Users\Gabriel\Documents\Visual Studio 2008\Projects\Paradise-Hotel\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.pdb
 E:\Programacion\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.dll.config
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.dll.config
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.dll
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.pdb
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\bin\Debug\Dominio.xml
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.Resources.resources
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.vbproj.GenerateResource.Cache
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.dll
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.xml
+C:\Users\Gabriel\temporal_taller\Taller VB.net\ParadiseHotel\ClassLibrary1\obj\Debug\Dominio.pdb

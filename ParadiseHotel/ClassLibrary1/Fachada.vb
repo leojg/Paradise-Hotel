@@ -1,5 +1,5 @@
 ﻿''' <summary>
-''' Clase encargada de brindar un acceso unificado y controlado a la capa de dominio
+''' Clase encargada de brindar un acceso unificado y controlado a la capa de dominio.
 ''' </summary>
 ''' <remarks></remarks>
 Public Class Fachada
@@ -110,6 +110,10 @@ Public Class Fachada
 
     Public Shared Function DevolverHabitacionPorTipo(ByVal tipo As String) As ArrayList
         Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo)
+    End Function
+
+    Public Shared Function DevolverHabitacionPorTipo(ByVal tipo As String, ByVal h_table As String) As Hashtable
+        Return Hotel.GetInstance.DevolverHabitacionPorTipo(tipo, h_table)
     End Function
 
     Public Shared Function DevolverHabitacionPorTipo(ByVal hash As Hashtable, ByVal tipo As String) As ArrayList
